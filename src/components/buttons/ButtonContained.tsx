@@ -49,19 +49,19 @@ const StyledCircularProgress = styled(CircularProgress)(() => {
   };
 });
 
-const ChildrenContainer = styled.div<{ $show: boolean }>(({ $show }) => {
-  return {
-    transition: ".5s",
-    opacity: $show ? 1 : 0.5,
-  };
-});
+// const ChildrenContainer = styled.div<{ $show: boolean }>(({ $show }) => {
+//   return {
+//     transition: ".1s",
+//     opacity: $show ? 1 : 0.5,
+//   };
+// });
 
 interface ButtonProps {
   fullWidth?: boolean;
   label?: string;
   children?: React.ReactNode;
   loading: boolean;
-  name: string;
+  name?: string;
   //feedback: boolean;
   //action: "submit" | "clear" | "clearDefault";
   onClick?: (data: any) => void;
@@ -109,9 +109,9 @@ function ButtonContained({
       {loading ? (
         <StyledCircularProgress size={24} />
       ) : (
-        <ChildrenContainer $show={!loading}>
+        <>
           {label ? label : children}
-        </ChildrenContainer>
+        </>
       )}
     </StyledButton>
   );

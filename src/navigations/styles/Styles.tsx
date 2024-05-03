@@ -20,7 +20,7 @@ const RoutesContainer = styled.div(() => {
     padding: "0",
     maxWidth: "100vw",
     height: "100%",
-    border: "solid 1px blue",
+    //border: "solid 1px blue",
     //color: "blue",
   };
 });
@@ -32,7 +32,7 @@ const PageContainer = styled.div(() => {
     //width: "100%",
     height: "calc(90vh - 10px)",
     overflowY: "auto",
-    border: "solid 1px yellow",
+    //border: "solid 1px yellow",
   };
 });
 

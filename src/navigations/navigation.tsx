@@ -1,8 +1,8 @@
 const prefix = "";
 
 const paths = {
-  home: prefix + "/",
-  about: prefix + "/about"
+  about: prefix + "/",
+  career: prefix + "/career"
 };
 
 export { paths }

@@ -5,16 +5,16 @@ const pagesConfig = {
   pages: [
     {
       navigationId: 0,
-      path: paths.home,
-      name: "HomePage",
-      title: "Home",
+      path: paths.about,
+      name: "AboutPage",
+      title: "About",
       icon: <Home />,
     },
       {
         navigationId: 1,
-        path: paths.about,
-        name: "AboutPage",
-        title: "Sobre",
+        path: paths.career,
+        name: "CareerPage",
+        title: "Carreira",
         icon: <Today/>
       },
     //   {

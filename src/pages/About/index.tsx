@@ -1,3 +1,3 @@
-import AboutPage from "./containers/AboutPage";
+import AboutPage from "./container/AboutPage";
 
 export { AboutPage };

@@ -3,7 +3,7 @@ import { createTheme, responsiveFontSizes } from "@mui/material";
 import colors from "./colors";
 
 const breakpointValues = {
-  xs: 0,
+  xs: 320,
   sm: 600,
   md: 960,
   lg: 1280,
@@ -38,7 +38,7 @@ function createDarkTheme({
     breakpoints: {
       keys: ["xs", "sm", "md", "lg", "xl"],
       values: {
-        xs: 0,
+        xs: 320,
         sm: 600,
         md: 960,
         lg: 1280,

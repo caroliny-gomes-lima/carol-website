@@ -4,29 +4,33 @@ import { useNavigate } from "react-router-dom";
 import { paths } from "navigations/navigation";
 import { ButtonContained, DefaultLogo } from "components";
 import { Theme } from "config";
+import {Texts} from "config";
 
 type HeaderProps = {
   //openMenu: () => void;
-  data: string;
 };
 
 function Header() {
+  const texts = Texts["ptBr"].Pages;
   const navigate = useNavigate();
-  const [clicked, setClicked] = React.useState<boolean>(false);
+  const [clicked, setClicked] = React.useState<number>(0);
 
-  const handleClick = (e: any) => {
-    if (e.target.name === "sobre" && e.target.name !== "trabalho") {
-      setClicked(true);
-      console.log(e.target.name)
-    } else if(e.target.name !== "sobre") {
-      setClicked(false);
+  const handleClick = (index) => {
+    setClicked(index);
+    if (index === 0) {
+      navigate(paths.about);
     }
 
-    if (e.target.name === "trabalho" && e.target.name !== "sobre") {
-      console.log(e.target.name)
-      setClicked(true);
-    } else if(e.target.name !== "trabalho"){
-      setClicked(false);
+    if (index === 1) {
+      navigate(paths.career);
+    }
+
+    if (index === 2) {
+      //navigate(paths.home);
+    }
+
+    if (index === 3) {
+      //navigate(paths.home);
     }
   };
 
@@ -37,31 +41,62 @@ function Header() {
           <DefaultLogo />
           <Styles.TextName>Caroliny Gomes</Styles.TextName>
         </Styles.LogoGroup>
+        <Styles.NavGroup>
         <ButtonContained
-          name="sobre"
-          label="sobre"
+          label={texts.home}
           type="button"
-          onClick={(e) => handleClick(e)}
+          onClick={() => handleClick(0)}
           fullWidth={false}
           loading={false}
           style={{
-            backgroundColor: clicked ? Theme.Dark.palette.action.hover : "",
-            color: clicked ? Theme.Dark.palette.secondary.contrastText : "",
+            backgroundColor:
+              clicked === 0 ? Theme.Dark.palette.action.hover : "",
+            color:
+              clicked === 0 ? Theme.Dark.palette.secondary.contrastText : "",
+          }}
+        />
+        <ButtonContained
+          label={texts.career}
+          type="button"
+          onClick={() => handleClick(1)}
+          fullWidth={false}
+          loading={false}
+          style={{
+            backgroundColor:
+              clicked === 1 ? Theme.Dark.palette.action.hover : "",
+            color:
+              clicked === 1 ? Theme.Dark.palette.secondary.contrastText : "",
           }}
         />
 
         <ButtonContained
-          name="trabalho"
-          label="Trabalho"
+          label={texts.experiences}
           type="button"
-          onClick={handleClick}
+          onClick={() => handleClick(2)}
           fullWidth={false}
           loading={false}
           style={{
-            backgroundColor: clicked ? Theme.Dark.palette.action.hover : "",
-            color: clicked ? Theme.Dark.palette.secondary.contrastText : "",
+            backgroundColor:
+              clicked === 2 ? Theme.Dark.palette.action.hover : "",
+            color:
+              clicked === 2 ? Theme.Dark.palette.secondary.contrastText : "",
           }}
         />
+
+        <ButtonContained
+          label={texts.work}
+          type="button"
+          onClick={() => handleClick(3)}
+          fullWidth={false}
+          loading={false}
+          style={{
+            backgroundColor:
+              clicked === 3 ? Theme.Dark.palette.action.hover : "",
+            color:
+              clicked === 3 ? Theme.Dark.palette.secondary.contrastText : "",
+          }}
+        />
+        </Styles.NavGroup>
       </Styles.Content>
     </Styles.Container>
   );

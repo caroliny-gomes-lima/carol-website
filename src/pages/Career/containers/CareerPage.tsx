@@ -1,12 +1,12 @@
 import React from "react";
 import Styles from "../styles/Styles";
 
-function HomePage() {
+function CareerPage() {
   return (
     <Styles.Container>
-      <h1>HOME!!!!!!!!!!!!!!!!!!!!!!!</h1>
+      <h1>SOBRE</h1>
     </Styles.Container>
   );
 }
 
-export default HomePage;
+export default CareerPage;

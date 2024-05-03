@@ -9,7 +9,7 @@ const Container = styled.div(()=> {
     position: "relative",
     backgroundColor: "black",
     padding: Theme.Dark.spacing(0, 2, 0, 2),
-    border: "solid 1px purple",
+    //border: "solid 1px purple",
   }
 })
 
@@ -35,6 +35,15 @@ const LogoGroup = styled.div(() => {
   };
 });
 
+const NavGroup = styled.div(({ theme }) => {
+  return {
+    display: "flex",
+    flexDirection: "row",
+    gap: 20,
+    //alignItems: "center",
+  };
+});
+
 const TextName = styled.text(() => {
   return {
     ...FontFamily.bold18,
@@ -47,7 +56,8 @@ const Styles = {
   Container,
   Content,
   LogoGroup,
-  TextName
+  TextName,
+  NavGroup
 }
 
 export default Styles;
