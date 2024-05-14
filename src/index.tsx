@@ -1,5 +1,5 @@
 import React from "react";
-import  ReactDOM  from "react-dom/client";
+import ReactDOM from "react-dom/client";
 import "./index.css";
 //import { ThemeProvider } from "./components";
 import { Theme } from "./config";
@@ -7,14 +7,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 root.render(
-    <React.StrictMode>
-<ThemeProvider theme={Theme.Dark}>
-    <CssBaseline/>
-        <App/>
-        </ThemeProvider>
-    </React.StrictMode>
+  <React.StrictMode>
+    <ThemeProvider theme={Theme.Dark}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>
 );
 
 reportWebVitals();

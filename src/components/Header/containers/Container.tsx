@@ -15,7 +15,7 @@ function Header() {
   const navigate = useNavigate();
   const [clicked, setClicked] = React.useState<number>(0);
 
-  const handleClick = (index) => {
+  const handleClick = (index: number) => {
     setClicked(index);
     if (index === 0) {
       navigate(paths.about);
