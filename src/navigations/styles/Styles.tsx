@@ -1,38 +1,43 @@
-import { Theme } from "config";
-import styled from "styled-components";
-//import LargeLogo from "../../assets/images/MediCareIconLarge.png"
+import { colors, Theme } from "config";
+import styled, { css } from "styled-components";
+import GifImage from "../../assets/gif/space-travel-800x600loop.gif"
 
-const Container = styled.div(() => {
-  return {
-    display: "flex",
-    flexDirection: "row",
-    width: "100%",
-    height: "100%",
-  }
-})
+// const Container = styled.div(() => {
+//   return {
+//     display: "flex",
+//     flexDirection: "row",
+//     height: "100%",
+//   }
+// })
 
-const RoutesContainer = styled.div(() => {
-  return {
-    display: "flex",
-    flexDirection: "column",
-    flexWrap: "nowrap",
-    flex: "1",
-    padding: "0",
-    maxWidth: "100vw",
-    height: "100%",
-    //border: "solid 1px blue",
-    //color: "blue",
-  };
-});
+// const RoutesContainer = styled.div(() => {
+//   return {
+//     display: "flex",
+//     flexDirection: "column",
+//     flexWrap: "nowrap",
+//     maxWidth: "100vw",
+//     height: "100%",
+//   };
+// });
 
 const PageContainer = styled.div(() => {
   return {
+    width: "100%",
+    height: "calc(93.8vh - 10px)",
     display: "flex",
-    flexDirection: "row",
-    //width: "100%",
-    height: "calc(90vh - 10px)",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: Theme.Dark.spacing(40),
     overflowY: "auto",
-    //border: "solid 1px yellow",
+    overflowX: "hidden",
+    "&::-webkit-scrollbar": {
+      width: "0.4em",
+      height: "0.4em",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: colors.purple,
+    },
   };
 });
 
@@ -58,11 +63,30 @@ const PageContent = styled.div(() => {
   };
 });
 
+const BackgroundGif = styled.div`
+  ${() => css`
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(${GifImage});
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      opacity: 0.1;
+    }
+  `}
+`;
+
 const Styles = {
-  Container,
-  RoutesContainer,
+  //Container,
+  //RoutesContainer,
   PageContainer,
   PageContent,
+  BackgroundGif,
   //LogoAsBackground,
 }
 

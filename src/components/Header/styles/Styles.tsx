@@ -7,7 +7,7 @@ const Container = styled.div(()=> {
   return {
     display: "flex",
     position: "relative",
-    backgroundColor: "black",
+    backgroundColor: colors.black + 90,
     padding: Theme.Dark.spacing(0, 2, 0, 2),
     //border: "solid 1px purple",
   }

@@ -87,7 +87,7 @@ function createDarkTheme({
 }
 
 const Dark = createDarkTheme({
-  backgroundColor: colors.blackCarbon,
+  backgroundColor: colors.black,
   paperBackgroundColor: colors.darkGray,
   backgroundErrorColor: colors.red,
   hoverColor: colors.white,
