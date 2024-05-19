@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Styles from "./styles/Styles";
-import { Header, Footer } from "components";
+import { Header, Footer, MenuNav } from "components";
 import pagesConfig from "./pagesConfig";
 import pages from "pages";
 
@@ -23,8 +23,8 @@ function PageRoutes() {
   return (
     <div>
       <Styles.BackgroundGif>
-        <Header />
-
+        <MenuNav data={pagesConfig.pages} openMenu={setMenu} isOpen={menu}/>
+        <Header openMenu={()=> setMenu(true)}/>
         <Styles.PageContainer
         // style={{
         //   height: menuHeight

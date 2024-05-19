@@ -2,18 +2,21 @@ import React from "react";
 import Styles from "../styles/Styles";
 import { useNavigate } from "react-router-dom";
 import { paths } from "navigations/navigation";
-import { ButtonContained, DefaultLogo } from "components";
-import { Theme } from "config";
+import { ButtonContained, DefaultLogo, IconButtonComponent } from "components";
+import { colors, Theme } from "config";
 import {Texts} from "config";
+import { useMediaQuery } from "@mui/material";
+import { Menu } from "@mui/icons-material";
 
 type HeaderProps = {
-  //openMenu: () => void;
+  openMenu: () => void;
 };
 
-function Header() {
+function Header({openMenu}:HeaderProps) {
   const texts = Texts["ptBr"].Pages;
   const navigate = useNavigate();
   const [clicked, setClicked] = React.useState<number>(0);
+  const isMobile = useMediaQuery(Theme.Dark.breakpoints.down("sm"))
 
   const handleClick = (index: number) => {
     setClicked(index);
@@ -38,9 +41,15 @@ function Header() {
     <Styles.Container>
       <Styles.Content>
         <Styles.LogoGroup>
-          <DefaultLogo />
+          {isMobile && (
+          <IconButtonComponent customHover={colors.purple} customColor={colors.purple} onClick={openMenu}>
+            <Menu />
+          </IconButtonComponent>
+          )}
+          <DefaultLogo PurpleLogo/>
           <Styles.TextName>Caroliny Gomes</Styles.TextName>
         </Styles.LogoGroup>
+        {!isMobile && (
         <Styles.NavGroup>
         <ButtonContained
           label={texts.home}
@@ -97,6 +106,7 @@ function Header() {
           }}
         />
         </Styles.NavGroup>
+         )}
       </Styles.Content>
     </Styles.Container>
   );

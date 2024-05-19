@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Theme, colors } from "config";
 import React from "react";
 
-const StyledButton = styled(IconButton)<{ $customColor: string }>(
-  ({ $customColor }) => {
+const StyledButton = styled(IconButton)<{ $customColor: string, $customHover: string | null}>(
+  ({ $customColor, $customHover }) => {
     return {
       "&&.MuiIconButton-root": {
         width: "fit-content",
@@ -14,8 +14,8 @@ const StyledButton = styled(IconButton)<{ $customColor: string }>(
         borderRadius: Theme.Dark.spacing(5),
         color: $customColor,
         "&:hover": {
-          backgroundColor: Theme.Dark.palette.action.hover,
-          color: colors.purple,
+          backgroundColor: $customHover ? $customHover : Theme.Dark.palette.action.hover,
+          color: $customHover ? colors.black : colors.purple,
         },
       },
     };
@@ -36,6 +36,7 @@ interface ButtonProps {
   loading?: boolean;
   name?: string;
   customColor: string;
+  customHover?: string
   onClick?: (data: any) => void;
   [key: string]: any;
 }
@@ -45,6 +46,7 @@ function IconButtonComponent({
   name,
   children,
   customColor,
+  customHover,
   onClick,
   ...props
 }: ButtonProps): JSX.Element {
@@ -52,6 +54,7 @@ function IconButtonComponent({
   return (
     <StyledButton
       $customColor={customColor}
+      $customHover={customHover || null}
       name={name}
       onClick={onClick}
       disabled={loading}

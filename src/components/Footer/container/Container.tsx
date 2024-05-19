@@ -1,6 +1,6 @@
 import React from "react";
 import Styles from "../styles/Styles";
-import { Texts } from "config";
+import { Texts, Theme } from "config";
 import DefaultLogo from "components/others/DefaultLogo";
 import IconButtonComponent from "components/buttons/IconButton";
 import { Copyright, Email, GitHub, LinkedIn } from "@mui/icons-material";
@@ -23,7 +23,7 @@ function Footer() {
         </Styles.LogoGroup>
         <Grid item display="flex" gap={2} margin={2}>
           <IconButtonComponent
-            customColor="white"
+            customColor={Theme.Dark.palette.primary.contrastText}
             onClick={() =>
               window.open(
                 "https://www.linkedin.com/in/caroliny-gomes-a142291b9",
@@ -34,14 +34,17 @@ function Footer() {
             <LinkedIn fontSize="large" />
           </IconButtonComponent>
           <IconButtonComponent
-            customColor="white"
+            customColor={Theme.Dark.palette.primary.contrastText}
             onClick={() =>
               window.open("https://github.com/caroliny-gomes-lima", "_blank")
             }
           >
             <GitHub fontSize="large" />
           </IconButtonComponent>
-          <IconButtonComponent customColor="white" onClick={handleEmailClick}>
+          <IconButtonComponent
+            customColor={Theme.Dark.palette.primary.contrastText}
+            onClick={handleEmailClick}
+          >
             <Email fontSize="large" />
           </IconButtonComponent>
         </Grid>
