@@ -1,5 +1,4 @@
 const colors = {
-    // TODO/HINT REMOVER Cores projeto anterior
     white: "#ffffff",
    
     lightgray: "#CECECE",
@@ -17,7 +16,7 @@ const colors = {
  
     red: "#E00000",
   
-    // TODO/HINT pegar cores totais e mesclar aqui
+    //pegar cores totais e mesclar aqui
     darkOpacity: "#00000020",
   };
   

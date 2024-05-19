@@ -30,7 +30,7 @@ const LogoGroup = styled.div(() => {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: 15,
+    gap: Theme.Dark.spacing(1),
     alignItems: "center",
   };
 });

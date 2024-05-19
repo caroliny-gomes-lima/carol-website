@@ -1,7 +1,11 @@
-import {ReactComponent as CarolCodeLogo} from "../../assets/svg/CarolCodeLogo.svg";
+import {ReactComponent as PurpleLogo} from "../../assets/svg/LogoFinalPurple.svg";
+import {ReactComponent as BlackLogo} from "../../assets/svg/LogoFinalBlack.svg";
+import {ReactComponent as LogoPlusName} from "../../assets/svg/LogoFinalPlusName.svg";
 
 const svgImageComponent = {
-    CarolCodeLogo
+    PurpleLogo,
+    BlackLogo,
+    LogoPlusName,
 }
 
 export default svgImageComponent;
