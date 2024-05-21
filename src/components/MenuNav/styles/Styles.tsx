@@ -66,7 +66,7 @@ const MenuFooter = styled.div(() => {
     flexDirection: "column",
     padding: Theme.Dark.spacing(2),
     alignItems: "center",
-    borderRadius: "10px",
+    borderRadius: Theme.Dark.spacing(1),
     backgroundColor: Theme.Dark.palette.secondary.contrastText,
   };
 });
@@ -101,7 +101,7 @@ const NavPageAnchor = styled.a(() => {
   };
 });
 
-const SmallTextStyles = styled.text(() => {
+const SmallTextStyles = styled.span(() => {
   return {
     ...FontFamily.extrabold10,
     color: colors.white,

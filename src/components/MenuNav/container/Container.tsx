@@ -27,7 +27,7 @@ function Container({ data, isOpen, openMenu }: MenuProps) {
         <Styles.Content>
           {data.map((item, index) => {
             return (
-              <Styles.NavPageContainer>
+              <Styles.NavPageContainer key={index}>
                 <Styles.NavPageAnchor onClick={() => navigate(item.path)}>
                   {item.title}
                 </Styles.NavPageAnchor>

@@ -25,7 +25,7 @@ function DefaultLogo({
   return (
     <LogoContainer>
       {PurpleLogo && (
-        <svgImageComponent.PurpleLogo
+        <svgImageComponent.PurpleLogoStyled
           style={{
             marginTop: "5px",
             width: "55px",
@@ -36,7 +36,7 @@ function DefaultLogo({
         />
       )}
       {BlackLogo && (
-        <svgImageComponent.BlackLogo
+        <svgImageComponent.BlackLogoStyled
           style={{
             marginTop: Theme.Dark.spacing(2),
             width: "65px",

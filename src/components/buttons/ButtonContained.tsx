@@ -19,7 +19,7 @@ const StyledButton = styled(Button)(({ fullWidth }) => {
       ...FontFamily.bold14,
       textTransform: "capitalize",
       backgroundColor: colors.black,
-      borderRadius: 7,
+      borderRadius: Theme.Dark.spacing(1),
       "&:hover": {
         backgroundColor: Theme.Dark.palette.action.hover,
         color: Theme.Dark.palette.secondary.contrastText,

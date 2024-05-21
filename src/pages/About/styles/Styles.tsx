@@ -8,6 +8,7 @@ const Container = styled.div(() => {
     width: "100%",
     height: "fit-content",
     margin: Theme.Dark.spacing(2),
+    padding: Theme.Dark.spacing(1),
   };
 });
 
@@ -27,12 +28,12 @@ const TitleStyles = styled.h1(() => {
   };
 });
 
-const TextStyles = styled.text<{ defaultColor?: string }>(
-  ({ defaultColor }) => {
+const TextStyles = styled.span<{ $DefaultColor?: string }>(
+  ({ $DefaultColor }) => {
     return {
       ...FontFamily.bold16,
-      textAlign: defaultColor ? "left" : "center",
-      color: defaultColor,
+      textAlign: $DefaultColor ? "left" : "center",
+      color: $DefaultColor,
     };
   }
 );
@@ -40,19 +41,20 @@ const TextStyles = styled.text<{ defaultColor?: string }>(
 const Box = styled.div(() => {
   return {
     ...FontFamily.medium16,
-    alignItems: "center",
-    width: "fit-content",
+    width: "100%",
     display: "flex",
     flexWrap: "wrap",
-    padding: Theme.Dark.spacing(1, 2),
+    justifyContent: "center",
+    alignItems: "center",
+    padding: Theme.Dark.spacing(1),
     border: "solid 2px red",
-    borderRadius: "5px",
+    borderRadius: Theme.Dark.spacing(1),
     gap: 12,
   };
 });
 
-const BoxActivities = styled.div<{ defaultColor: string }>(
-  ({ defaultColor }) => {
+const BoxActivities = styled.div<{ $DefaultColor: string }>(
+  ({ $DefaultColor }) => {
     return {
       alignItems: "center",
       width: "auto",
@@ -61,23 +63,23 @@ const BoxActivities = styled.div<{ defaultColor: string }>(
       flexWrap: "wrap",
       padding: Theme.Dark.spacing(0, 2),
       border: "solid 2px",
-      borderColor: defaultColor,
-      borderRadius: "5px",
+      borderColor: $DefaultColor,
+      borderRadius: Theme.Dark.spacing(1),
       gap: 12,
     };
   }
 );
 
-const BoxActivitiesHeader = styled.div<{ defaultColor: string }>(
-  ({ defaultColor }) => {
+const BoxActivitiesHeader = styled.div<{ $DefaultColor: string }>(
+  ({ $DefaultColor }) => {
     return {
       width: "100%",
       display: "flex",
       justifyContent: "center",
       padding: Theme.Dark.spacing(2, 1),
       borderBottom: "solid 2px",
-      borderColor: defaultColor,
-      color: defaultColor,
+      borderColor: $DefaultColor,
+      color: $DefaultColor,
     };
   }
 );

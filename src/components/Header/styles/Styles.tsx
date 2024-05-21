@@ -44,7 +44,7 @@ const NavGroup = styled.div(({ theme }) => {
   };
 });
 
-const TextName = styled.text(() => {
+const TextName = styled.span(() => {
   return {
     ...FontFamily.bold18,
     marginLeft: Theme.Dark.spacing(0.5),

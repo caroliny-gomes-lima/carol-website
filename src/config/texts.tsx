@@ -29,11 +29,11 @@ const ptBr = {
   home: {
     title: "Desenvolvedora Front-end",
     gamesPopLifeText: "Fã de games e cultura pop",
-    fitLifeText: "Curtindo a vida Fit",
+    fitLifeText: "Curtindo a vida Fitness",
     codeLifeText: "Apaixonada pelos desafios de programar",
     text: [
-      "Olá, sou Carol e seja bem vindo(a) ao meu site!",
-      "Tenho 3 anos de experêcia em desenvolvmento de projetos front-end aplicações web, fiz meus trabalhos de forma hibrida. Estou silenciosamente confiante, naturalmente curiosa, trabalhando e estudando continuamente para melhorar minhas habilidades.",
+      "Olá, sou Carol e seja bem-vindo(a) ao meu site!",
+      "Tenho 3 anos de experiência em desenvolvimento de projetos front-end aplicações web, fiz meus trabalhos de forma hibrida. Estou silenciosamente confiante, naturalmente curiosa, trabalhando e estudando continuamente para melhorar minhas habilidades.",
     ],
 
     textActivitiesLeft: [
@@ -43,8 +43,14 @@ const ptBr = {
 
     textActivitiesRight: [
       "Integração dos sistemas web com métodos do protocolo HTTP, API RESTful, biblioteca Axios ou Apisauce e correção de bugs.",
-      "Trabalho em equipe sob metodologia SCRUM utilizando das plataformas Gitlab ou Redmine, reuniões de planejamento de Sprints dos projetos e daily SCRUM com reuniões diarias de acompanhamento das atividades dos projetos.",
+      "Trabalho em equipe sob metodologia SCRUM utilizando das plataformas GitLab ou Redmine, reuniões de planejamento de Sprints dos projetos e daily SCRUM com reuniões diárias de acompanhamento das atividades dos projetos.",
     ],
+  },
+
+  career: {
+    avatarText: "Pensar como programadora... Trabalhar como desenvolvedora... Transformar a arte de programar em algo simples e maravilhoso... Eu amo o que faço!",
+    ComapnyImageText: "Iniciei minha carreira na área de Tecnologia da Informação como estagiária de programação front-end para a empresa PalmSoft e a startup Deepen, que pertence à PalmSoft. Posteriormente, nessas incríveis empresas, tornei-me desenvolvedora front-end júnior. A PalmSoft e a Deepen me ajudaram a pensar como programadora e a descobrir a desenvolvedora dentro de mim.",
+    MemberComapnyImageText: "A PalmSoft e a Deepen me ajudaram a pensar como programadora e a descobrir a desenvolvedora dentro de mim.",
   },
 };
 

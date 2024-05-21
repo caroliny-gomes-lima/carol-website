@@ -33,14 +33,14 @@ const LogoGroup = styled.div(() => {
   };
 });
 
-const TextStyles = styled.text(() => {
+const TextStyles = styled.span(() => {
   return {
     ...FontFamily.extrabold14,
     color: colors.black,
   };
 });
 
-const SmallTextStyles = styled.text(() => {
+const SmallTextStyles = styled.span(() => {
   return {
     ...FontFamily.extrabold10,
     color: colors.white,
