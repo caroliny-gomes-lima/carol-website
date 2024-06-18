@@ -23,15 +23,15 @@ const Content = styled.div(() => {
 
 const TitleStyles = styled.h1(() => {
   return {
-    ...FontFamily.extrabold16,
-    fontSize: "2rem",
+    ...FontFamily.extrabold42,
+    fontSize: "2.1rem",
   };
 });
 
 const TextStyles = styled.span<{ $DefaultColor?: string }>(
   ({ $DefaultColor }) => {
     return {
-      ...FontFamily.bold16,
+      ...FontFamily.extrabold18,
       textAlign: $DefaultColor ? "left" : "center",
       color: $DefaultColor,
     };
@@ -53,77 +53,12 @@ const Box = styled.div(() => {
   };
 });
 
-const BoxActivities = styled.div<{ $DefaultColor: string }>(
-  ({ $DefaultColor }) => {
-    return {
-      alignItems: "center",
-      width: "auto",
-      display: "flex",
-      flexDirection: "column",
-      flexWrap: "wrap",
-      padding: Theme.Dark.spacing(0, 2),
-      border: "solid 2px",
-      borderColor: $DefaultColor,
-      borderRadius: Theme.Dark.spacing(1),
-      gap: 12,
-    };
-  }
-);
-
-const BoxActivitiesHeader = styled.div<{ $DefaultColor: string }>(
-  ({ $DefaultColor }) => {
-    return {
-      width: "100%",
-      display: "flex",
-      justifyContent: "center",
-      padding: Theme.Dark.spacing(2, 1),
-      borderBottom: "solid 2px",
-      borderColor: $DefaultColor,
-      color: $DefaultColor,
-    };
-  }
-);
-
-const BoxActivitiesContent = styled.div(() => {
-  return {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    gap: 10,
-    padding: Theme.Dark.spacing(2, 0),
-  };
-});
-
-const BoxActivitiesListDot = styled(ListItemIcon)(() => {
-  return {
-    "&&.MuiListItemIcon-root": {
-      minWidth: Theme.Dark.spacing(2),
-      alignSelf: "baseline",
-      marginTop: "10px",
-    },
-  };
-});
-
-const BoxActivitiesList = styled(ListItem)(() => {
-  return {
-    "&&.MuiListItem-root": {
-      paddingTop: 0,
-      margin: 0,
-    },
-  };
-});
-
 const Styles = {
   Container,
   TitleStyles,
   TextStyles,
   Content,
   Box,
-  BoxActivities,
-  BoxActivitiesHeader,
-  BoxActivitiesContent,
-  BoxActivitiesListDot,
-  BoxActivitiesList,
 };
 
 export default Styles;

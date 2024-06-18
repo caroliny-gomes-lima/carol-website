@@ -18,8 +18,8 @@ const Content = styled.div(()=> {
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: Theme.Dark.spacing(20),
-    gap: Theme.Dark.spacing(20),
+    marginTop: Theme.Dark.spacing(10),
+    gap: Theme.Dark.spacing(25),
   }
 })
 
@@ -38,7 +38,7 @@ const AvatarBox = styled.div(()=> {
 const TextStyles = styled.span<{ $DefaultColor?: string }>(
   ({ $DefaultColor }) => {
     return {
-      ...FontFamily.bold16,
+      ...FontFamily.extrabold18,
       color: $DefaultColor,
     };
   }

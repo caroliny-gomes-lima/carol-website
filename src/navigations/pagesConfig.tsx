@@ -19,8 +19,8 @@ const pagesConfig = {
       },
       {
         navigationId: 2,
-        path: paths.career,
-        name: "CareerPage",
+        path: paths.Experiences,
+        name: "ExperiencesPage",
         title: "EXPERIÊNCIAS",
         //icon: <ContentPasteSearch />
       },

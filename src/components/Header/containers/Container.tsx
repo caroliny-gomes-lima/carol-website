@@ -2,7 +2,7 @@ import React from "react";
 import Styles from "../styles/Styles";
 import { useNavigate } from "react-router-dom";
 import { paths } from "navigations/navigation";
-import { ButtonContained, DefaultLogo, IconButtonComponent } from "components";
+import { DefaultButton, DefaultLogo, IconButtonComponent } from "components";
 import { colors, Theme } from "config";
 import {Texts} from "config";
 import { useMediaQuery } from "@mui/material";
@@ -29,7 +29,7 @@ function Header({openMenu}:HeaderProps) {
     }
 
     if (index === 2) {
-      //navigate(paths.home);
+      navigate(paths.Experiences);
     }
 
     if (index === 3) {
@@ -51,7 +51,7 @@ function Header({openMenu}:HeaderProps) {
         </Styles.LogoGroup>
         {!isMobile && (
         <Styles.NavGroup>
-        <ButtonContained
+        <DefaultButton
           label={texts.home}
           type="button"
           onClick={() => handleClick(0)}
@@ -64,7 +64,7 @@ function Header({openMenu}:HeaderProps) {
               clicked === 0 ? Theme.Dark.palette.secondary.contrastText : "",
           }}
         />
-        <ButtonContained
+        <DefaultButton
           label={texts.career}
           type="button"
           onClick={() => handleClick(1)}
@@ -78,7 +78,7 @@ function Header({openMenu}:HeaderProps) {
           }}
         />
 
-        <ButtonContained
+        <DefaultButton
           label={texts.experiences}
           type="button"
           onClick={() => handleClick(2)}
@@ -92,7 +92,7 @@ function Header({openMenu}:HeaderProps) {
           }}
         />
 
-        <ButtonContained
+        <DefaultButton
           label={texts.work}
           type="button"
           onClick={() => handleClick(3)}

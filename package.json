@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "11.11.4",
-    "@emotion/styled": "11.11.5",
+    "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "5.15.15",
     "@mui/material": "5.15.15",
     "@mui/styles": "5.15.15",
@@ -15,7 +15,7 @@
     "@types/react": "18.2.79",
     "@types/react-dom": "18.2.25",
     "axios": "1.6.8",
-    "chart.js": "4.4.2",
+    "chart.js": "4.4.3",
     "chartjs-plugin-datalabels": "2.2.0",
     "env-cmd": "^10.1.0",
     "eslint": "^9.1.1",
@@ -23,8 +23,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "7.51.3",
+    "react-live": "^4.1.6",
     "react-router-dom": "6.23.0",
     "react-scripts": "^5.0.1",
+    "recharts": "^2.12.7",
     "styled-components": "6.1.8",
     "typescript": "5.4.5",
     "web-vitals": "^2.1.4"
