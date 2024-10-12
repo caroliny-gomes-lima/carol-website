@@ -143,10 +143,10 @@ function ExperiencesPage() {
   ];
 
 
-    const methods = useForm();
-    const onSubmit = (data) => {
-      console.log("!!!!!!!!", data);
-    };
+  const methods = useForm();
+  const onSubmit = (data: any) => {
+    console.log("!!!!!!!!", data);
+  };
 
 
   return (
@@ -285,29 +285,29 @@ function ExperiencesPage() {
         </Grid>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
-        <div
-          style={{
-            display: "flex",
-            width: "50%",
-            padding: 10,
-            backgroundColor: "red",
-          }}
-        >
-           <InputComponent
-          name="example"
-          label="Example"
-          rules={{ required: 'This field is required' }}
-          placeholder="Enter something..."
-        />
-        </div>
-        <DefaultButton
-          label="Click please!"
-          type="submit"
-          //onClick={() => alert('Botão clicado!')}
-          fullWidth={false}
-          loading={false}
-        />
-        </form>
+            <div
+              style={{
+                display: "flex",
+                width: "50%",
+                padding: 10,
+                backgroundColor: "red",
+              }}
+            >
+              <InputComponent
+                name="example"
+                label="Example"
+                rules={{ required: 'This field is required' }}
+                placeholder="Enter something..."
+              />
+            </div>
+            <DefaultButton
+              label="Click please!"
+              type="submit"
+              //onClick={() => alert('Botão clicado!')}
+              fullWidth={false}
+              loading={false}
+            />
+          </form>
         </FormProvider>
       </Styles.Content>
     </Styles.Container>

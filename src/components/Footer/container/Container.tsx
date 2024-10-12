@@ -1,4 +1,3 @@
-import React from "react";
 import Styles from "../styles/Styles";
 import { Texts, Theme } from "config";
 import DefaultLogo from "components/others/DefaultLogo";

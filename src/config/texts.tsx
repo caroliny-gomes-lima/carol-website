@@ -1,11 +1,3 @@
-import { Dashboard } from "@mui/icons-material";
-import { title } from "process";
-
-const baseReload = {
-  message: "Não há dados para exibição.",
-  buttonLabel: "Recarregar",
-};
-
 const ptBr = {
   modals: {
     success: {
@@ -34,7 +26,7 @@ const ptBr = {
     codeLifeText: "Apaixonada pelos desafios de programar",
     text: [
       "Olá, sou Caroliny e seja bem-vindo(a) ao meu site! Mas quem sou eu? Bom, aqui vai um resuminho!",
-      "Nos meus momentos como Carol, eu me transformo nos personagens dos games quando estou no modo play. Sou a pessoa em busca do shape perfeito e de uma vida saudável quando estou na academia.", 
+      "Nos meus momentos como Carol, eu me transformo nos personagens dos games quando estou no modo play. Sou a pessoa em busca do shape perfeito e de uma vida saudável quando estou na academia.",
       "Também sou a protagonista hacker, heroína ou vilã dos filmes e séries de ficção científica, terror e comédia que adoro assistir. Além disso, sou uma aprendiz dedicada de desenvolvimento de sistemas, estudando com cursos, meu computador, livros e muito café.",
       "Estou sempre me atualizando e buscando adquirir novas habilidades. Sou silenciosamente confiante, naturalmente curiosa e estou sempre trabalhando e estudando para aprimorar minhas habilidades."
     ],
@@ -60,7 +52,7 @@ const ptBr = {
     experiencesText: "Tenho 3 anos de experiência em desenvolvimento de projetos front-end para aplicações web, atuando principalmente em projetos B2B. Trabalhei de forma híbrida, o que me permitiu desenvolver habilidades tanto em ambientes presenciais quanto remotos. Minhas principais experiências incluem:",
     DashboardText: "No dashboard abaixo,  você pode ver as ferramentas com as quais tenho experiência e utilizo no desenvolvimento de projetos front-end, além do nível de conhecimento que possuo em cada uma delas:",
     chartsTitle: ["LINGUAGENS", "FRAMEWORKS E BIBLIOTECAS", "INTEGRAÇÃO", "OUTRAS FERRAMENTAS"],
-     textExperiencesLeft: [
+    textExperiencesLeft: [
       "Leitura de mockups e protótipos dos projetos através de ferramentas de design Adobe XD e Figma.",
       "Criação de projetos front-end com interfaces contendo layouts responsivos e componentes funcionais utilizando JavaScript ou TypeScript com sintaxe JSX e a biblioteca React. Além disso, utilizo ferramentas como HTML5, CSS, styled-components, Material-UI, Chart.js, react-router-dom, React Hooks, VS Code, ambiente Node.js, versionamento e sistemas de controle Git.",
     ],

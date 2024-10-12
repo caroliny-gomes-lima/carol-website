@@ -85,7 +85,7 @@ const BoxActivitiesList = styled(ListItem)(() => {
 });
 
 const TextStyles = styled.span<{ $DefaultColor?: string }>(
-  ({ $DefaultColor}) => {
+  ({ $DefaultColor }) => {
     return {
       ...FontFamily.extrabold18,
       textAlign: $DefaultColor ? "left" : "center",
@@ -102,23 +102,23 @@ const ChartBox = styled.div(() => {
     borderRadius: "10px",
     border: "solid 2px",
     borderColor: colors.purple,
-    backgroundColor:`${colors.blackCarbon}60`,
+    backgroundColor: `${colors.blackCarbon}60`,
   };
 });
 
-const PreviewCodeBox = styled.div(() => {
-  return {
-    width: "100%",
-    height: "fit-content",
-    margin: Theme.Dark.spacing(2),
-    padding: Theme.Dark.spacing(1),
-    border: "solid 2px",
-    borderColor: colors.yellow,
-    borderRadius: Theme.Dark.spacing(1),
-  };
-});
+// const PreviewCodeBox = styled.div(() => {
+//   return {
+//     width: "100%",
+//     height: "fit-content",
+//     margin: Theme.Dark.spacing(2),
+//     padding: Theme.Dark.spacing(1),
+//     border: "solid 2px",
+//     borderColor: colors.yellow,
+//     borderRadius: Theme.Dark.spacing(1),
+//   };
+// });
 
-const LiveEditorCodeBox  = styled(LiveEditor)(() => {
+const LiveEditorCodeBox = styled(LiveEditor)(() => {
   return {
     width: "100%",
     height: "fit-content",

@@ -1,4 +1,3 @@
-import React from "react";
 import Styles from "../styles/Styles";
 import { ImageComponent, svgImageComponent } from "components";
 import { Grid, useMediaQuery } from "@mui/material";

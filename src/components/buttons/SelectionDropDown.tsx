@@ -49,7 +49,6 @@ const MenuStyles = styled(Menu)<{
   $customMenuHoverLabelColor?: string;
 }>(
   ({
-    theme,
     $customBgMenuColor,
     $customMenuLabelColor,
     $customMenuHoverColor,

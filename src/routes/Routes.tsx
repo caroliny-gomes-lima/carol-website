@@ -6,11 +6,11 @@ import pagesConfig from "./pagesConfig";
 import pages from "pages";
 
 interface UserInterfaceProps {
-  Home: () => Element;
+  AboutPage: () => JSX.Element;
 }
 
 function PageRoutes() {
-  const [menuHeight, setHeight] = React.useState<any>(null);
+  //const [menuHeight, setHeight] = React.useState<any>(null);
   const [menu, setMenu] = React.useState<boolean>(false);
 
   // React.useLayoutEffect(() => {
@@ -23,8 +23,8 @@ function PageRoutes() {
   return (
     <div>
       <Styles.BackgroundGif>
-        <MenuNav data={pagesConfig.pages} openMenu={setMenu} isOpen={menu}/>
-        <Header openMenu={()=> setMenu(true)}/>
+        <MenuNav data={pagesConfig.pages} openMenu={setMenu} isOpen={menu} />
+        <Header openMenu={() => setMenu(true)} />
         <Styles.PageContainer
         // style={{
         //   height: menuHeight
@@ -35,8 +35,9 @@ function PageRoutes() {
         // }}
         >
           <Routes>
-            {pagesConfig.pages.map((page: any, index: any) => {
-              const Component = pages[page.name as keyof UserInterfaceProps];
+            {pagesConfig.pages.map((page: any) => {
+              const Component =
+                pages[page.name as keyof UserInterfaceProps];
               return (
                 <Route
                   key={page.navigationId}

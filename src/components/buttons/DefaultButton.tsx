@@ -1,8 +1,8 @@
 import { Button, CircularProgress } from "@mui/material";
 import styled from "styled-components";
-import { Theme, colors } from "config";
+import { Theme } from "config";
 import { FontFamily } from "components";
-import { useForm, useFormContext } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import React from "react";
 
 const StyledButton = styled(Button)<{
@@ -109,7 +109,7 @@ function DefaultButton({
   ...props
 }: ButtonProps): JSX.Element {
   const { formState } = useForm<ButtonProps>();
-  const [clicked, setClicked] = React.useState<boolean>(false);
+  //const [clicked, setClicked] = React.useState<boolean>(false);
 
   //TENTAR FAZER O TESTE MAIS TARDE PARA USAR COMO FEEDBACK DE ERRO
   //(COM INPUT PAR INTEGRAÇÃO)

@@ -1,16 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
-import { FormControlLabel, Input } from "@mui/material";
+import { Input } from "@mui/material";
 import { FontFamily } from "components";
 import { colors, Theme } from "config";
 import {
-  Control,
+
+
   Controller,
-  FieldValues,
-  FormProvider,
+
+
   RegisterOptions,
-  useController,
-  useForm,
+
+
   useFormContext,
 } from "react-hook-form";
 
@@ -51,12 +52,12 @@ const Label = styled.p<{ withError?: boolean }>(({ withError }) => {
   };
 });
 
-const ErrorMessage = styled(FormControlLabel)({
-  color: "red",
-  minHeight: Theme.Dark.spacing(2.5),
-});
+// const ErrorMessage = styled(FormControlLabel)({
+//   color: "red",
+//   minHeight: Theme.Dark.spacing(2.5),
+// });
 
-function getErrorClassName(base, error, valid) {
+function getErrorClassName(base: string, error: boolean, valid: boolean) {
   const className = base;
   if (error) return `${className} invalid`;
   if (valid) return `${className} valid`;
@@ -97,7 +98,7 @@ interface InputProps {
   //InputTargetValue?: any;
 }
 
-function InputComponent({ id, label, name, type, rules, defaultValue, placeholder }: InputProps) {
+function InputComponent({ label, name, type, rules, defaultValue, placeholder }: InputProps) {
   const { control } = useFormContext();
   const labelRef = useRef<HTMLDivElement | null>(null);
 
@@ -154,7 +155,7 @@ a prop label mudar.*/
         name={name}
         control={control}
         rules={rules}
-        defaultValue={defaultValue || ""} 
+        defaultValue={defaultValue || ""}
         render={({ field, fieldState: { error } }) => {
           const className = getErrorClassName("input-field", true, false);
           return (

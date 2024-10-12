@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FontFamily } from "components";
 import colors from "config/colors";
 
-const Container = styled.div(()=> {
+const Container = styled.div(() => {
   return {
     display: "flex",
     position: "relative",
@@ -35,7 +35,7 @@ const LogoGroup = styled.div(() => {
   };
 });
 
-const NavGroup = styled.div(({ theme }) => {
+const NavGroup = styled.div(() => {
   return {
     display: "flex",
     flexDirection: "row",

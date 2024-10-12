@@ -1,32 +1,27 @@
 {
-    "compilerOptions": {
-      "target": "es2016",
-      "baseUrl": "src/",      
-      "lib": [
-        "dom",
-        "dom.iterable",
-        "esnext"
-      ],
-      "allowJs": true,
-      "skipLibCheck": true,
-      "noImplicitAny": false,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "noFallthroughCasesInSwitch": true,
-      "module": "esnext",
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "noEmit": true,
-      "jsx": "react-jsx",
-      "noUnusedLocals": false,
-      "noUnusedParameters": false,
-      "types": ["jest", "node", "@testing-library/jest-dom"],
-      "typeRoots": ["node_modules/@types"]
-    },
-    "include": [
-      "src",
-    ]
-  }
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["DOM", "DOM.iterable", "ESNext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "incremental": true,
+    "noUnusedParameters": true,
+    "types": ["jest", "node", "@testing-library/jest-dom"],
+    "baseUrl": "./src",
+    "typeRoots": ["node_modules/@types"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"],
+  "compileOnSave": false
+}

@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import svgImageComponent from "./svgImageComponent";
 import { Theme } from "config";

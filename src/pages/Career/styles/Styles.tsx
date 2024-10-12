@@ -1,8 +1,8 @@
 import { colors, Theme } from "config";
 import styled from "styled-components";
-import { FontFamily, svgImageComponent } from "components";
+import { FontFamily } from "components";
 
-const Container = styled.div(()=> {
+const Container = styled.div(() => {
   return {
     width: "100%",
     display: "flex",
@@ -12,7 +12,7 @@ const Container = styled.div(()=> {
   }
 })
 
-const Content = styled.div(()=> {
+const Content = styled.div(() => {
   return {
     display: "flex",
     flexDirection: "column",
@@ -23,7 +23,7 @@ const Content = styled.div(()=> {
   }
 })
 
-const AvatarBox = styled.div(()=> {
+const AvatarBox = styled.div(() => {
   return {
     display: "flex",
     flexDirection: "column",
@@ -44,7 +44,7 @@ const TextStyles = styled.span<{ $DefaultColor?: string }>(
   }
 );
 
-const ImageCompanyBox = styled.div(()=> {
+const ImageCompanyBox = styled.div(() => {
   return {
     display: "flex",
     flexWrap: "wrap",
@@ -60,7 +60,7 @@ const ImageCompanyBox = styled.div(()=> {
   }
 })
 
-const ImageMemberComapnyBox = styled.div(()=> {
+const ImageMemberComapnyBox = styled.div(() => {
   return {
     width: "100%",
     height: "auto",
@@ -75,7 +75,7 @@ const ImageMemberComapnyBox = styled.div(()=> {
 })
 
 const Styles = {
-  Container, 
+  Container,
   Content,
   AvatarBox,
   TextStyles,

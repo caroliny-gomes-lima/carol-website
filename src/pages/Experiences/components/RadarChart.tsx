@@ -1,20 +1,19 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Styles from "../styles/Styles";
 import { Chart, ChartData } from "chart.js/auto";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { fonts } from "config";
 import colors from "config/colors";
-import { Box } from "@mui/material";
 
 Chart.register(ChartDataLabels);
 Chart.defaults.font.family = fonts.medium;
 
 interface Props {
-  chartData: { name: string; value: number}[];
+  chartData: { name: string; value: number }[];
   chartTitle: string,
 }
 
-function RadarChart ({ chartData, chartTitle }: Props) {
+function RadarChart({ chartData, chartTitle }: Props) {
   const chartRef = useRef<Chart | null>(null);
 
   useEffect(() => {
@@ -24,7 +23,7 @@ function RadarChart ({ chartData, chartTitle }: Props) {
     }
   }, [chartData]);
 
-  const formatData = ( data: { name: string; value: number}[]): ChartData => ({
+  const formatData = (data: { name: string; value: number }[]): ChartData => ({
     labels: data.map((item) => item.name),
     datasets: [
       {
@@ -60,7 +59,7 @@ function RadarChart ({ chartData, chartTitle }: Props) {
               pointLabels: {
                 color: colors.purple,
                 padding: 37,
-                font:{
+                font: {
                   weight: "bold",
                   size: 11,
                 }
@@ -77,14 +76,14 @@ function RadarChart ({ chartData, chartTitle }: Props) {
               text: chartTitle,
               color: colors.white,
               padding: 15,
-              font:{
+              font: {
                 size: 15,
                 weight: "bold",
                 lineHeight: 1.2,
               }
             },
             legend: {
-             display: false,
+              display: false,
             },
             datalabels: {
               anchor: "end",

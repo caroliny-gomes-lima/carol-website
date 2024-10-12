@@ -1,4 +1,3 @@
-import React from "react";
 import Styles from "../styles/Styles";
 import { colors, Texts } from "config";
 import { Grid } from "@mui/material";

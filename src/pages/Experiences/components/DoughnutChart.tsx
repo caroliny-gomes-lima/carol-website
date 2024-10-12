@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Styles from "../styles/Styles";
 import { Chart, ChartData } from "chart.js/auto";
 import ChartDataLabels from "chartjs-plugin-datalabels";
