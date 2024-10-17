@@ -1,11 +1,12 @@
+import ThemeProvider from "./others/ThemeProvider";
 import DefaultLogo from "./others/DefaultLogo";
-import FontFamily from "./others/FontFamily";
 import DefaultButton from "./buttons/DefaultButton";
 import SelectionDropDown from "./buttons/SelectionDropDown";
 import IconButtonComponent from "./buttons/IconButton";
 import InputComponent from "./inputs/input";
 import svgImageComponent from "./others/svgImageComponent";
 import ImageComponent from "./others/ImageCompenent";
+import TextComponent from "./others/TextComponent";
 import DefaultModal from "./Modal/Modal";
 import { Header } from "./Header";
 import { MenuNav } from "./MenuNav";
@@ -15,7 +16,6 @@ export {
   Header,
   MenuNav,
   DefaultLogo,
-  FontFamily,
   DefaultButton,
   SelectionDropDown,
   InputComponent,
@@ -23,5 +23,7 @@ export {
   ImageComponent,
   IconButtonComponent,
   Footer,
-  DefaultModal
+  DefaultModal,
+  ThemeProvider,
+  TextComponent,
 };

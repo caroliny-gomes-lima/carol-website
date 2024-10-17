@@ -2,6 +2,7 @@ import Styles from "../styles/Styles";
 import { colors, Texts } from "config";
 import { Grid } from "@mui/material";
 import { Code, FitnessCenter, SportsEsports } from "@mui/icons-material";
+import { TextComponent } from "components";
 
 function AboutPage() {
   const texts = Texts["ptBr"].home;
@@ -11,7 +12,7 @@ function AboutPage() {
       <Styles.Content>
         <Grid container spacing={2} justifyContent={"center"}>
           <Grid item xs={11} sm={12} md={12} lg={12} textAlign={"center"}>
-            <Styles.TitleStyles>{texts.title}</Styles.TitleStyles>
+            <TextComponent textColor="white">{texts.title}</TextComponent>
           </Grid>
 
           <Grid item xs={11} sm={5} md={4} lg={3}>

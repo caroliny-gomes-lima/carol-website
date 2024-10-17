@@ -8,28 +8,24 @@ const pagesConfig = {
       path: paths.about,
       name: "AboutPage",
       title: "SOBRE",
-      //icon: <Home />,
     },
     {
       navigationId: 1,
       path: paths.career,
       name: "CareerPage",
       title: "CARREIRA",
-      //icon: <Today/>
     },
     {
       navigationId: 2,
       path: paths.Experiences,
       name: "ExperiencesPage",
       title: "EXPERIÊNCIAS",
-      //icon: <ContentPasteSearch />
     },
     {
       navigationId: 3,
       path: paths.career,
       name: "CareerPage",
       title: "TRABALHOS",
-      //icon: <ContentPasteSearch />
     },
   ],
 };

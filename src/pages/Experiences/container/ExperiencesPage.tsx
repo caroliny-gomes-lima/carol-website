@@ -96,7 +96,7 @@ function ExperiencesPage() {
 
   const frameworksLibsdata = [
     { name: "React", value: 90, color: colors.reactColor },
-    { name: "react-router-dom", value: 75, color: colors.Gray },
+    { name: "react-router-dom", value: 75, color: colors.gray },
     { name: "React Hooks", value: 50, color: colors.cssColor },
     { name: "Material-UI", value: 100, color: colors.purple },
     { name: "styled-components", value: 100, color: colors.adobeXdColor },
@@ -134,7 +134,7 @@ function ExperiencesPage() {
     {
       name: "Versionamento e Controle com Git",
       value: 50,
-      color: colors.Gray,
+      color: colors.gray,
     },
     { name: "VS Code", value: 50, color: colors.blue },
     { name: "GitLab", value: 100, color: colors.nodeJsColor },

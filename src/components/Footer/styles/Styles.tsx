@@ -1,9 +1,9 @@
-import { Theme } from "config";
+import { FontFamily, Theme } from "config";
 import styled from "styled-components";
-import { FontFamily } from "components";
+
 import colors from "config/colors";
 
-const Container = styled.div(()=> {
+const Container = styled.div(() => {
   return {
     width: "100%",
     padding: Theme.Dark.spacing(3),

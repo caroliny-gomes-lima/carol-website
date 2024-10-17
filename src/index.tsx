@@ -5,15 +5,16 @@ import "./index.css";
 import { Theme } from "./config";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline } from "@mui/material";
+import { ThemeProvider } from "components";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <CssBaseline />
     <ThemeProvider theme={Theme.Dark}>
-      <CssBaseline />
       <App />
     </ThemeProvider>
   </React.StrictMode>

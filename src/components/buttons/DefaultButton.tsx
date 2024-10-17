@@ -1,7 +1,7 @@
 import { Button, CircularProgress } from "@mui/material";
 import styled from "styled-components";
-import { Theme } from "config";
-import { FontFamily } from "components";
+import { FontFamily, Theme } from "config";
+
 import { useForm } from "react-hook-form";
 import React from "react";
 

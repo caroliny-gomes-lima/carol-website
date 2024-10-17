@@ -1,6 +1,6 @@
 import { ListItem, ListItemIcon } from "@mui/material";
-import { FontFamily } from "components";
-import { colors, Theme } from "config";
+
+import { colors, FontFamily, Theme } from "config";
 import { LiveEditor, LivePreview } from "react-live";
 import styled from "styled-components";
 

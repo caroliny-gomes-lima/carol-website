@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import colors from "config/colors";
 import { IconButton } from "@mui/material";
-import { Theme } from "config";
-import { FontFamily } from "components";
+import { FontFamily, Theme } from "config";
+
 
 const Container = styled.div(() => {
   return {

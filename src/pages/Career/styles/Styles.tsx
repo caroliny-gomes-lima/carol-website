@@ -1,6 +1,6 @@
-import { colors, Theme } from "config";
+import { colors, FontFamily, Theme } from "config";
 import styled from "styled-components";
-import { FontFamily } from "components";
+
 
 const Container = styled.div(() => {
   return {

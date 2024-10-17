@@ -1,93 +1,58 @@
-import { colors, Theme } from "config";
+import { Theme } from "config";
 import styled, { css } from "styled-components";
-import GifImage from "../../assets/gif/space-travel-800x600loop.gif"
+import { stripesBackground } from "config/Image";
 
-// const Container = styled.div(() => {
-//   return {
-//     display: "flex",
-//     flexDirection: "row",
-//     height: "100%",
-//   }
-// })
+const Background = styled.div(() => {
+  return {
+    width: "fit-content",
+    height: "fit-content",
+    backgroundColor: "black",
+    zIndex: -1,
+  };
+});
 
-// const RoutesContainer = styled.div(() => {
-//   return {
-//     display: "flex",
-//     flexDirection: "column",
-//     flexWrap: "nowrap",
-//     maxWidth: "100vw",
-//     height: "100%",
-//   };
-// });
+const Stripes = styled.div(({ }) => {
+  return {
+    content: '',
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundImage: `url(${stripesBackground})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center"
+  }
+})
 
-const PageContainer = styled.div(() => {
+const PageContainer = styled.div(({ theme }) => {
+  const { palette: colors, spacing } = theme;
   return {
     width: "100%",
-    height: "calc(93.8vh - 10px)",
+    height: "100vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
-    gap: Theme.Dark.spacing(40),
+    flex: 1,
     overflowY: "auto",
     overflowX: "hidden",
-    "&::-webkit-scrollbar": {
-      width: "0.4em",
-      height: "0.4em",
-    },
-    "&::-webkit-scrollbar-thumb": {
-      backgroundColor: colors.purple,
-    },
+    backgroundColor: colors.primary.main
   };
 });
 
-// const LogoAsBackground = styled.div(({theme}) => {
-// return {
-//   backgroundImage: `url(${LargeLogo})`,
-//   backgroundRepeat: "no-repeat",
-//   opacity: "0.1",
-//   position: "absolute",
-//   top: 100,
-//   left: 400,
-//   width: "70%",
-//   height: "85%",
-//   zIndex: -1,
-// }
-// })
-
-const PageContent = styled.div(() => {
+const PageContent = styled.div(({ theme }) => {
+  const { spacing } = theme;
   return {
-    width: "100%",
-    height: "100%",
-    backgroundColor: "red",
+    padding: spacing(1)
   };
 });
-
-const BackgroundGif = styled.div`
-  ${() => css`
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url(${GifImage});
-      background-size: cover;
-      background-position: center;
-      z-index: -1;
-      opacity: 0.1;
-    }
-  `}
-`;
 
 const Styles = {
-  //Container,
-  //RoutesContainer,
+  Background,
+  Stripes,
   PageContainer,
   PageContent,
-  BackgroundGif,
-  //LogoAsBackground,
 }
 
 export default Styles;

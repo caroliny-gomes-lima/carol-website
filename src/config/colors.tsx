@@ -1,9 +1,12 @@
 const colors = {
   white: "#ffffff",
+  softWhite: "#F5F5F5",
+  whiteSmoke: "#EAEAEA",
 
-  lightgray: "#CECECE",
-  Gray: "#818181",
-  darkGray: "#1D1D18",
+  gray: "#999999",
+  lightGray: "#F6F6F6",
+  softGray: "#F7F7F7",
+  darkGray: "#0c0c0c",
 
   black: "#000000", //"#303036",
   blackCarbon: "#14161a",

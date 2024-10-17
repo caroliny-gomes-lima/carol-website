@@ -1,14 +1,15 @@
-import { Theme } from "config";
+import { FontFamily, Theme } from "config";
 import styled from "styled-components";
-import { FontFamily } from "components";
+
 import colors from "config/colors";
 
-const Container = styled.div(() => {
+const Container = styled.div(({ theme }) => {
+  const { palette: colors, spacing } = theme;
   return {
     display: "flex",
     position: "relative",
-    backgroundColor: colors.black + 90,
-    padding: Theme.Dark.spacing(0, 2, 0, 2),
+    backgroundColor: colors.secondary.main,
+    padding: spacing(0, 2, 0, 2),
     //border: "solid 1px purple",
   }
 })

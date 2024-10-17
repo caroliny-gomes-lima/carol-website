@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Input } from "@mui/material";
-import { FontFamily } from "components";
-import { colors, Theme } from "config";
+
+import { colors, FontFamily, Theme } from "config";
 import {
 
 

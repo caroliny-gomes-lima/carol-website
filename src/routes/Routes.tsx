@@ -2,11 +2,18 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Styles from "./styles/Styles";
 import { Header, Footer, MenuNav } from "components";
-import pagesConfig from "./pagesConfig";
+import pagesConfig from "../config/pagesConfig";
 import pages from "pages";
 
 interface UserInterfaceProps {
   AboutPage: () => JSX.Element;
+}
+
+interface PageConfig {
+  navigationId: number,
+  path: string,
+  name: string,
+  title: string,
 }
 
 function PageRoutes() {
@@ -21,21 +28,22 @@ function PageRoutes() {
   //   }, [menuHeight, isLogged]);
 
   return (
-    <div>
-      <Styles.BackgroundGif>
-        <MenuNav data={pagesConfig.pages} openMenu={setMenu} isOpen={menu} />
-        <Header openMenu={() => setMenu(true)} />
-        <Styles.PageContainer
-        // style={{
-        //   height: menuHeight
-        //     ? `calc(90vh - ${menuHeight}px)`
-        //     : `calc(90vh - ${Spacing(9.5)}px)`,
-        //   overflowY: "auto",
-        //   justifyContent: "space-between",
-        // }}
-        >
+    <>
+      <Styles.Stripes />
+      <MenuNav data={pagesConfig.pages} openMenu={setMenu} isOpen={menu} />
+      <Header openMenu={() => setMenu(true)} />
+      <Styles.PageContainer
+      // style={{
+      //   height: menuHeight
+      //     ? `calc(90vh - ${menuHeight}px)`
+      //     : `calc(90vh - ${Spacing(9.5)}px)`,
+      //   overflowY: "auto",
+      //   justifyContent: "space-between",
+      // }}
+      >
+        <Styles.PageContent>
           <Routes>
-            {pagesConfig.pages.map((page: any) => {
+            {pagesConfig.pages.map((page: PageConfig) => {
               const Component =
                 pages[page.name as keyof UserInterfaceProps];
               return (
@@ -47,10 +55,10 @@ function PageRoutes() {
               );
             })}
           </Routes>
-          <Footer />
-        </Styles.PageContainer>
-      </Styles.BackgroundGif>
-    </div>
+        </Styles.PageContent>
+        <Footer />
+      </Styles.PageContainer>
+    </>
   );
 }
 

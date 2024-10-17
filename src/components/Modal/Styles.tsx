@@ -1,6 +1,5 @@
 import { Box, IconButton, Modal, Paper } from "@mui/material";
-import { FontFamily } from "components";
-import { colors, Theme } from "config";
+import { colors, FontFamily, Theme } from "config";
 import styled from "styled-components";
 
 const customModal = styled(Modal)(() => {
@@ -23,9 +22,8 @@ const Container = styled(Paper)<{
       height: "fit-content",
       margin: Theme.Dark.spacing(2),
       padding: Theme.Dark.spacing(1),
-      boxShadow: `0px 4px 20px ${
-        customShadowColor || "rgba(110, 7, 243, 0.7)"
-      }`,
+      boxShadow: `0px 4px 20px ${customShadowColor || "rgba(110, 7, 243, 0.7)"
+        }`,
     },
   };
 });
@@ -60,7 +58,7 @@ const ModalTitle = styled.span(() => {
 });
 
 const TextStyles = styled.span<{ $DefaultColor?: string }>(
-  ({ $DefaultColor}) => {
+  ({ $DefaultColor }) => {
     return {
       ...FontFamily.bold16,
       textAlign: $DefaultColor ? "left" : "center",

@@ -2,11 +2,11 @@ import { useEffect, useRef } from "react";
 import Styles from "../styles/Styles";
 import { Chart, ChartData } from "chart.js/auto";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-import { fonts } from "config";
+import { Fonts } from "config";
 import colors from "config/colors";
 
 Chart.register(ChartDataLabels);
-Chart.defaults.font.family = fonts.medium;
+Chart.defaults.font.family = Fonts.medium;
 
 interface Props {
   chartData: { name: string; value: number }[];

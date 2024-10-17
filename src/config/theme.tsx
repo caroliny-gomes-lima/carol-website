@@ -33,7 +33,7 @@ function createDarkTheme({
   textPrimaryColor = colors.white,
   textSecondaryColor = colors.black,
   textDisabledColor = colors.darkGray,
-  disabledColor = colors.Gray,
+  disabledColor = colors.gray,
 }: Partial<ThemeProps>) {
 
   const up = (key: number | Breakpoint) => `@media (min-width:${typeof key === 'number' ? key : breakpointValues[key]}px)`;

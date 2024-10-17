@@ -1,29 +1,34 @@
 //import { ListItem, ListItemIcon } from "@mui/material";
-import { FontFamily } from "components";
-import { Theme } from "config";
+import { FontFamily } from "config";
 import styled from "styled-components";
 
-const Container = styled.div(() => {
+const Container = styled.div(({ theme }) => {
+  const { palette: colors, spacing } = theme;
   return {
-    width: "100%",
-    height: "fit-content",
-    margin: Theme.Dark.spacing(2),
-    padding: Theme.Dark.spacing(1),
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    padding: theme.spacing(1),
+    marginBottom: spacing(20),
+    //backgroundColor: "red",
+    zIndex: 3,
   };
 });
 
-const Content = styled.div(() => {
+const Content = styled.div(({ theme }) => {
   return {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: Theme.Dark.spacing(5),
+    marginTop: theme.spacing(5),
   };
 });
 
 const TitleStyles = styled.h1(() => {
   return {
     ...FontFamily.extrabold42,
+    color: "white",
     fontSize: "2.1rem",
   };
 });
@@ -33,12 +38,12 @@ const TextStyles = styled.span<{ $DefaultColor?: string }>(
     return {
       ...FontFamily.extrabold18,
       textAlign: $DefaultColor ? "left" : "center",
-      color: $DefaultColor,
+      color: "white",
     };
   }
 );
 
-const Box = styled.div(() => {
+const Box = styled.div(({ theme }) => {
   return {
     ...FontFamily.medium16,
     width: "100%",
@@ -46,9 +51,9 @@ const Box = styled.div(() => {
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-    padding: Theme.Dark.spacing(1),
+    padding: theme.spacing(1),
     border: "solid 2px red",
-    borderRadius: Theme.Dark.spacing(1),
+    borderRadius: theme.spacing(1),
     gap: 12,
   };
 });
