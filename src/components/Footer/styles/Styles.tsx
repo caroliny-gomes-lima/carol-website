@@ -1,13 +1,14 @@
-import { FontFamily, Theme } from "config";
 import styled from "styled-components";
 
-import colors from "config/colors";
-
-const Container = styled.div(() => {
+const Container = styled.div(({ theme }) => {
+  const { palette: colors, spacing } = theme;
   return {
     width: "100%",
-    padding: Theme.Dark.spacing(3),
-    backgroundColor: colors.purple,
+    height: "fit-content",
+    backgroundColor: colors.secondary.contrastText,
+    zIndex: 3,
+    padding: spacing(1),
+    marginBottom: spacing(8)
   }
 })
 
@@ -16,43 +17,26 @@ const Content = styled.div(() => {
     display: "flex",
     flexWrap: "wrap",
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-around",
     alignItems: "center",
-    width: "100%",
     height: "fit-content",
   };
 });
 
-const LogoGroup = styled.div(() => {
+const CopyrightGrup = styled.div(() => {
   return {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: 15,
+    gap: 5,
     alignItems: "center",
-  };
-});
-
-const TextStyles = styled.span(() => {
-  return {
-    ...FontFamily.extrabold14,
-    color: colors.black,
-  };
-});
-
-const SmallTextStyles = styled.span(() => {
-  return {
-    ...FontFamily.extrabold10,
-    color: colors.white,
   };
 });
 
 const Styles = {
   Container,
   Content,
-  LogoGroup,
-  TextStyles,
-  SmallTextStyles
+  CopyrightGrup,
 }
 
 export default Styles;

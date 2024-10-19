@@ -23,6 +23,8 @@ interface ThemeProps {
   textDisabledColor?: string;
   buttonTextColor?: string;
   disabledColor?: string;
+  successMainColor?: string;
+  successLightColor?: string
 }
 
 function createDarkTheme({
@@ -31,9 +33,11 @@ function createDarkTheme({
   backgroundErrorColor = colors.red,
   hoverColor = colors.white,
   textPrimaryColor = colors.white,
-  textSecondaryColor = colors.black,
+  textSecondaryColor = colors.purple,
   textDisabledColor = colors.darkGray,
   disabledColor = colors.gray,
+  successMainColor = colors.green,
+  successLightColor = colors.lightBlue
 }: Partial<ThemeProps>) {
 
   const up = (key: number | Breakpoint) => `@media (min-width:${typeof key === 'number' ? key : breakpointValues[key]}px)`;
@@ -77,6 +81,10 @@ function createDarkTheme({
         disabledOpacity: 0.38,
         focusOpacity: 0.12,
         activatedOpacity: 0.12,
+      },
+      success: {
+        main: successMainColor,
+        light: successLightColor,
       },
     },
   });

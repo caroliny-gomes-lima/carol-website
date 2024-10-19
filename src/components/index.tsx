@@ -1,6 +1,6 @@
 import ThemeProvider from "./others/ThemeProvider";
 import DefaultLogo from "./others/DefaultLogo";
-import DefaultButton from "./buttons/DefaultButton";
+import ButtonComponent from "./buttons/ButtonComponent";
 import SelectionDropDown from "./buttons/SelectionDropDown";
 import IconButtonComponent from "./buttons/IconButton";
 import InputComponent from "./inputs/input";
@@ -16,7 +16,7 @@ export {
   Header,
   MenuNav,
   DefaultLogo,
-  DefaultButton,
+  ButtonComponent,
   SelectionDropDown,
   InputComponent,
   svgImageComponent,

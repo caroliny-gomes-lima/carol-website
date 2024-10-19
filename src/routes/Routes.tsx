@@ -4,6 +4,7 @@ import Styles from "./styles/Styles";
 import { Header, Footer, MenuNav } from "components";
 import pagesConfig from "../config/pagesConfig";
 import pages from "pages";
+import { Grid } from "@mui/material";
 
 interface UserInterfaceProps {
   AboutPage: () => JSX.Element;
@@ -17,30 +18,36 @@ interface PageConfig {
 }
 
 function PageRoutes() {
-  //const [menuHeight, setHeight] = React.useState<any>(null);
+  const [MenuHeight, setMenuHeight] = React.useState<number | null>(null);
   const [menu, setMenu] = React.useState<boolean>(false);
 
-  // React.useLayoutEffect(() => {
-  //     if (isLogged && (menuHeight === null || menuHeight === undefined)) {
-  //       const headerMenu = document.getElementById("header-menu");
-  //       setHeight(headerMenu?.offsetHeight);
-  //     }
-  //   }, [menuHeight, isLogged]);
+  /*useCallback para memorizar a função calculateMenuHeight
+  evitando que a função seja recriada em cada renderização */
+  const calculateMenuHeight = React.useCallback(() => {
+    const headerMenu = document.getElementById("header-menu");
+    if (headerMenu) {
+      setMenuHeight(headerMenu.offsetHeight);
+    }
+  }, [])
+
+  // Usando useEffect para atualizar a altura do menu após a renderização
+  React.useEffect(() => {
+    //Calculo altura inicial
+    calculateMenuHeight();
+    //event listener para window resize
+    window.addEventListener("resize", calculateMenuHeight);
+    //Limpa event listener quando component é desmontado
+    return () => {
+      window.removeEventListener("resize", calculateMenuHeight);
+    };
+  }, [calculateMenuHeight]); // Executa apenas uma vez, após a montagem do componente
 
   return (
-    <>
-      <Styles.Stripes />
+    <Grid container direction="column">
       <MenuNav data={pagesConfig.pages} openMenu={setMenu} isOpen={menu} />
       <Header openMenu={() => setMenu(true)} />
-      <Styles.PageContainer
-      // style={{
-      //   height: menuHeight
-      //     ? `calc(90vh - ${menuHeight}px)`
-      //     : `calc(90vh - ${Spacing(9.5)}px)`,
-      //   overflowY: "auto",
-      //   justifyContent: "space-between",
-      // }}
-      >
+      <Styles.PageContainer MenuHeight={MenuHeight}>
+        <Styles.Stripes />
         <Styles.PageContent>
           <Routes>
             {pagesConfig.pages.map((page: PageConfig) => {
@@ -58,7 +65,7 @@ function PageRoutes() {
         </Styles.PageContent>
         <Footer />
       </Styles.PageContainer>
-    </>
+    </Grid>
   );
 }
 

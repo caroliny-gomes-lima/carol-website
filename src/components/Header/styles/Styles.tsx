@@ -10,7 +10,7 @@ const Container = styled.div(({ theme }) => {
     position: "relative",
     backgroundColor: colors.secondary.main,
     padding: spacing(0, 2, 0, 2),
-    //border: "solid 1px purple",
+    zIndex: 3,
   }
 })
 

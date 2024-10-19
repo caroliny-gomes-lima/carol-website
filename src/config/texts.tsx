@@ -17,18 +17,20 @@ const ptBr = {
   footer: {
     modeText:
       "Modo: Vivendo, aprendendo, e tentando evoluir um dia de cada vez.",
-    madeByText: ["Feito em React por", "Caroliny Gomes"],
+    madeByText: ["Feito em React por:", "Caroliny Lima"],
   },
   home: {
-    title: "Desenvolvedora Front-end",
+    title: "Desenvolvedora de Sistemas",
     gamesPopLifeText: "Fã de games e cultura pop",
     fitLifeText: "Curtindo a vida Fitness",
     codeLifeText: "Apaixonada pelos desafios de programar",
     text: [
       "Olá, sou Caroliny e seja bem-vindo(a) ao meu site! Mas quem sou eu? Bom, aqui vai um resuminho!",
-      "Nos meus momentos como Carol, eu me transformo nos personagens dos games quando estou no modo play. Sou a pessoa em busca do shape perfeito e de uma vida saudável quando estou na academia.",
-      "Também sou a protagonista hacker, heroína ou vilã dos filmes e séries de ficção científica, terror e comédia que adoro assistir. Além disso, sou uma aprendiz dedicada de desenvolvimento de sistemas, estudando com cursos, meu computador, livros e muito café.",
-      "Estou sempre me atualizando e buscando adquirir novas habilidades. Sou silenciosamente confiante, naturalmente curiosa e estou sempre trabalhando e estudando para aprimorar minhas habilidades."
+      "Sou a pessoa em busca do shape perfeito e de uma vida saudável quando estou na academia.",
+      "Nos meus momentos como Carol, eu me transformo nos personagens dos games quando estou no modo play.",
+      "Também sou a protagonista guerreira, heroína ou vilã dos filmes e séries de ficção científica, ação e terror que adoro assistir.",
+      "Além disso, sou uma aprendiz dedicada de desenvolvimento de sistemas, estudando com cursos, meu computador, livros e muito café.",
+      "Estou sempre me atualizando e buscando adquirir novas habilidades. Sou silenciosamente confiante, muito curiosa e estou sempre trabalhando e estudando para aprimorar minhas habilidades."
     ],
 
     textActivitiesLeft: [

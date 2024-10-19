@@ -7,7 +7,7 @@ import BarChart from "../components/BarChart";
 import BoxActivities from "../components/BoxActivities";
 import { LiveError, LiveProvider } from "react-live";
 import {
-  DefaultButton,
+  ButtonComponent,
   DefaultModal,
   InputComponent,
   SelectionDropDown,
@@ -227,7 +227,7 @@ function ExperiencesPage() {
         <Grid container spacing={5} justifyContent={"center"}>
           <LiveProvider
             code={ButtonCodeDemo}
-            scope={{ React, DefaultButton }}
+            scope={{ React, ButtonComponent }}
             language="tsx"
             noInline
           >
@@ -300,7 +300,7 @@ function ExperiencesPage() {
                 placeholder="Enter something..."
               />
             </div>
-            <DefaultButton
+            <ButtonComponent
               label="Click please!"
               type="submit"
               //onClick={() => alert('Botão clicado!')}

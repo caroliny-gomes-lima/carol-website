@@ -1,6 +1,6 @@
 import React from "react";
 import Styles from "./Styles";
-import DefaultButton from "components/buttons/DefaultButton";
+import DefaultButton from "components/buttons/ButtonComponent";
 import { Close } from "@mui/icons-material";
 import { Grid } from "@mui/material";
 

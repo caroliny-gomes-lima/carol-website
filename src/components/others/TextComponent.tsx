@@ -12,20 +12,20 @@ null, undefined ou boolean*/
 type TextProps = {
     children: ReactNode;
     style?: React.CSSProperties; //propriedades de estilo
-    fonFamily?: string;
+    typeFont?: string;
     fontSize?: string;
     textColor?: string;
 }
 
 
 type TextStylesProps = {
-    fontFamily?: string;
+    typeFont?: string;
     fontSize?: string;
     textColor?: string;
     styles?: object;
 }
 
-const Text = styled.p<TextStylesProps>(({ fontFamily, fontSize, textColor, styles, theme }) => {
+const Text = styled.p<TextStylesProps>(({ typeFont, fontSize, textColor, styles, theme }) => {
     const { palette: colors, spacing } = theme;
     return {
         padding: 0,
@@ -33,16 +33,16 @@ const Text = styled.p<TextStylesProps>(({ fontFamily, fontSize, textColor, style
         display: "flex",
         justifyContent: "flex-start",
         alignContent: "center",
-        FontFamily: fontFamily ? fontFamily : FontFamily.medium12.fontFamily,
+        fontFamily: typeFont ? typeFont : FontFamily.medium12.fontFamily,
         fontSize: fontSize ? fontSize : FontFamily.medium12.fontSize,
         color: textColor ? textColor : colors.text.textPrimaryColor,
         ...styles,
     };
 });
 
-function TextComponent({ children, style, fonFamily, fontSize, textColor }: TextProps): JSX.Element {
+function TextComponent({ children, style, typeFont, fontSize, textColor }: TextProps): JSX.Element {
     return (
-        <Text styles={style} fontFamily={fonFamily} fontSize={fontSize} textColor={textColor}>
+        <Text styles={style} typeFont={typeFont} fontSize={fontSize} textColor={textColor}>
             {children}
         </Text>
     )

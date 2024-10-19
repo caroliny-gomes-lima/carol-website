@@ -1,63 +1,62 @@
+import React from "react";
 import Styles from "../styles/Styles";
-import { Texts, Theme } from "config";
-import DefaultLogo from "components/others/DefaultLogo";
+import { colors, Fonts, Texts } from "config";
 import IconButtonComponent from "components/buttons/IconButton";
 import { Copyright, Email, GitHub, LinkedIn } from "@mui/icons-material";
 import { Grid } from "@mui/material";
+import TextComponent from "components/others/TextComponent";
 
 function Footer() {
   const texts = Texts["ptBr"].footer;
 
-  const handleEmailClick = () => {
-    const email = "caroliny.gomeslima@gmail.com";
-    window.open(`mailto:${email}`, "_blank");
+  const socialLinks = [
+    {
+      icon: <LinkedIn fontSize="medium" />,
+      link: "https://www.linkedin.com/in/caroliny-gomes-a142291b9",
+    },
+    {
+      icon: <GitHub fontSize="medium" />,
+      link: "https://github.com/caroliny-gomes-lima",
+    },
+    {
+      icon: <Email fontSize="medium" />,
+      link: "mailto:caroliny.gomeslima@gmail.com",
+    },
+  ];
+
+  const renderIconButton = (icon: JSX.Element, link: string) => {
+    return (
+      <IconButtonComponent
+        onClick={() => window.open(link, "_blank")}
+      >
+        {icon}
+      </IconButtonComponent>
+    );
   };
 
   return (
     <Styles.Container>
       <Styles.Content>
-        <Styles.LogoGroup>
-          <DefaultLogo />
-          <Styles.TextStyles>{texts.modeText}</Styles.TextStyles>
-        </Styles.LogoGroup>
         <Grid item display="flex" gap={2} margin={2}>
-          <IconButtonComponent
-            customColor={Theme.Dark.palette.primary.contrastText}
-            onClick={() =>
-              window.open(
-                "https://www.linkedin.com/in/caroliny-gomes-a142291b9",
-                "_blank"
-              )
-            }
-          >
-            <LinkedIn fontSize="large" />
-          </IconButtonComponent>
-          <IconButtonComponent
-            customColor={Theme.Dark.palette.primary.contrastText}
-            onClick={() =>
-              window.open("https://github.com/caroliny-gomes-lima", "_blank")
-            }
-          >
-            <GitHub fontSize="large" />
-          </IconButtonComponent>
-          <IconButtonComponent
-            customColor={Theme.Dark.palette.primary.contrastText}
-            onClick={handleEmailClick}
-          >
-            <Email fontSize="large" />
-          </IconButtonComponent>
+          {socialLinks.map(({ icon, link }, index) => (
+            <React.Fragment key={index}>
+              {renderIconButton(icon, link)}
+            </React.Fragment>
+          ))}
         </Grid>
-        <Grid container direction="row" width={145} wrap="nowrap" gap={1}>
-          <Copyright />
-          <Grid container direction={"column"}>
-            <Styles.SmallTextStyles>
-              {texts.madeByText[0]}
-            </Styles.SmallTextStyles>
-            <Styles.SmallTextStyles>
-              {texts.madeByText[1]}
-            </Styles.SmallTextStyles>
-          </Grid>
-        </Grid>
+        <TextComponent fontSize="0.7rem" typeFont={Fonts.extraBold}>
+          {texts.modeText}
+        </TextComponent>
+        <Styles.CopyrightGrup>
+          <Copyright style={{ color: colors.white, width: "15px" }} />
+          <TextComponent fontSize="0.5rem" typeFont={Fonts.light} textColor={colors.white}>
+            {texts.madeByText[0]}
+          </TextComponent>
+          <TextComponent fontSize="0.5rem" typeFont={Fonts.light} textColor={colors.white}>
+            {texts.madeByText[1]}
+          </TextComponent>
+        </Styles.CopyrightGrup>
+
       </Styles.Content>
     </Styles.Container>
   );

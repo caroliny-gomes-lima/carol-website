@@ -1,67 +1,48 @@
-//import { ListItem, ListItemIcon } from "@mui/material";
-import { FontFamily } from "config";
 import styled from "styled-components";
 
-const Container = styled.div(({ theme }) => {
-  const { palette: colors, spacing } = theme;
-  return {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: "row",
-    padding: theme.spacing(1),
-    marginBottom: spacing(20),
-    //backgroundColor: "red",
-    zIndex: 3,
-  };
-});
+const Container = styled.div<{ backgroundColor?: boolean }>(
+  ({ theme, backgroundColor }) => {
+    const { palette: colors, spacing } = theme;
+    return {
+      width: "100%",
+      height: "fit-content",
+      padding: theme.spacing(2),
+      marginBottom: spacing(5),
+      borderRadius: spacing(1),
+      backgroundColor: backgroundColor ? colors.secondary.main + "9F" : "transparent",
+    };
+  }
+);
 
 const Content = styled.div(({ theme }) => {
   return {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: theme.spacing(5),
+    justifyContent: "center",
+    gap: theme.spacing(0.75),
   };
 });
 
-const TitleStyles = styled.h1(() => {
-  return {
-    ...FontFamily.extrabold42,
-    color: "white",
-    fontSize: "2.1rem",
-  };
-});
-
-const TextStyles = styled.span<{ $DefaultColor?: string }>(
-  ({ $DefaultColor }) => {
+const Box = styled.div<{ setColor: string }>(
+  ({ theme, setColor }) => {
     return {
-      ...FontFamily.extrabold18,
-      textAlign: $DefaultColor ? "left" : "center",
-      color: "white",
+      width: "100%",
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: theme.spacing(1),
+      paddingInline: theme.spacing(4),
+      border: `solid 2px ${setColor}`,
+      borderRadius: theme.spacing(1),
+      gap: 12,
     };
   }
 );
 
-const Box = styled.div(({ theme }) => {
-  return {
-    ...FontFamily.medium16,
-    width: "100%",
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: theme.spacing(1),
-    border: "solid 2px red",
-    borderRadius: theme.spacing(1),
-    gap: 12,
-  };
-});
-
 const Styles = {
   Container,
-  TitleStyles,
-  TextStyles,
   Content,
   Box,
 };

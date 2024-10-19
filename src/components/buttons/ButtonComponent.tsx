@@ -12,35 +12,37 @@ const StyledButton = styled(Button)<{
   $customButtonHoverLabelColor?: string;
 }>(
   ({
+    theme,
     fullWidth,
     $customButtonColor,
     $customButtonLabelColor,
     $customButtonHoverColor,
     $customButtonHoverLabelColor,
   }) => {
+    const { palette: colors, spacing } = theme;
     return {
       "&&.MuiButton-root": {
         width: fullWidth ? "100%" : "fit-content",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: Theme.Dark.spacing(1, 2),
+        padding: spacing(1, 2),
         flexShrink: 1,
         overflow: "hidden",
         //marginTop: Spacing(0.75),S
         ...FontFamily.bold14,
         textTransform: "capitalize",
-        backgroundColor: $customButtonColor || Theme.Dark.palette.primary.main,
+        backgroundColor: $customButtonColor || colors.primary.main,
         color:
-          $customButtonLabelColor || Theme.Dark.palette.primary.contrastText,
-        borderRadius: Theme.Dark.spacing(1),
+          $customButtonLabelColor || colors.primary.contrastText,
+        borderRadius: spacing(1),
         "&:hover": {
           backgroundColor:
             $customButtonHoverColor ||
-            `${Theme.Dark.palette.primary.main}70`,
+            `${colors.primary.main}70`,
           color:
             $customButtonHoverLabelColor ||
-            Theme.Dark.palette.primary.contrastText,
+            colors.primary.contrastText,
         },
         // '&:active': {
         //   backgroundColor: "red",
@@ -48,21 +50,22 @@ const StyledButton = styled(Button)<{
         // }
       },
       "&&.MuiButton-startIcon": {
-        fill: Theme.Dark.palette.primary.contrastText,
+        fill: colors.primary.contrastText,
         width: 17,
       },
       "&&.Mui-disabled": {
-        backgroundColor: Theme.Dark.palette.action.disabledBackground,
+        backgroundColor: colors.action.disabledBackground,
         //opacity: 0.6,
       },
     };
   }
 );
 
-const StyledCircularProgress = styled(CircularProgress)(() => {
+const StyledCircularProgress = styled(CircularProgress)(({ theme }) => {
+  const { palette: colors } = theme;
   return {
     "&&.MuiCircularProgress-root": {
-      color: Theme.Dark.palette.secondary.contrastText + 60,
+      color: colors.secondary.contrastText + 60,
     },
     transition: ".5s",
   };
@@ -92,7 +95,7 @@ interface ButtonProps {
   [key: string]: any;
 }
 
-function DefaultButton({
+function ButtonComponent({
   fullWidth = true,
   customButtonColor,
   customButtonLabelColor,
@@ -146,4 +149,4 @@ function DefaultButton({
   );
 }
 
-export default DefaultButton;
+export default ButtonComponent;
