@@ -34,7 +34,6 @@ function AboutPage() {
             fontSize="2rem"
             typeFont={Fonts.bold}
             textColor={colors.white}
-            style={{ margin: Spacing(3) }}
           >
             {texts.title}
           </TextComponent>

@@ -1,6 +1,8 @@
 import Styles from "../styles/Styles";
-import { colors } from "config";
+import { colors, Fonts } from "config";
 import { Terminal } from "@mui/icons-material";
+import { TextComponent } from "components";
+import { Grid } from "@mui/material";
 
 interface props {
   textsData: string[];
@@ -8,27 +10,31 @@ interface props {
 
 function BoxActivities({ textsData }: props) {
   return (
-    <Styles.BoxActivities $DefaultColor={colors.yellow}>
-      <Styles.BoxActivitiesHeader $DefaultColor={colors.yellow}>
-        <Terminal />
-      </Styles.BoxActivitiesHeader>
-      <Styles.BoxActivitiesContent>
-        {textsData.map((item, index) => {
-          return (
-            <Styles.BoxActivitiesList key={index}>
-              <Styles.BoxActivitiesListDot>
-                <svg width={5} height={5} viewBox="0 0 10 10">
-                  <circle cx="5" cy="5" r="5" fill={colors.yellow} />
-                </svg>
-              </Styles.BoxActivitiesListDot>
-              <Styles.TextStyles $DefaultColor={colors.yellow}>
-                {item}
-              </Styles.TextStyles>
-            </Styles.BoxActivitiesList>
-          );
-        })}
-      </Styles.BoxActivitiesContent>
-    </Styles.BoxActivities>
+    <>
+      <Grid item xs={12} sm={11} md={6} lg={5}>
+        <Styles.BoxActivities >
+          <Styles.BoxActivitiesHeader >
+            <Terminal fontSize="large" />
+          </Styles.BoxActivitiesHeader>
+          <Styles.BoxActivitiesContent>
+            {textsData.map((item, index) => (
+              <Styles.BoxActivitiesList key={index}>
+                <Styles.BoxActivitiesListDot>
+                  <svg width={5} height={5} viewBox="0 0 10 10">
+                    <circle cx="5" cy="5" r="5" fill={colors.yellow} />
+                  </svg>
+                </Styles.BoxActivitiesListDot>
+                <TextComponent fontSize="0.8rem"
+                  typeFont={Fonts.medium}
+                  textColor={colors.yellow}>
+                  {item}
+                </TextComponent>
+              </Styles.BoxActivitiesList>
+            ))}
+          </Styles.BoxActivitiesContent>
+        </Styles.BoxActivities>
+      </Grid>
+    </>
   );
 }
 

@@ -4,66 +4,53 @@ import { colors, FontFamily, Theme } from "config";
 import { LiveEditor, LivePreview } from "react-live";
 import styled from "styled-components";
 
-const Container = styled.div(() => {
+const Container = styled.div<{ backgroundColor?: boolean }>(({ theme, backgroundColor }) => {
+  const { palette: colors, spacing } = theme;
   return {
     width: "100%",
     height: "fit-content",
-    margin: Theme.Dark.spacing(2),
-    padding: Theme.Dark.spacing(1),
+    padding: spacing(2),
+    marginBottom: spacing(5),
+    borderRadius: spacing(1),
+    backgroundColor: backgroundColor ? colors.secondary.main + "9F" : "transparent",
   };
 });
 
-const Content = styled.div(() => {
+const Content = styled.div(({ theme }) => {
+  const { spacing } = theme;
   return {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
-    gap: Theme.Dark.spacing(5),
     alignItems: "center",
-    marginTop: Theme.Dark.spacing(1),
+    justifyContent: "center",
+    gap: spacing(3),
   };
 });
 
-const BoxActivities = styled.div<{ $DefaultColor: string }>(
-  ({ $DefaultColor }) => {
-    return {
-      alignItems: "center",
-      width: "auto",
-      display: "flex",
-      flexDirection: "column",
-      flexWrap: "wrap",
-      padding: Theme.Dark.spacing(0, 2),
-      border: "solid 2px",
-      borderColor: $DefaultColor,
-      borderRadius: Theme.Dark.spacing(1),
-      gap: 12,
-    };
-  }
-);
+const BoxActivities = styled.div(({ theme }) => ({
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  padding: theme.spacing(1),
+  border: `2px solid ${theme.palette.info.main}`,
+  borderRadius: theme.spacing(1),
+}));
 
-const BoxActivitiesHeader = styled.div<{ $DefaultColor: string }>(
-  ({ $DefaultColor }) => {
-    return {
-      width: "100%",
-      display: "flex",
-      justifyContent: "center",
-      padding: Theme.Dark.spacing(2, 1),
-      borderBottom: "solid 2px",
-      borderColor: $DefaultColor,
-      color: $DefaultColor,
-    };
-  }
-);
+const BoxActivitiesHeader = styled.div(({ theme }) => ({
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+  paddingBottom: theme.spacing(1),
+  borderBottom: `2px solid ${theme.palette.info.main}`,
+  color: theme.palette.info.main,
+}));
 
-const BoxActivitiesContent = styled.div(() => {
-  return {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    gap: 10,
-    padding: Theme.Dark.spacing(2, 0),
-  };
-});
+const BoxActivitiesContent = styled.div(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  paddingTop: theme.spacing(2),
+}));
 
 const BoxActivitiesListDot = styled(ListItemIcon)(() => {
   return {
@@ -75,24 +62,10 @@ const BoxActivitiesListDot = styled(ListItemIcon)(() => {
   };
 });
 
-const BoxActivitiesList = styled(ListItem)(() => {
-  return {
-    "&&.MuiListItem-root": {
-      paddingTop: 0,
-      margin: 0,
-    },
-  };
-});
-
-const TextStyles = styled.span<{ $DefaultColor?: string }>(
-  ({ $DefaultColor }) => {
-    return {
-      ...FontFamily.extrabold18,
-      textAlign: $DefaultColor ? "left" : "center",
-      color: $DefaultColor,
-    };
-  }
-);
+const BoxActivitiesList = styled(ListItem)(() => ({
+  paddingTop: 0,
+  margin: 0,
+}));
 
 const ChartBox = styled.div(() => {
   return {
@@ -147,7 +120,6 @@ const Styles = {
   BoxActivitiesContent,
   BoxActivitiesListDot,
   BoxActivitiesList,
-  TextStyles,
   ChartBox,
   LiveEditorCodeBox,
   LivePreviewCodeBox,

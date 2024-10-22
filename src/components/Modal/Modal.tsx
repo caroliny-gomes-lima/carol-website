@@ -1,8 +1,9 @@
 import React from "react";
 import Styles from "./Styles";
-import DefaultButton from "components/buttons/ButtonComponent";
+
 import { Close } from "@mui/icons-material";
 import { Grid } from "@mui/material";
+import ButtonComponent from "components/buttons/ButtonComponent";
 
 interface ModalProps {
   modalButtonLabel?: string;
@@ -29,7 +30,7 @@ function DefaultModal({
 
   return (
     <>
-      <DefaultButton
+      <ButtonComponent
         label={modalButtonLabel}
         type="button"
         onClick={handleOpen}
@@ -66,7 +67,7 @@ function DefaultModal({
             >
               {hasConfirmButton ? (
                 <Grid item xs={11} sm={11} md={10} lg={2}>
-                  <DefaultButton
+                  <ButtonComponent
                     type="button"
                     loading={false}
                     label={confirmButtonLabel}
@@ -77,7 +78,7 @@ function DefaultModal({
 
               {hasCancelButton ? (
                 <Grid item xs={11} sm={11} md={10} lg={3}>
-                  <DefaultButton
+                  <ButtonComponent
                     type="button"
                     loading={false}
                     label={cancelButtonLabel}

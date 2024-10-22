@@ -6,7 +6,7 @@ const Container = styled.div<{ backgroundColor?: boolean }>(
     return {
       width: "100%",
       height: "fit-content",
-      padding: theme.spacing(2),
+      padding: spacing(2),
       marginBottom: spacing(5),
       borderRadius: spacing(1),
       backgroundColor: backgroundColor ? colors.secondary.main + "9F" : "transparent",
@@ -15,12 +15,13 @@ const Container = styled.div<{ backgroundColor?: boolean }>(
 );
 
 const Content = styled.div(({ theme }) => {
+  const { spacing } = theme;
   return {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    gap: theme.spacing(0.75),
+    gap: spacing(1),
   };
 });
 

@@ -1,76 +1,79 @@
-import { colors, FontFamily, Theme } from "config";
 import styled from "styled-components";
 
-
-const Container = styled.div(() => {
-  return {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    margin: Theme.Dark.spacing(2),
-    padding: Theme.Dark.spacing(1),
+const Container = styled.div<{ backgroundColor?: boolean }>(
+  ({ theme, backgroundColor }) => {
+    const { palette: colors, spacing } = theme;
+    return {
+      width: "100%",
+      height: "fit-content",
+      padding: theme.spacing(2),
+      marginBottom: spacing(5),
+      borderRadius: spacing(1),
+      backgroundColor: backgroundColor ? colors.secondary.main + "9F" : "transparent",
+    };
   }
-})
+);
 
-const Content = styled.div(() => {
+const Content = styled.div(({ theme }) => {
   return {
     display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
+    flexDirection: "row",
     alignItems: "center",
-    marginTop: Theme.Dark.spacing(10),
-    gap: Theme.Dark.spacing(25),
-  }
-})
+    justifyContent: "center",
+    gap: theme.spacing(1),
+  };
+});
 
-const AvatarBox = styled.div(() => {
+const AvatarBox = styled.div(({ theme }) => {
+  const { palette: colors, spacing } = theme;
   return {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     width: "90%",
     height: "auto",
-    borderRadius: "200px",
-    backgroundColor: colors.purple
+    borderRadius: spacing(20),
+    backgroundColor: colors.secondary.contrastText
   }
 })
 
-const TextStyles = styled.span<{ $DefaultColor?: string }>(
-  ({ $DefaultColor }) => {
-    return {
-      ...FontFamily.extrabold18,
-      color: $DefaultColor,
-    };
+const CompanyBox = styled.div(({ theme }) => {
+  const { palette: colors, spacing } = theme;
+  return {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    height: "fit-content",
+    backgroundColor: colors.secondary.contrastText,
+    padding: theme.spacing(2),
+    marginBottom: spacing(5),
+    borderRadius: spacing(1),
+    "& .companyImage": {
+      animation: "go-back 2s",
+    },
+    "@keyframes go-back": {
+      from: {
+        transform: "translateX(-500px)"
+      },
+      to: {
+        transform: "translateX(0)"
+      }
+    }
   }
-);
+})
 
-const ImageCompanyBox = styled.div(() => {
+const CompanyLogosGroup = styled.div(({ theme }) => {
+  const { spacing } = theme;
   return {
     display: "flex",
     flexWrap: "wrap",
     flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    width: "100%",
-    height: "auto",
-    borderRadius: Theme.Dark.spacing(1),
-    backgroundColor: colors.purple,
-    margin: Theme.Dark.spacing(2),
-    padding: Theme.Dark.spacing(4, 1),
-  }
-})
-
-const ImageMemberComapnyBox = styled.div(() => {
-  return {
-    width: "100%",
-    height: "auto",
-    display: "flex",
-    flexWrap: "wrap",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    borderRadius: Theme.Dark.spacing(1),
-    margin: Theme.Dark.spacing(2),
+    gap: spacing(2),
+    width: "fit-content",
+    height: "fit-content",
   }
 })
 
@@ -78,9 +81,8 @@ const Styles = {
   Container,
   Content,
   AvatarBox,
-  TextStyles,
-  ImageCompanyBox,
-  ImageMemberComapnyBox,
+  CompanyBox,
+  CompanyLogosGroup,
 }
 
 export default Styles;

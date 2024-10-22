@@ -23,6 +23,7 @@ interface ThemeProps {
   textDisabledColor?: string;
   buttonTextColor?: string;
   disabledColor?: string;
+  hintColor?: string,
   successMainColor?: string;
   successLightColor?: string
 }
@@ -36,6 +37,7 @@ function createDarkTheme({
   textSecondaryColor = colors.purple,
   textDisabledColor = colors.darkGray,
   disabledColor = colors.gray,
+  hintColor = colors.yellow,
   successMainColor = colors.green,
   successLightColor = colors.lightBlue
 }: Partial<ThemeProps>) {
@@ -73,6 +75,9 @@ function createDarkTheme({
       background: {
         paper: paperBackgroundColor,
         default: backgroundColor,
+      },
+      info: {
+        main: hintColor,
       },
       action: {
         hover: hoverColor,
