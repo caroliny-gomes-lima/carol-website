@@ -1,9 +1,8 @@
 import React from "react";
 import Styles from "../styles/Styles";
 import { colors, Fonts, Texts } from "config";
-import DoughnutChart from "../components/DoughnutChart";
 import { Grid } from "@mui/material";
-import BarChart from "../components/BarChart";
+import BarChart from "../../Skills/components/BarChart";
 import BoxActivities from "../components/BoxActivities";
 import { LiveError, LiveProvider } from "react-live";
 import {
@@ -14,6 +13,7 @@ import {
   TextComponent,
 } from "components";
 import { FormProvider, useForm } from "react-hook-form";
+import ChartsDashboard from "../../Skills/components/ChartsDashboard";
 
 const ButtonCodeDemo = `
   function Demo() {
@@ -165,7 +165,6 @@ function ExperiencesPage() {
           </Grid>
         </Styles.Content>
       </Styles.Container>
-
 
       {/* <Grid container justifyContent={"center"} marginTop={15}>
         <Grid item xs={12} sm={11} md={10} lg={10} textAlign={"left"}>

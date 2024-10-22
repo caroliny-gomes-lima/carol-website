@@ -23,6 +23,12 @@ const pagesConfig = {
     },
     {
       navigationId: 3,
+      path: paths.Skills,
+      name: "SkillsPage",
+      title: "HABILIDADES",
+    },
+    {
+      navigationId: 4,
       path: paths.career,
       name: "CareerPage",
       title: "TRABALHOS",

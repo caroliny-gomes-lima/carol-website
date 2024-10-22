@@ -33,6 +33,10 @@ function Header({ openMenu }: HeaderProps) {
     }
 
     if (index === 3) {
+      navigate(paths.Skills);
+    }
+
+    if (index === 4) {
       //navigate(paths.home);
     }
   };
@@ -93,7 +97,7 @@ function Header({ openMenu }: HeaderProps) {
             />
 
             <ButtonComponent
-              label={texts.work}
+              label={texts.skills}
               type="button"
               onClick={() => handleClick(3)}
               fullWidth={false}
@@ -103,6 +107,20 @@ function Header({ openMenu }: HeaderProps) {
                   clicked === 3 ? Theme.Dark.palette.action.hover : "",
                 color:
                   clicked === 3 ? Theme.Dark.palette.secondary.contrastText : "",
+              }}
+            />
+
+            <ButtonComponent
+              label={texts.work}
+              type="button"
+              onClick={() => handleClick(4)}
+              fullWidth={false}
+              loading={false}
+              style={{
+                backgroundColor:
+                  clicked === 4 ? Theme.Dark.palette.action.hover : "",
+                color:
+                  clicked === 4 ? Theme.Dark.palette.secondary.contrastText : "",
               }}
             />
           </Styles.NavGroup>

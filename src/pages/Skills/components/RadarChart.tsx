@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Styles from "../styles/Styles";
+import Styles from "../Styles/Styles";
 import { Chart, ChartData } from "chart.js/auto";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Fonts } from "config";

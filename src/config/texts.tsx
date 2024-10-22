@@ -12,6 +12,7 @@ const ptBr = {
     home: "Sobre",
     career: "Carreira",
     experiences: "Experiências",
+    skills: "habilidades",
     work: "Trabalhos",
   },
   footer: {
@@ -52,8 +53,8 @@ const ptBr = {
 
   experiences: {
     experiencesText: "Tenho 3 anos de experiência em desenvolvimento de projetos front-end para aplicações web, atuando principalmente em projetos B2B. Trabalhei de forma híbrida, o que me permitiu desenvolver habilidades tanto em ambientes presenciais quanto remotos. Minhas principais experiências incluem:",
-    DashboardText: "No dashboard abaixo,  você pode ver as ferramentas com as quais tenho experiência e utilizo no desenvolvimento de projetos front-end, além do nível de conhecimento que possuo em cada uma delas:",
-    chartsTitle: ["LINGUAGENS", "FRAMEWORKS E BIBLIOTECAS", "INTEGRAÇÃO", "OUTRAS FERRAMENTAS"],
+    DashboardText: "No dashboard abaixo, é possível conferir as ferramentas com as quais tenho experiência no desenvolvimento de sistemas, além do nível de conhecimento que possuo em cada uma delas:",
+    chartsTitle: ["LINGUAGENS", "FERRAMENTAS FRONT-END", "FERRAMENTAS BACK-END", "OUTRAS FERRAMENTAS", "INTEGRAÇÃO", "OUTRAS FERRAMENTAS"],
     textExperiencesLeft: [
       "Leitura de mockups e protótipos dos projetos através de ferramentas de design Adobe XD e Figma.",
       "Criação de projetos front-end com interfaces contendo layouts responsivos e componentes funcionais utilizando JavaScript ou TypeScript com sintaxe JSX e a biblioteca React. Além disso, utilizo ferramentas como HTML5, CSS, styled-components, Material-UI, Chart.js, react-router-dom, React Hooks, VS Code, ambiente Node.js, versionamento e sistemas de controle Git.",

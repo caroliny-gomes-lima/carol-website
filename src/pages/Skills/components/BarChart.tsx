@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
-import Styles from "../styles/Styles";
+import Styles from "../../Experiences/styles/Styles";
 import { Chart, ChartData } from "chart.js/auto";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Fonts } from "config";
@@ -9,12 +9,12 @@ Chart.register(ChartDataLabels);
 Chart.defaults.font.family = Fonts.medium;
 
 interface Props {
-  chartData: { name: string; value: number; color: string }[];
+  chartData: readonly { name: string; value: number; color: string }[];
   chartTitle: string;
 }
 
 const formatData = (
-  data: { name: string; value: number; color: string }[]
+  data: readonly { name: string; value: number; color: string }[]
 ): ChartData => {
   return {
     labels: data.map((item) => item.name),
