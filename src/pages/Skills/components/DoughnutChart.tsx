@@ -29,7 +29,7 @@ const formatData = (
   };
 };
 
-function RadarChart({ chartData, chartTitle }: Props) {
+function DoughnutChart({ chartData, chartTitle }: Props) {
   const chartRef = useRef<Chart | null>(null);
 
   useEffect(() => {
@@ -126,4 +126,4 @@ function RadarChart({ chartData, chartTitle }: Props) {
   );
 }
 
-export default RadarChart;
+export default DoughnutChart;
