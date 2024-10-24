@@ -1,9 +1,8 @@
-import React from "react";
 import Styles from "../Styles/Styles";
 import { colors, Fonts, Texts } from "config";
-import { Grid } from "@mui/material";
 import { TextComponent } from "components";
 import HardSkillsDashboard from "../components/HardSkillsDashboard";
+import SoftSkillsDashboard from "../components/SoftSkillsDashboard";
 
 function SkillsPage() {
     const texts = Texts["ptBr"].Skills;
@@ -33,7 +32,7 @@ function SkillsPage() {
                     </TextComponent>
                 </Styles.Content>
             </Styles.Container>
-            {/* <ChartsDashboard /> */}
+            <SoftSkillsDashboard />
         </>
     );
 }

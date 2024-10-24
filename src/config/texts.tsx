@@ -71,8 +71,11 @@ const ptBr = {
     SkillsTitle: ["HARD SKILLS", "SOFT SKILLS"],
     levelTitle: ["FRONT-END", "BACK-END"],
     level: ["Junior", "Pleno", "Sênior"],
-    DashboardText: "No dashboard abaixo, é possível conferir as ferramentas com as quais tenho experiência no desenvolvimento de sistemas, além do nível de conhecimento que possuo em cada uma delas:",
-    chartsTitle: ["LINGUAGENS", "FERRAMENTAS FRONT-END", "FERRAMENTAS BACK-END", "OUTRAS FERRAMENTAS", "INTEGRAÇÃO", "OUTRAS FERRAMENTAS"],
+    DashboardText: [
+      "No dashboard abaixo, é possível conferir as ferramentas com as quais tenho experiência no desenvolvimento de sistemas, além do nível de conhecimento que possuo em cada uma delas:",
+      "No dashboard ao lado, é possível conferir minhas habilidades interpessoais e comportamentais, refletindo minha personalidade e inteligência emocional. Essas habilidades são fundamentais tanto na minha vida pessoal quanto no ambiente de trabalho:"
+    ],
+    chartsTitle: ["LINGUAGENS", "FERRAMENTAS FRONT-END", "FERRAMENTAS BACK-END", "OUTRAS FERRAMENTAS", "COMPETÊNCIAS"],
   }
 };
 

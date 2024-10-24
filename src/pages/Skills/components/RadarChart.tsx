@@ -48,6 +48,12 @@ function RadarChart({ chartData, chartTitle }: Props) {
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          layout: {
+            padding: {
+              left: 10,
+              right: 10
+            }
+          },
           scales: {
             r: {
               angleLines: {
@@ -58,10 +64,10 @@ function RadarChart({ chartData, chartTitle }: Props) {
               },
               pointLabels: {
                 color: colors.purple,
-                padding: 37,
+                padding: 40,
                 font: {
                   weight: "bold",
-                  size: 11,
+                  size: 12,
                 }
               },
               ticks: {
@@ -93,7 +99,7 @@ function RadarChart({ chartData, chartTitle }: Props) {
                 value: {
                   font: {
                     weight: "bold",
-                    size: 15,
+                    size: 10,
                   },
                   color: colors.yellow,
                 },

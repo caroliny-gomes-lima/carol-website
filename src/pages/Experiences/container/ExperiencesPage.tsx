@@ -101,51 +101,22 @@ function ExperiencesPage() {
         </Styles.Content>
       </Styles.Container>
 
-      {/* <Grid container justifyContent={"center"} marginTop={15}>
-        <Grid item xs={12} sm={11} md={10} lg={10} textAlign={"left"}>
-          <Styles.TextStyles>{texts.DashboardText}</Styles.TextStyles>
-        </Grid>
-      </Grid>
-      <Grid container spacing={5} justifyContent="center">
-        <Grid item xs={12} sm={11} md={5} lg={5}>
-          <BarChart
-            chartTitle={texts.chartsTitle[0]}
-            chartData={languagesData}
-          />
-        </Grid>
-        <Grid item xs={12} sm={11} md={5} lg={5}>
-          <DoughnutChart
-            chartTitle={texts.chartsTitle[1]}
-            chartData={frameworksLibsdata}
-          />
-        </Grid>
-      </Grid>
-      <Grid container spacing={5} justifyContent="center">
-        <Grid item xs={12} sm={11} md={5} lg={5}>
-          <BarChart
-            chartTitle={texts.chartsTitle[2]}
-            chartData={IntegrationData}
-          />
-        </Grid>
-        <Grid item xs={12} sm={11} md={5} lg={5}>
-          <DoughnutChart
-            chartTitle={texts.chartsTitle[3]}
-            chartData={OtherToolsData}
-          />
-        </Grid>
-      </Grid>
       <Grid container justifyContent={"center"} marginTop={15}>
         <Grid item xs={12} sm={11} md={10} lg={10} textAlign={"left"}>
-          <Styles.TextStyles>
+          <TextComponent fontSize="1rem"
+            typeFont={Fonts.bold}
+            textColor={colors.white}>
             {texts.practicalExperiencesText}
-          </Styles.TextStyles>
+          </TextComponent>
         </Grid>
       </Grid>
       <Grid container justifyContent={"center"} marginTop={10}>
         <Grid item xs={12} sm={11} md={10} lg={10} textAlign={"center"}>
-          <Styles.TextStyles style={{ fontSize: "1rem" }}>
+          <TextComponent fontSize="1rem"
+            typeFont={Fonts.bold}
+            textColor={colors.white}>
             {texts.titleCodeDemoButtonComponent}
-          </Styles.TextStyles>
+          </TextComponent>
         </Grid>
       </Grid>
       <Grid container spacing={5} justifyContent={"center"}>
@@ -167,9 +138,11 @@ function ExperiencesPage() {
       </Grid>
       <Grid container justifyContent={"center"} marginTop={10}>
         <Grid item xs={12} sm={11} md={10} lg={10} textAlign={"center"}>
-          <Styles.TextStyles style={{ fontSize: "1rem" }}>
+          <TextComponent fontSize="1rem"
+            typeFont={Fonts.bold}
+            textColor={colors.white}>
             {texts.titleCodeDemoSelectionDropDown}
-          </Styles.TextStyles>
+          </TextComponent>
         </Grid>
       </Grid>
       <Grid container spacing={5} justifyContent={"center"}>
@@ -231,7 +204,7 @@ function ExperiencesPage() {
             loading={false}
           />
         </form>
-      </FormProvider> */}
+      </FormProvider>
     </>
   );
 }
