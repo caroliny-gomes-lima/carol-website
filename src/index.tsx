@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <CssBaseline />
-    <ThemeProvider theme={Theme.Dark}>
+    <ThemeProvider theme={Theme.dark}>
       <App />
     </ThemeProvider>
   </React.StrictMode>

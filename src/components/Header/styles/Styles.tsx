@@ -26,12 +26,12 @@ const Content = styled.div(() => {
   };
 });
 
-const LogoGroup = styled.div(() => {
+const LogoGroup = styled.div(({ theme }) => {
   return {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: Theme.Dark.spacing(1),
+    gap: theme.spacing(1),
     alignItems: "center",
   };
 });
@@ -45,10 +45,10 @@ const NavGroup = styled.div(() => {
   };
 });
 
-const TextName = styled.span(() => {
+const TextName = styled.span(({ theme }) => {
   return {
     ...FontFamily.bold18,
-    marginLeft: Theme.Dark.spacing(0.5),
+    marginLeft: theme.spacing(0.5),
     color: colors.purple,
   };
 });

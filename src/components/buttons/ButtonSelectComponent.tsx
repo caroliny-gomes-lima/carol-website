@@ -6,17 +6,14 @@ import { Menu, MenuItem } from "@mui/material";
 import { FontFamily, Theme } from "config";
 
 const BaseButtonStyles = styled(BaseButton)<{
-  $customButtonColor?: string;
-  $customButtonLabelColor?: string;
-  $customButtonHoverColor?: string;
-  $customButtonHoverLabelColor?: string;
+  backgroundColor?: string,
+  textColor?: string,
 }>(
   ({
+    theme,
     fullWidth,
-    $customButtonColor,
-    $customButtonLabelColor,
-    $customButtonHoverColor,
-    $customButtonHoverLabelColor,
+    backgroundColor,
+    textColor,
   }) => {
     return {
       ...FontFamily.bold14,
@@ -24,19 +21,16 @@ const BaseButtonStyles = styled(BaseButton)<{
       display: "flex",
       width: fullWidth ? "100%" : "fit-content",
       lineHeight: 1.5,
-      padding: Theme.Dark.spacing(1, 2),
+      padding: theme.spacing(1, 2),
       border: "unset",
       boxShadow: "0 2px 1px 1px rgba(45, 45, 60, 0.2)",
       borderRadius: "5px",
-      backgroundColor: $customButtonColor || Theme.Dark.palette.primary.main,
-      color: $customButtonLabelColor || Theme.Dark.palette.primary.contrastText,
+      backgroundColor: backgroundColor,
+      color: textColor,
       "&:hover": {
-        backgroundColor:
-          $customButtonHoverColor ||
-          `${Theme.Dark.palette.primary.main}70`,
+        backgroundColor: backgroundColor + "9F",
         color:
-          $customButtonHoverLabelColor ||
-          Theme.Dark.palette.primary.contrastText,
+          textColor + "9F",
       },
     };
   }
@@ -49,39 +43,34 @@ const MenuStyles = styled(Menu)<{
   $customMenuHoverLabelColor?: string;
 }>(
   ({
-    $customBgMenuColor,
-    $customMenuLabelColor,
-    $customMenuHoverColor,
-    $customMenuHoverLabelColor,
+    theme,
   }) => {
     return {
       "& .MuiPaper-root": {
-        backgroundColor:
-          $customBgMenuColor || Theme.Dark.palette.primary.contrastText,
-        marginTop: Theme.Dark.spacing(0.1),
+        backgroundColor: theme.palette.primary.contrastText,
+        marginTop: theme.spacing(0.1),
         minWidth: 120,
         borderRadius: 2,
         boxShadow: "0 1px 4px #494949",
         "& .MuiMenuItem-root": {
           ...FontFamily.bold14,
-          backgroundColor:
-            $customBgMenuColor || Theme.Dark.palette.primary.contrastText,
-          color: $customMenuLabelColor || Theme.Dark.palette.primary.main,
+          backgroundColor: theme.palette.primary.contrastText,
+          color: theme.palette.primary.main,
           "&:hover": {
             backgroundColor:
-              $customMenuHoverColor || Theme.Dark.palette.primary.main,
-            color: $customMenuHoverLabelColor || Theme.Dark.palette.primary.contrastText,
+              theme.palette.secondary.contrastText,
+            color: theme.palette.primary.contrastText,
           },
         },
         "&::before": {
           content: '""',
           display: "block",
           position: "absolute",
-          top: Theme.Dark.spacing(0),
-          right: Theme.Dark.spacing(2),
+          top: theme.spacing(0),
+          right: theme.spacing(2),
           width: 10,
           height: 10,
-          backgroundColor: "black",
+          backgroundColor: theme.palette.secondary.contrastText,
           transform: "translateY(-50%) rotate(45deg)",
           zIndex: 0,
         },
@@ -92,14 +81,8 @@ const MenuStyles = styled(Menu)<{
 
 interface Props {
   label: string;
-  customButtonColor?: string;
-  customButtonLabelColor?: string;
-  customButtonHoverColor?: string;
-  customButtonHoverLabelColor?: string;
-  customBgMenuColor?: string;
-  customMenuLabelColor?: string;
-  customMenuHoverColor?: string;
-  customMenuHoverLabelColor?: string;
+  backgroundColor?: string;
+  textColor?: string;
   options: Array<{
     action: () => void;
     name: string;
@@ -108,19 +91,13 @@ interface Props {
   name: string;
 }
 
-function SelectionDropDown({
+function ButtonSelectComponent({
   name,
   label,
   options,
   fullWidth = true,
-  customButtonColor,
-  customButtonLabelColor,
-  customButtonHoverColor,
-  customButtonHoverLabelColor,
-  customBgMenuColor,
-  customMenuLabelColor,
-  customMenuHoverColor,
-  customMenuHoverLabelColor,
+  backgroundColor,
+  textColor,
   ...props
 }: Props): JSX.Element {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -142,10 +119,8 @@ function SelectionDropDown({
         aria-haspopup="true"
         fullWidth={fullWidth}
         onClick={handleOpen}
-        $customButtonColor={customButtonColor}
-        $customButtonLabelColor={customButtonLabelColor}
-        $customButtonHoverColor={customButtonHoverColor}
-        $customButtonHoverLabelColor={customButtonHoverLabelColor}
+        backgroundColor={backgroundColor}
+        textColor={textColor}
         {...props}
       >
         {label}
@@ -158,10 +133,6 @@ function SelectionDropDown({
         MenuListProps={{ onClick: handleClose }}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         transformOrigin={{ vertical: "top", horizontal: "center" }}
-        $customBgMenuColor={customBgMenuColor}
-        $customMenuLabelColor={customMenuLabelColor}
-        $customMenuHoverColor={customMenuHoverColor}
-        $customMenuHoverLabelColor={customMenuHoverLabelColor}
       >
         {options?.map(({ action, name }, index) => (
           <MenuItem
@@ -179,4 +150,4 @@ function SelectionDropDown({
   );
 }
 
-export default SelectionDropDown;
+export default ButtonSelectComponent;

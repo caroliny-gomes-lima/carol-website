@@ -6,7 +6,8 @@ import { Grid } from "@mui/material";
 import ButtonComponent from "components/buttons/ButtonComponent";
 
 interface ModalProps {
-  modalButtonLabel?: string;
+  open: boolean;
+  onClose: () => void;
   modalText?: string;
   hasConfirmButton?: false;
   hasCancelButton?: false;
@@ -15,8 +16,9 @@ interface ModalProps {
   children?: React.ReactNode;
 }
 
-function DefaultModal({
-  modalButtonLabel,
+function ModalCompoent({
+  open,
+  onClose,
   modalText,
   hasConfirmButton,
   hasCancelButton,
@@ -24,32 +26,19 @@ function DefaultModal({
   confirmButtonLabel,
   children,
 }: ModalProps): JSX.Element {
-  const [open, setOpen] = React.useState<boolean>(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   return (
     <>
-      <ButtonComponent
-        label={modalButtonLabel}
-        type="button"
-        onClick={handleOpen}
-        fullWidth={false}
-        loading={false}
-        customButtonColor="white"
-        customButtonLabelColor="black"
-        customButtonHoverColor="#006dd0"
-        customButtonHoverLabelColor="white"
-      />
+
       <Styles.customModal
         open={open}
-        onClose={handleClose}
+        onClose={onClose}
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
       >
         <Styles.Container>
           <Styles.HeaderModal>
-            <Styles.closeButton onClick={handleClose}>
+            <Styles.closeButton onClick={onClose}>
               <Close />
             </Styles.closeButton>
             <Styles.ModalTitle>ABRIU O MODAL</Styles.ModalTitle>
@@ -82,7 +71,7 @@ function DefaultModal({
                     type="button"
                     loading={false}
                     label={cancelButtonLabel}
-                    onClick={handleClose}
+                    onClick={onClose}
                   />
                 </Grid>
               ) : null}
@@ -94,4 +83,4 @@ function DefaultModal({
   );
 }
 
-export default DefaultModal;
+export default ModalCompoent;

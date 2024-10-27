@@ -2,57 +2,62 @@ import { Box, IconButton, Modal, Paper } from "@mui/material";
 import { colors, FontFamily, Theme } from "config";
 import styled from "styled-components";
 
-const customModal = styled(Modal)(() => {
+const customModal = styled(Modal)(({ theme }) => {
+  const { spacing } = theme;
   return {
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
-    marginTop: Theme.Dark.spacing(10),
+    marginTop: spacing(10),
   };
 });
 
 const Container = styled(Paper)<{
   customBgColor?: string;
   customShadowColor?: string;
-}>(({ customBgColor, customShadowColor }) => {
+}>(({ theme, customBgColor, customShadowColor }) => {
+  const { spacing } = theme;
   return {
     "&&.MuiPaper-root": {
       backgroundColor: customBgColor || colors.purple,
       width: "fit-content",
       height: "fit-content",
-      margin: Theme.Dark.spacing(2),
-      padding: Theme.Dark.spacing(1),
+      margin: spacing(2),
+      padding: spacing(1),
       boxShadow: `0px 4px 20px ${customShadowColor || "rgba(110, 7, 243, 0.7)"
         }`,
     },
   };
 });
 
-const HeaderModal = styled.div(() => {
+const HeaderModal = styled.div(({ theme }) => {
+  const { spacing } = theme;
   return {
     flex: 1,
     display: "flex",
     flexDirection: "row-reverse",
     justifyContent: "space-between",
     flexWrap: "wrap",
-    gap: Theme.Dark.spacing(15),
-    padding: Theme.Dark.spacing(1),
+    gap: spacing(15),
+    padding: spacing(1),
   };
 });
 
-const Content = styled(Box)(() => {
+const Content = styled(Box)(({ theme }) => {
+  const { spacing } = theme;
   return {
     width: "fit-content",
     height: "fit-content",
-    padding: Theme.Dark.spacing(2),
+    padding: spacing(2),
     outline: "none",
   };
 });
 
-const ModalTitle = styled.span(() => {
+const ModalTitle = styled.span(({ theme }) => {
+  const { palette: colors } = theme;
   return {
     ...FontFamily.extrabold18,
-    color: Theme.Dark.palette.primary.main,
+    color: colors.primary.main,
     alignSelf: "center",
   };
 });

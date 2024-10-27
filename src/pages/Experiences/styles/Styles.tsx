@@ -1,29 +1,31 @@
-import { ListItem, ListItemIcon } from "@mui/material";
-
-import { colors, FontFamily, Theme } from "config";
+import { Box, ListItem, ListItemIcon } from "@mui/material";
+import { colors } from "config";
 import { LiveEditor, LivePreview } from "react-live";
 import styled from "styled-components";
 
-const Container = styled.div<{ backgroundColor?: boolean }>(({ theme, backgroundColor }) => {
-  const { palette: colors, spacing } = theme;
-  return {
-    width: "100%",
-    height: "fit-content",
-    padding: spacing(2),
-    marginBottom: spacing(5),
-    borderRadius: spacing(1),
-    backgroundColor: backgroundColor ? colors.secondary.main + "9F" : "transparent",
-  };
-});
+const Container = styled.div<{ backgroundColor?: boolean }>(
+  ({ theme, backgroundColor }) => {
+
+    return {
+      width: "100%",
+      height: "fit-content",
+      padding: theme.spacing(2),
+      marginBottom: theme.spacing(5),
+      borderRadius: theme.spacing(1),
+      backgroundColor: backgroundColor
+        ? theme.palette.secondary.main + "9F"
+        : "transparent",
+    };
+  }
+);
 
 const Content = styled.div(({ theme }) => {
-  const { spacing } = theme;
   return {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    gap: spacing(3),
+    gap: theme.spacing(3),
   };
 });
 
@@ -52,10 +54,11 @@ const BoxActivitiesContent = styled.div(({ theme }) => ({
   paddingTop: theme.spacing(2),
 }));
 
-const BoxActivitiesListDot = styled(ListItemIcon)(() => {
+const BoxActivitiesListDot = styled(ListItemIcon)(({ theme }) => {
+
   return {
     "&&.MuiListItemIcon-root": {
-      minWidth: Theme.Dark.spacing(2),
+      minWidth: theme.spacing(2),
       alignSelf: "baseline",
       marginTop: "10px",
     },
@@ -79,36 +82,46 @@ const ChartBox = styled.div(() => {
   };
 });
 
-// const PreviewCodeBox = styled.div(() => {
-//   return {
-//     width: "100%",
-//     height: "fit-content",
-//     margin: Theme.Dark.spacing(2),
-//     padding: Theme.Dark.spacing(1),
-//     border: "solid 2px",
-//     borderColor: colors.yellow,
-//     borderRadius: Theme.Dark.spacing(1),
-//   };
-// });
-
-const LiveEditorCodeBox = styled(LiveEditor)(() => {
+const EditorCodeBox = styled(LiveEditor)(() => {
   return {
     width: "100%",
     height: "fit-content",
   };
 });
 
-const LivePreviewCodeBox = styled(LivePreview)(() => {
+const PreviewCodeBox = styled(LivePreview)(({ theme }) => {
   return {
     width: "100%",
-    height: "fit-content",
+    height: "auto",
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
-    padding: Theme.Dark.spacing(1),
+    alignItems: "center",
+    padding: theme.spacing(2),
     border: "solid 2px",
-    borderColor: colors.yellow,
-    borderRadius: Theme.Dark.spacing(1),
-    backgroundColor: "#ECECEC",
+    borderColor: theme.palette.info.main,
+    borderRadius: theme.spacing(1),
+    backgroundColor: theme.palette.primary.main,
+  };
+});
+
+const PreviewContent = styled(LivePreview)(({ theme }) => {
+  return {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    gap: theme.spacing(5),
+  };
+});
+
+const ImageBox = styled(Box)(({ theme }) => {
+  return {
+    display: "flex",
+    width: "fit-content",
+    padding: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.contrastText,
+    borderRadius: theme.spacing(1),
+    margin: theme.spacing(1),
   };
 });
 
@@ -121,8 +134,10 @@ const Styles = {
   BoxActivitiesListDot,
   BoxActivitiesList,
   ChartBox,
-  LiveEditorCodeBox,
-  LivePreviewCodeBox,
+  EditorCodeBox,
+  PreviewCodeBox,
+  PreviewContent,
+  ImageBox
 };
 
 export default Styles;

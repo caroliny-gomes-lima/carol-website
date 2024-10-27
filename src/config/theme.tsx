@@ -97,7 +97,7 @@ function createDarkTheme({
 
 const Dark = createDarkTheme({});
 const Themes = {
-  Dark: responsiveFontSizes(Dark),
+  dark: responsiveFontSizes(Dark),
 };
 
 export default Themes;

@@ -62,9 +62,10 @@ const ptBr = {
       "Integração dos sistemas web com operações CRUD, métodos do protocolo HTTP, API RESTful, biblioteca Axios ou Apisauce, e correção de bugs.",
       "Trabalho em equipe sob a metodologia SCRUM e KANBAN utilizando plataformas como GitLab ou Redmine, participando de reuniões de planejamento de Sprints dos projetos e daily SCRUM com reuniões diárias para acompanhamento das atividades dos projetos.",
     ],
-    practicalExperiencesText: "Aqui estão algumas das minhas experiências na prática:",
-    titleCodeDemoButtonComponent: "Um componente botão padrã",
-    titleCodeDemoSelectionDropDown: "Um botão com seleção de opções",
+    practicalExperiencesText: "Algumas das minhas experiências na prática!",
+    titleCodeDemoButtonComponent: "Submissão do Formulário: Campos de entrada (inputs) de um formulário e botão submit",
+    titleCodeDemoSelectionDropDown: "Componente Selection DropDown: botão com seleção de opções que abrem modais:",
+    titleCodeDemoUploadComponent: "Upload de arquivos de imagens: componente de upload e botão de envio do arquivo de imagem em base64:"
   },
 
   Skills: {

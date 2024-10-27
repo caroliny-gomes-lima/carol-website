@@ -7,7 +7,7 @@ import DeepenCompanyLogo from "../../../assets/Images/logo-deepen.png";
 
 function CareerPage() {
   const texts = Texts["ptBr"].career;
-  const isMobile = useMediaQuery(Theme.Dark.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(Theme.dark.breakpoints.down("sm"));
   const avatarSize = isMobile
     ? { width: "70vw", height: "60vw" }
     : { width: "30vw", height: "20vw" };

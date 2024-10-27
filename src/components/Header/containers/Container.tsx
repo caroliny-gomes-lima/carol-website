@@ -16,7 +16,7 @@ function Header({ openMenu }: HeaderProps) {
   const texts = Texts["ptBr"].Pages;
   const navigate = useNavigate();
   const [clicked, setClicked] = React.useState<number>(0);
-  const isMobile = useMediaQuery(Theme.Dark.breakpoints.down("sm"))
+  const isMobile = useMediaQuery(Theme.dark.breakpoints.down("sm"))
 
   const handleClick = (index: number) => {
     setClicked(index);
@@ -63,9 +63,9 @@ function Header({ openMenu }: HeaderProps) {
               loading={false}
               style={{
                 backgroundColor:
-                  clicked === 0 ? Theme.Dark.palette.action.hover : "",
+                  clicked === 0 ? Theme.dark.palette.action.hover : "",
                 color:
-                  clicked === 0 ? Theme.Dark.palette.secondary.contrastText : "",
+                  clicked === 0 ? Theme.dark.palette.secondary.contrastText : "",
               }}
             />
             <ButtonComponent
@@ -76,9 +76,9 @@ function Header({ openMenu }: HeaderProps) {
               loading={false}
               style={{
                 backgroundColor:
-                  clicked === 1 ? Theme.Dark.palette.action.hover : "",
+                  clicked === 1 ? Theme.dark.palette.action.hover : "",
                 color:
-                  clicked === 1 ? Theme.Dark.palette.secondary.contrastText : "",
+                  clicked === 1 ? Theme.dark.palette.secondary.contrastText : "",
               }}
             />
 
@@ -90,9 +90,9 @@ function Header({ openMenu }: HeaderProps) {
               loading={false}
               style={{
                 backgroundColor:
-                  clicked === 2 ? Theme.Dark.palette.action.hover : "",
+                  clicked === 2 ? Theme.dark.palette.action.hover : "",
                 color:
-                  clicked === 2 ? Theme.Dark.palette.secondary.contrastText : "",
+                  clicked === 2 ? Theme.dark.palette.secondary.contrastText : "",
               }}
             />
 
@@ -104,9 +104,9 @@ function Header({ openMenu }: HeaderProps) {
               loading={false}
               style={{
                 backgroundColor:
-                  clicked === 3 ? Theme.Dark.palette.action.hover : "",
+                  clicked === 3 ? Theme.dark.palette.action.hover : "",
                 color:
-                  clicked === 3 ? Theme.Dark.palette.secondary.contrastText : "",
+                  clicked === 3 ? Theme.dark.palette.secondary.contrastText : "",
               }}
             />
 
@@ -118,9 +118,9 @@ function Header({ openMenu }: HeaderProps) {
               loading={false}
               style={{
                 backgroundColor:
-                  clicked === 4 ? Theme.Dark.palette.action.hover : "",
+                  clicked === 4 ? Theme.dark.palette.action.hover : "",
                 color:
-                  clicked === 4 ? Theme.Dark.palette.secondary.contrastText : "",
+                  clicked === 4 ? Theme.dark.palette.secondary.contrastText : "",
               }}
             />
           </Styles.NavGroup>
