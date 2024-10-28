@@ -27,13 +27,9 @@ const SendInputFormCodeDemo = `
          gap: 10,
          alignItems: "center"
         }}>
-            <Grid item xs={12} sm={11} md={10} lg={12}>
-            <InputComponent name="name" label="Nome" placeholder="Digite seu nome" />
-            </Grid>
 
-            <Grid item xs={12} sm={11} md={10} lg={12}>
+            <InputComponent name="name" label="Nome" placeholder="Digite seu nome" />
             <InputComponent name="number" label="Numero" type="number" placeholder="Digite seu número" />
-            </Grid>
 
             <Grid item xs={12} sm={11} md={10} lg={4}>
             <ButtonComponent label="Confirmar" type="submit" backgroundColor="#6e07f3" textColor="white" />

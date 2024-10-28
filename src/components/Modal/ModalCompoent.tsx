@@ -55,7 +55,7 @@ function ModalCompoent({
               justifyContent={"flex-end"}
             >
               {hasConfirmButton ? (
-                <Grid item xs={11} sm={11} md={10} lg={2}>
+                <Grid item xs={4} sm={4} md={4} lg={2}>
                   <ButtonComponent
                     type="button"
                     loading={false}
@@ -66,7 +66,7 @@ function ModalCompoent({
               ) : null}
 
               {hasCancelButton ? (
-                <Grid item xs={11} sm={11} md={10} lg={3}>
+                <Grid item xs={4} sm={4} md={4} lg={3}>
                   <ButtonComponent
                     type="button"
                     loading={false}
