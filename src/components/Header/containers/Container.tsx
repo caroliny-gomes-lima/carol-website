@@ -37,7 +37,7 @@ function Header({ openMenu }: HeaderProps) {
     }
 
     if (index === 4) {
-      //navigate(paths.home);
+      navigate(paths.works);
     }
   };
 

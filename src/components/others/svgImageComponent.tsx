@@ -3,6 +3,13 @@ import { ReactComponent as PurpleLogo } from "../../assets/svg/LogoFinalPurple.s
 import { ReactComponent as BlackLogo } from "../../assets/svg/LogoFinalBlack.svg";
 import { ReactComponent as LogoPlusName } from "../../assets/svg/LogoFinalPlusName.svg";
 import { ReactComponent as AvatarThinkingCode } from "../../assets/svg/AvatarThinkingCode.svg";
+import { ReactComponent as bewikiLogoSVG } from "../../assets/svg/bewiki-logo.svg";
+import { ReactComponent as laborAnalytcsLogoSVG } from "../../assets/svg/logo-laborAnalytcs.svg";
+import { ReactComponent as bioCoinLogoSVG } from "../../assets/svg/ColorfulBioLogo.svg";
+import { ReactComponent as plurioLogoSVG } from "../../assets/svg/logo-plurio-positivo.svg";
+import { ReactComponent as xcoridLogoSVG } from "../../assets/svg/xcorid-logo-negative.svg";
+import { ReactComponent as AcateLogoSVG } from "../../assets/svg/AcateMark.svg";
+import { ReactComponent as engieLogoSVG } from "../../assets/svg/engieLogo.svg";
 
 const PurpleLogoStyled = styled(PurpleLogo)(() => {
    return {
@@ -66,11 +73,61 @@ const AvatarThinkingCodeStyled = styled(AvatarThinkingCode)(() => {
    }
 })
 
+const BewikiLogo = styled(bewikiLogoSVG)`
+  width: 100px; /* Defina o tamanho fixo ou variável que preferir */
+  height: 50px;
+  object-fit: contain;
+`;
+
+const LaborAnalytcsLogo = styled(laborAnalytcsLogoSVG)`
+  width: 110px;
+  height: 50px;
+  object-fit: contain;
+`;
+
+const BioCoinLogo = styled(bioCoinLogoSVG)`
+  width: 110px;
+  height: 50px;
+  object-fit: contain;
+`;
+
+const PlurioLogo = styled(plurioLogoSVG)`
+  width: 110px;
+  height: 50px;
+  object-fit: contain;
+`;
+
+const XcoridLogo = styled(xcoridLogoSVG)`
+  width: 110px;
+  height: 50px;
+  object-fit: contain;
+`;
+
+const AcateLogo = styled(AcateLogoSVG)`
+  width: 110px;
+  height: 50px;
+  object-fit: contain;
+`;
+
+const EngieLogo = styled(engieLogoSVG)`
+  width: 110px;
+  height: 50px;
+  object-fit: contain;
+`;
+
+
 const svgImageComponent = {
    PurpleLogoStyled,
    BlackLogoStyled,
    LogoPlusName,
    AvatarThinkingCodeStyled,
+   BewikiLogo,
+   LaborAnalytcsLogo,
+   BioCoinLogo,
+   PlurioLogo,
+   XcoridLogo,
+   AcateLogo,
+   EngieLogo
 }
 
 export default svgImageComponent;

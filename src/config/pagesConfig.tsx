@@ -29,8 +29,8 @@ const pagesConfig = {
     },
     {
       navigationId: 4,
-      path: paths.career,
-      name: "CareerPage",
+      path: paths.works,
+      name: "WorksPage",
       title: "TRABALHOS",
     },
   ],
