@@ -35,6 +35,9 @@ const StyledButton = styled(Button)<{ backgroundColor?: string, textColor?: stri
       "&&.MuiButton-startIcon": {
         width: 17,
       },
+      "&&.MuiButton-endIcon": {
+        width: "100%",
+      },
       "&&.Mui-disabled": {
         backgroundColor: backgroundColor + "9F",
       },

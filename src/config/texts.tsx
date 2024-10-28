@@ -77,7 +77,16 @@ const ptBr = {
       "No dashboard ao lado, é possível conferir minhas habilidades interpessoais e comportamentais, refletindo minha personalidade e inteligência emocional. Essas habilidades são fundamentais tanto na minha vida pessoal quanto no ambiente de trabalho:"
     ],
     chartsTitle: ["LINGUAGENS", "FERRAMENTAS FRONT-END", "FERRAMENTAS BACK-END", "OUTRAS FERRAMENTAS", "COMPETÊNCIAS"],
-  }
+  },
+
+  Works: {
+    worksTitle: ["Projetos", "Clientes"],
+    worksText: ["Atualmente, atuo como freelancer front-end na PalmSoft e Deepen, onde recentemente estou desenvolvendo o sistema Plurio, uma plataforma de gestão de assinaturas digitais voltada para clientes empresas. O sistema ainda não apresenta integração com uma API back-end por estar em fase de desenvolvimento.",
+      "Além de atuar como freelancer, concluí o bootcamp imersivo em JavaScript focado em back-end pela Reprograma. Durante o curso, desenvolvi meu primeiro projeto back-end, a API PetLivre, uma plataforma que facilita o acesso de usuários de baixa renda a serviços veterinários. A API permite que tutores criem contas, registrem seus pets e encontrem clínicas veterinárias próximas para vacinação gratuita e medicamentos com desconto. O sistema também permite o agendamento de visitas domiciliares para quem não pode levar o pet à clínica, exigindo, no cadastro, uma descrição do pet e a comprovação de baixa renda do dono. Além disso, ONGs e programas podem se registrar para oferecer campanhas de vacinação e conteúdos educativos diretamente na plataforma. O projeto está em fase de desenvolvimento, atualmente com CRUDs implementados para tutores e pets",
+      "Estes são os clientes para os quais participei no desenvolvimento dos projetos durante minha atuação na PalmSoft e na Deepen."
+    ],
+    swaggerButton: "Testes das rotas no Swagger"
+  },
 };
 
 const Texts = {

@@ -4,7 +4,8 @@ const paths = {
   about: prefix + "/",
   career: prefix + "/career",
   Experiences: prefix + "/experiences",
-  Skills: prefix + "/skills"
+  Skills: prefix + "/skills",
+  works: prefix + "/works",
 
 };
 
