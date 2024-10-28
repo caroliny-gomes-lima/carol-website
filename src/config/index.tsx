@@ -1,7 +1,7 @@
 import Theme from "./theme";
-import fonts from "./fonts";
+import { Fonts, FontFamily } from "./fonts";
 import colors from "./colors";
 import Texts from "./texts";
-//const {spacing: Spacing } = Theme.Dark;
+const { spacing: Spacing } = Theme.dark;
 
-export { Theme, fonts, Texts, colors}
+export { Theme, Fonts, FontFamily, Texts, colors, Spacing }

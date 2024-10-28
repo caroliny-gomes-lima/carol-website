@@ -1,15 +1,16 @@
-import { Theme } from "config";
+import { FontFamily, Theme } from "config";
 import styled from "styled-components";
-import { FontFamily } from "components";
+
 import colors from "config/colors";
 
-const Container = styled.div(()=> {
+const Container = styled.div(({ theme }) => {
+  const { palette: colors, spacing } = theme;
   return {
     display: "flex",
     position: "relative",
-    backgroundColor: colors.black + 90,
-    padding: Theme.Dark.spacing(0, 2, 0, 2),
-    //border: "solid 1px purple",
+    backgroundColor: colors.secondary.main,
+    padding: spacing(0, 2, 0, 2),
+    zIndex: 3,
   }
 })
 
@@ -25,17 +26,17 @@ const Content = styled.div(() => {
   };
 });
 
-const LogoGroup = styled.div(() => {
+const LogoGroup = styled.div(({ theme }) => {
   return {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: Theme.Dark.spacing(1),
+    gap: theme.spacing(1),
     alignItems: "center",
   };
 });
 
-const NavGroup = styled.div(({ theme }) => {
+const NavGroup = styled.div(() => {
   return {
     display: "flex",
     flexDirection: "row",
@@ -44,10 +45,10 @@ const NavGroup = styled.div(({ theme }) => {
   };
 });
 
-const TextName = styled.span(() => {
+const TextName = styled.span(({ theme }) => {
   return {
     ...FontFamily.bold18,
-    marginLeft: Theme.Dark.spacing(0.5),
+    marginLeft: theme.spacing(0.5),
     color: colors.purple,
   };
 });

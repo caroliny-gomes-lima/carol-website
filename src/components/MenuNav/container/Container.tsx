@@ -1,8 +1,7 @@
-import React from "react";
 import Styles from "../styles/Styles";
 import { useNavigate } from "react-router-dom";
 import { DefaultLogo } from "components";
-import { Drawer, Grid } from "@mui/material";
+import { Drawer } from "@mui/material";
 import { Close, Copyright } from "@mui/icons-material";
 import { Texts } from "config";
 
@@ -14,7 +13,7 @@ type MenuItem = {
 type MenuProps = {
   data: MenuItem[];
   isOpen: boolean;
-  openMenu: (props) => void;
+  openMenu: (props: any) => void;
 };
 
 function Container({ data, isOpen, openMenu }: MenuProps) {
@@ -43,14 +42,14 @@ function Container({ data, isOpen, openMenu }: MenuProps) {
     return (
       <Styles.Container>
         <Styles.MenuHeader>
-          <DefaultLogo BlackLogo/>
+          <DefaultLogo BlackLogo />
           <Styles.CloseButtom size="small" onClick={() => openMenu(false)}>
             <Close />
           </Styles.CloseButtom>
         </Styles.MenuHeader>
         {NavPages()}
         <Styles.MenuFooter>
-          <Copyright style={{marginBottom: 5}}/>
+          <Copyright style={{ marginBottom: 5 }} />
           <Styles.SmallTextStyles>{texts.madeByText[0]}</Styles.SmallTextStyles>
           <Styles.SmallTextStyles>{texts.madeByText[1]}</Styles.SmallTextStyles>
         </Styles.MenuFooter>

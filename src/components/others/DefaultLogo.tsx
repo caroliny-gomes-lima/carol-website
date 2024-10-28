@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 import svgImageComponent from "./svgImageComponent";
-import { Theme } from "config";
+import { Spacing, Theme } from "config";
 
 const LogoContainer = styled.div(() => {
   return {
@@ -30,7 +29,7 @@ function DefaultLogo({
             marginTop: "5px",
             width: "55px",
             height: "60px",
-            marginLeft: Theme.Dark.spacing(1.8),
+            marginLeft: Spacing(1.8),
             //marginRight: "5px"
           }}
         />
@@ -38,7 +37,7 @@ function DefaultLogo({
       {BlackLogo && (
         <svgImageComponent.BlackLogoStyled
           style={{
-            marginTop: Theme.Dark.spacing(2),
+            marginTop: Spacing(2),
             width: "65px",
             height: "60px",
             //marginLeft: "5px",
@@ -50,10 +49,10 @@ function DefaultLogo({
       {LogoPlusName && (
         <svgImageComponent.LogoPlusName
           style={{
-            marginTop: Theme.Dark.spacing(2),
+            marginTop: Spacing(2),
             width: "250px",
             height: "60px",
-            marginBottom: Theme.Dark.spacing(2),
+            marginBottom: Spacing(2),
             //marginRight: "5px"
           }}
         />

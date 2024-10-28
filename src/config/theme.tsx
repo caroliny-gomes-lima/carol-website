@@ -2,50 +2,56 @@
 import { createTheme, responsiveFontSizes } from "@mui/material";
 import colors from "./colors";
 
-const breakpointValues = {
+export const breakpointValues = {
   xs: 320,
-  sm: 600,
-  md: 960,
-  lg: 1280,
-  xl: 1600,
-  xxl: 1920,
-};
+  sm: 768,
+  md: 1024,
+  lg: 1440,
+  xl: 1920,
+} as const
 
-interface themeProps {
-  backgroundColor: string;
-  paperBackgroundColor: string;
-  backgroundErrorColor: string;
-  hoverColor: string;
-  textPrimaryColor: string;
-  textSecondaryColor: string;
-  textDisabledColor: string;
-  buttonTextColor: string;
-  disabledColor: string;
+// Definir os tipos permitidos para os breakpoints
+export type Breakpoint = keyof typeof breakpointValues;
+
+interface ThemeProps {
+  backgroundColor?: string;
+  paperBackgroundColor?: string;
+  backgroundErrorColor?: string;
+  hoverColor?: string;
+  textPrimaryColor?: string;
+  textSecondaryColor?: string;
+  textDisabledColor?: string;
+  buttonTextColor?: string;
+  disabledColor?: string;
+  hintColor?: string,
+  successMainColor?: string;
+  successLightColor?: string
 }
 
 function createDarkTheme({
-  backgroundColor,
-  paperBackgroundColor,
-  backgroundErrorColor,
-  hoverColor,
-  textPrimaryColor,
-  textSecondaryColor,
-  textDisabledColor,
-  buttonTextColor,
-  disabledColor,
-}: themeProps ) {
+  backgroundColor = colors.black,
+  paperBackgroundColor = colors.darkGray,
+  backgroundErrorColor = colors.red,
+  hoverColor = colors.white,
+  textPrimaryColor = colors.white,
+  textSecondaryColor = colors.purple,
+  textDisabledColor = colors.darkGray,
+  disabledColor = colors.gray,
+  hintColor = colors.yellow,
+  successMainColor = colors.green,
+  successLightColor = colors.lightBlue
+}: Partial<ThemeProps>) {
+
+  const up = (key: number | Breakpoint) => `@media (min-width:${typeof key === 'number' ? key : breakpointValues[key]}px)`;
+  const down = (key: number | Breakpoint) =>
+    `@media (max-width:${typeof key === 'number' ? key - 1 : breakpointValues[key] - 1}px)`;
+
   return createTheme({
     breakpoints: {
       keys: ["xs", "sm", "md", "lg", "xl"],
-      values: {
-        xs: 320,
-        sm: 600,
-        md: 960,
-        lg: 1280,
-        xl: 1600,
-      },
-      up: (key) => `@media (min-width:${breakpointValues[key]}px)`,
-      down: (key) => `@media (max-width:${breakpointValues[key] - 1}px)`,
+      values: breakpointValues,
+      up,
+      down,
     },
 
     palette: {
@@ -70,36 +76,28 @@ function createDarkTheme({
         paper: paperBackgroundColor,
         default: backgroundColor,
       },
+      info: {
+        main: hintColor,
+      },
       action: {
         hover: hoverColor,
-        //hoverOpacity: 0.04,
-        selected: hoverColor,
-        //selectedOpacity: 0.08,
         disabled: textDisabledColor,
         disabledBackground: disabledColor,
         disabledOpacity: 0.38,
-        //focus: "#6CFF00",
         focusOpacity: 0.12,
         activatedOpacity: 0.12,
+      },
+      success: {
+        main: successMainColor,
+        light: successLightColor,
       },
     },
   });
 }
 
-const Dark = createDarkTheme({
-  backgroundColor: colors.black,
-  paperBackgroundColor: colors.darkGray,
-  backgroundErrorColor: colors.red,
-  hoverColor: colors.white,
-  textPrimaryColor: colors.white,
-  textSecondaryColor: colors.black,
-  textDisabledColor: colors.darkGray,
-  buttonTextColor: colors.black,
-  disabledColor: colors.Gray,
-});
-
+const Dark = createDarkTheme({});
 const Themes = {
-    Dark: responsiveFontSizes(Dark),
-}
+  dark: responsiveFontSizes(Dark),
+};
 
 export default Themes;
