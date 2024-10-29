@@ -25,7 +25,7 @@ function BoxActivities({ textsData }: props) {
                   </svg>
                 </Styles.BoxActivitiesListDot>
                 <TextComponent fontSize="0.8rem"
-                  typeFont={Fonts.medium}
+                  customTypeFont={Fonts.medium}
                   textColor={colors.yellow}>
                   {item}
                 </TextComponent>

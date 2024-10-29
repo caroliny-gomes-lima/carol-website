@@ -21,7 +21,7 @@ function SoftSkillsDashboard() {
                     <Grid item xs={11} sm={11} md={5} lg={4}>
                         <TextComponent
                             fontSize="1rem"
-                            typeFont={Fonts.bold}
+                            customTypeFont={Fonts.bold}
                             textColor={colors.white}
                         >
                             {texts.DashboardText[1]}

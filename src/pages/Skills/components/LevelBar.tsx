@@ -31,7 +31,7 @@ function LevelBar({
         >
             <TextComponent
                 fontSize="1rem"
-                typeFont={Fonts.bold}
+                customTypeFont={Fonts.bold}
                 textColor={colors.white}
             >
                 {barLevelTitle}
@@ -51,7 +51,7 @@ function LevelBar({
                     >
                         <TextComponent
                             fontSize="1rem"
-                            typeFont={Fonts.bold}
+                            customTypeFont={Fonts.bold}
                             textColor={colors.black}
                         >
                             {texts.level[0]}
@@ -65,7 +65,7 @@ function LevelBar({
                     >
                         <TextComponent
                             fontSize="1rem"
-                            typeFont={Fonts.bold}
+                            customTypeFont={Fonts.bold}
                             textColor={plenoLevel === 0 ? colors.white : colors.black}
                         >
                             {texts.level[1]}
@@ -79,7 +79,7 @@ function LevelBar({
                     >
                         <TextComponent
                             fontSize="1rem"
-                            typeFont={Fonts.bold}
+                            customTypeFont={Fonts.bold}
                             textColor={colors.white}
                             style={{ paddingInline: plenoLevel === 0 ? 25 : 0 }}
                         >

@@ -47,7 +47,8 @@ const MOCKDATA_SOFT_SKILLS = [
     { name: "Flexibilidade", value: 95, },
     { name: "determinação", value: 100, },
     { name: "criatividade", value: 90, },
-    { name: "Empatia", value: 85, },
+    { name: "Empatia", value: 90, },
+    { name: "Trabalho em equipe", value: 95, },
     { name: "pontualidade", value: 100, },
     { name: "comprometimento", value: 100, },
 ];

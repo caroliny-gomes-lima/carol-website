@@ -41,7 +41,6 @@ const NavGroup = styled.div(() => {
     display: "flex",
     flexDirection: "row",
     gap: 20,
-    //alignItems: "center",
   };
 });
 
@@ -53,12 +52,26 @@ const TextName = styled.span(({ theme }) => {
   };
 });
 
+export const LoadingOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0); // leve opacidade para a sobreposição
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; // coloca o overlay acima de outros elementos
+`;
+
 const Styles = {
   Container,
   Content,
   LogoGroup,
   TextName,
-  NavGroup
+  NavGroup,
+  LoadingOverlay
 }
 
 export default Styles;

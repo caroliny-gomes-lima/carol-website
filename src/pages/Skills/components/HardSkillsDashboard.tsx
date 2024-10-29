@@ -45,7 +45,7 @@ function HardSkillsDashboard() {
                 />
                 <TextComponent
                     fontSize="1rem"
-                    typeFont={Fonts.bold}
+                    customTypeFont={Fonts.bold}
                     textColor={colors.white}
                 >
                     {texts.DashboardText[0]}

@@ -26,9 +26,7 @@ function Footer() {
 
   const renderIconButton = (icon: JSX.Element, link: string) => {
     return (
-      <IconButtonComponent
-        onClick={() => window.open(link, "_blank")}
-      >
+      <IconButtonComponent onClick={() => window.open(link, "_blank")}>
         {icon}
       </IconButtonComponent>
     );
@@ -44,19 +42,33 @@ function Footer() {
             </React.Fragment>
           ))}
         </Grid>
-        <TextComponent fontSize="0.7rem" typeFont={Fonts.extraBold}>
+        <TextComponent fontSize="0.7rem" customTypeFont={Fonts.extraBold}>
           {texts.modeText}
         </TextComponent>
         <Styles.CopyrightGrup>
           <Copyright style={{ color: colors.white, width: "15px" }} />
-          <TextComponent fontSize="0.5rem" typeFont={Fonts.light} textColor={colors.white}>
+          <TextComponent
+            fontSize="0.5rem"
+            customTypeFont={Fonts.light}
+            textColor={colors.white}
+          >
             {texts.madeByText[0]}
           </TextComponent>
-          <TextComponent fontSize="0.5rem" typeFont={Fonts.light} textColor={colors.white}>
+          <TextComponent
+            fontSize="0.5rem"
+            customTypeFont={Fonts.light}
+            textColor={colors.white}
+          >
             {texts.madeByText[1]}
           </TextComponent>
+          <TextComponent
+            fontSize="0.5rem"
+            customTypeFont={Fonts.light}
+            textColor={colors.white}
+          >
+            {"v" + process.env.REACT_APP_VERSION}
+          </TextComponent>
         </Styles.CopyrightGrup>
-
       </Styles.Content>
     </Styles.Container>
   );

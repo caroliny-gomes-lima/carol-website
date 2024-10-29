@@ -34,6 +34,9 @@ const Stripes = styled.div(() => {
 const PageContent = styled.div(({ theme }) => {
   const { spacing } = theme;
   return {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
     padding: spacing(3),
     zIndex: 3,
     flex: 1,
