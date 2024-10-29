@@ -91,7 +91,7 @@ function Container({ data, isOpen, openMenu }: MenuProps) {
               customTypeFont={Fonts.light}
               textColor={colors.white}
             >
-              {"v1.2.16"}
+              {"v" + process.env.REACT_APP_VERSION}
             </TextComponent>
           </div>
         </Styles.MenuFooter>
