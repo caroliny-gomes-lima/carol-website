@@ -47,7 +47,7 @@ function AboutPage() {
               {renderTextBox(FitnessCenter, texts.fitLifeText, colors.green)}
             </Grid>
 
-            <Grid item xs={11} sm={7} md={4} lg={3}>
+            <Grid item xs={11} sm={7} md={4} lg={4}>
               {renderTextBox(Code, texts.codeLifeText, colors.lightBlue)}
             </Grid>
           </Grid>
