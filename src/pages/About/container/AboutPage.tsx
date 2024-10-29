@@ -13,7 +13,7 @@ function AboutPage() {
     setColor: string
   ) => (
     <Styles.Box setColor={setColor}>
-      <TextComponent typeFont={Fonts.bold} textColor={setColor}>
+      <TextComponent customTypeFont={Fonts.bold} textColor={setColor}>
         {text}
       </TextComponent>
       <IconComponent style={{ color: setColor }} />
@@ -22,7 +22,7 @@ function AboutPage() {
 
   const TextSection = (text: string) => (
     <Grid item xs={12} sm={12} md={12} lg={12} textAlign={"center"}>
-      <TextComponent typeFont={Fonts.medium} fontSize="1rem" textColor={colors.white}>{text}</TextComponent>
+      <TextComponent customTypeFont={Fonts.medium} fontSize="1rem" textColor={colors.white}>{text}</TextComponent>
     </Grid>
   )
 
@@ -32,7 +32,7 @@ function AboutPage() {
         <Styles.Content>
           <TextComponent
             fontSize="2rem"
-            typeFont={Fonts.bold}
+            customTypeFont={Fonts.bold}
             textColor={colors.white}
           >
             {texts.title}

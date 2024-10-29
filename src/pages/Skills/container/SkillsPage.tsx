@@ -12,7 +12,7 @@ function SkillsPage() {
                 <Styles.Content>
                     <TextComponent
                         fontSize="2rem"
-                        typeFont={Fonts.extraBold}
+                        customTypeFont={Fonts.extraBold}
                         textColor={colors.white}
                     >
                         {texts.SkillsTitle[0]}
@@ -25,7 +25,7 @@ function SkillsPage() {
                 <Styles.Content>
                     <TextComponent
                         fontSize="2rem"
-                        typeFont={Fonts.extraBold}
+                        customTypeFont={Fonts.extraBold}
                         textColor={colors.white}
                     >
                         {texts.SkillsTitle[1]}

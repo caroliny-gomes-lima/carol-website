@@ -40,7 +40,7 @@ function CareerPage() {
             <Grid item xs={11} sm={8} md={8} lg={6}>
               <TextComponent
                 fontSize="1.6rem"
-                typeFont={Fonts.bold}
+                customTypeFont={Fonts.bold}
                 textColor={colors.white}
               >
                 {texts.avatarText}
@@ -51,14 +51,14 @@ function CareerPage() {
       </Styles.Container>
 
       <Styles.CompanyBox>
-        <Styles.CompanyLogosGroup className="companyImage">
+        <Styles.CompanyLogosGroup className="company-logos">
           <ImageComponent image={PalmSoftCompanyLogo} alt="palmSoft company" />
           <ImageComponent image={DeepenCompanyLogo} alt="deepen company" />
         </Styles.CompanyLogosGroup>
         <Grid item xs={12} sm={11} md={7} lg={7}>
           <TextComponent
             fontSize="1rem"
-            typeFont={Fonts.medium}
+            customTypeFont={Fonts.medium}
             textColor={colors.white}
           >
             {texts.ComapnyImageText}

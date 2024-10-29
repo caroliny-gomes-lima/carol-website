@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Styles from "../styles/Styles";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { paths } from "routes/navigation";
 import { ButtonComponent, DefaultLogo, IconButtonComponent } from "components";
-import { colors, Theme } from "config";
-import { Texts } from "config";
-import { useMediaQuery } from "@mui/material";
+import { Theme, Texts, colors } from "config";
+import { useMediaQuery, CircularProgress } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 
 type HeaderProps = {
@@ -15,30 +14,33 @@ type HeaderProps = {
 function Header({ openMenu }: HeaderProps) {
   const texts = Texts["ptBr"].Pages;
   const navigate = useNavigate();
+  const location = useLocation();
   const [clicked, setClicked] = React.useState<number>(0);
-  const isMobile = useMediaQuery(Theme.dark.breakpoints.down("sm"))
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const isMobile = useMediaQuery(Theme.dark.breakpoints.down("sm"));
 
-  const handleClick = (index: number) => {
+  const navItems = [
+    { label: texts.home, path: paths.about },
+    { label: texts.career, path: paths.career },
+    { label: texts.experiences, path: paths.Experiences },
+    { label: texts.skills, path: paths.Skills },
+    { label: texts.work, path: paths.works },
+  ];
+
+  useEffect(() => {
+    const activeIndex = navItems.findIndex(item => item.path === location.pathname);
+    setClicked(activeIndex !== -1 ? activeIndex : 0);
+  }, [location.pathname, navItems]);
+
+  const handleClick = (index: number, path: string) => {
     setClicked(index);
-    if (index === 0) {
-      navigate(paths.about);
-    }
+    setIsLoading(true);
+    navigate(path);
 
-    if (index === 1) {
-      navigate(paths.career);
-    }
-
-    if (index === 2) {
-      navigate(paths.Experiences);
-    }
-
-    if (index === 3) {
-      navigate(paths.Skills);
-    }
-
-    if (index === 4) {
-      navigate(paths.works);
-    }
+    // Simula um tempo de carregamento para reverter o estado de loading
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 500); // Ajuste o tempo conforme necessário
   };
 
   return (
@@ -46,7 +48,7 @@ function Header({ openMenu }: HeaderProps) {
       <Styles.Content>
         <Styles.LogoGroup>
           {isMobile && (
-            <IconButtonComponent customHover={colors.purple} customColor={colors.purple} onClick={openMenu}>
+            <IconButtonComponent onClick={openMenu}>
               <Menu />
             </IconButtonComponent>
           )}
@@ -55,77 +57,28 @@ function Header({ openMenu }: HeaderProps) {
         </Styles.LogoGroup>
         {!isMobile && (
           <Styles.NavGroup>
-            <ButtonComponent
-              label={texts.home}
-              type="button"
-              onClick={() => handleClick(0)}
-              fullWidth={false}
-              loading={false}
-              style={{
-                backgroundColor:
-                  clicked === 0 ? Theme.dark.palette.action.hover : "",
-                color:
-                  clicked === 0 ? Theme.dark.palette.secondary.contrastText : "",
-              }}
-            />
-            <ButtonComponent
-              label={texts.career}
-              type="button"
-              onClick={() => handleClick(1)}
-              fullWidth={false}
-              loading={false}
-              style={{
-                backgroundColor:
-                  clicked === 1 ? Theme.dark.palette.action.hover : "",
-                color:
-                  clicked === 1 ? Theme.dark.palette.secondary.contrastText : "",
-              }}
-            />
-
-            <ButtonComponent
-              label={texts.experiences}
-              type="button"
-              onClick={() => handleClick(2)}
-              fullWidth={false}
-              loading={false}
-              style={{
-                backgroundColor:
-                  clicked === 2 ? Theme.dark.palette.action.hover : "",
-                color:
-                  clicked === 2 ? Theme.dark.palette.secondary.contrastText : "",
-              }}
-            />
-
-            <ButtonComponent
-              label={texts.skills}
-              type="button"
-              onClick={() => handleClick(3)}
-              fullWidth={false}
-              loading={false}
-              style={{
-                backgroundColor:
-                  clicked === 3 ? Theme.dark.palette.action.hover : "",
-                color:
-                  clicked === 3 ? Theme.dark.palette.secondary.contrastText : "",
-              }}
-            />
-
-            <ButtonComponent
-              label={texts.work}
-              type="button"
-              onClick={() => handleClick(4)}
-              fullWidth={false}
-              loading={false}
-              style={{
-                backgroundColor:
-                  clicked === 4 ? Theme.dark.palette.action.hover : "",
-                color:
-                  clicked === 4 ? Theme.dark.palette.secondary.contrastText : "",
-              }}
-            />
+            {navItems.map((item, index) => (
+              <ButtonComponent
+                key={index}
+                label={item.label}
+                type="button"
+                onClick={() => handleClick(index, item.path)}
+                fullWidth={false}
+                loading={false}
+                style={{
+                  backgroundColor: clicked === index ? Theme.dark.palette.action.hover : "",
+                  color: clicked === index ? Theme.dark.palette.secondary.contrastText : "",
+                }}
+              />
+            ))}
           </Styles.NavGroup>
         )}
       </Styles.Content>
+      {isLoading && (
+        <Styles.LoadingOverlay>
+          <CircularProgress size={100} style={{ color: colors.purple }} />
+        </Styles.LoadingOverlay>
+      )}
     </Styles.Container>
   );
 }

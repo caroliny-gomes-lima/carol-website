@@ -4,7 +4,6 @@ import React from "react";
 
 const StyledButton = styled(IconButton)(
   ({ theme }) => {
-    const { palette: colors, spacing } = theme;
     return {
       "&&.MuiIconButton-root": {
         width: "fit-content",
@@ -13,11 +12,11 @@ const StyledButton = styled(IconButton)(
         overflow: "hidden",
         border: "solid 3px",
         transition: ".1s",
-        borderRadius: spacing(5),
-        color: colors.action.hover,
+        borderRadius: theme.spacing(5),
+        color: theme.palette.primary.contrastText,
         "&:hover": {
-          backgroundColor: colors.action.hover,
-          color: colors.secondary.contrastText,
+          backgroundColor: theme.palette.action.hover,
+          color: theme.palette.secondary.contrastText,
         },
       },
     };

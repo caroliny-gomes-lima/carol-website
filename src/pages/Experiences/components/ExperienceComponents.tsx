@@ -137,7 +137,7 @@ function ExperienceComponents() {
   return (
     <>
 
-      <TextComponent fontSize="1rem" typeFont={Fonts.bold} textColor={colors.white}>
+      <TextComponent fontSize="1rem" customTypeFont={Fonts.bold} textColor={colors.white} style={{ marginTop: "20px" }}>
         {texts.titleCodeDemoButtonComponent}
       </TextComponent>
       <Grid container spacing={2} justifyContent="center">
@@ -147,7 +147,7 @@ function ExperienceComponents() {
         />
       </Grid>
 
-      <TextComponent fontSize="1rem" typeFont={Fonts.bold} textColor={colors.white}>
+      <TextComponent fontSize="1rem" customTypeFont={Fonts.bold} textColor={colors.white} style={{ marginTop: "30px" }}>
         {texts.titleCodeDemoSelectionDropDown}
       </TextComponent>
       <Grid container spacing={5} justifyContent="center">
@@ -158,10 +158,10 @@ function ExperienceComponents() {
       </Grid>
 
 
-      <TextComponent fontSize="1rem" typeFont={Fonts.bold} textColor={colors.white}>
+      <TextComponent fontSize="1rem" customTypeFont={Fonts.bold} textColor={colors.white} style={{ marginTop: "30px" }}>
         {texts.titleCodeDemoUploadComponent}
       </TextComponent>
-      <Grid container spacing={5} justifyContent="center">
+      <Grid container spacing={5} justifyContent="center" style={{ marginBottom: "30px" }}>
         <CodeDemo
           code={SendImageFileCodeDemo}
           scope={{ React, Styles, Grid, useForm, FormProvider, ImageUpload, ButtonComponent }}

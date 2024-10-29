@@ -9,7 +9,7 @@ const Container = styled.div<{ backgroundColor?: boolean }>(
     return {
       width: "100%",
       height: "fit-content",
-      padding: theme.spacing(2),
+      padding: theme.spacing(3),
       marginBottom: theme.spacing(5),
       borderRadius: theme.spacing(1),
       backgroundColor: backgroundColor

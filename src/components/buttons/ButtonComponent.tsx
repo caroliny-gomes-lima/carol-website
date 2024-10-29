@@ -4,45 +4,39 @@ import { FontFamily } from "config";
 import { useForm } from "react-hook-form";
 import React from "react";
 
-const StyledButton = styled(Button)<{ backgroundColor?: string, textColor?: string; }>(
-  ({
-    theme,
-    fullWidth,
-    backgroundColor,
-    textColor,
-  }) => {
-    return {
-      "&&.MuiButton-root": {
-        width: fullWidth ? "100%" : "fit-content",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: theme.spacing(1, 2),
-        flexShrink: 1,
-        overflow: "hidden",
-        marginTop: theme.spacing(0.75),
-        ...FontFamily.bold14,
-        textTransform: "capitalize",
-        backgroundColor: backgroundColor,
-        color: textColor,
-        borderRadius: theme.spacing(1),
-        "&:hover": {
-          backgroundColor:
-            backgroundColor + "9F",
-          color: textColor + "9F",
-        },
-      },
-      "&&.MuiButton-startIcon": {
-        width: 17,
-      },
-      "&&.MuiButton-endIcon": {
-        width: "100%",
-      },
-      "&&.Mui-disabled": {
+const StyledButton = styled(Button).withConfig({
+  shouldForwardProp: (prop) => !["backgroundColor", "textColor"].includes(prop),
+})<{ backgroundColor?: string; textColor?: string }>(
+  ({ theme, fullWidth, backgroundColor, textColor }) => ({
+    "&&.MuiButton-root": {
+      width: fullWidth ? "100%" : "fit-content",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: theme.spacing(1, 2),
+      flexShrink: 1,
+      overflow: "hidden",
+      marginTop: theme.spacing(0.75),
+      ...FontFamily.bold14,
+      textTransform: "capitalize",
+      backgroundColor: backgroundColor,
+      color: textColor,
+      borderRadius: theme.spacing(1),
+      "&:hover": {
         backgroundColor: backgroundColor + "9F",
+        color: textColor + "9F",
       },
-    };
-  }
+    },
+    "&&.MuiButton-startIcon": {
+      width: 17,
+    },
+    "&&.MuiButton-endIcon": {
+      width: "100%",
+    },
+    "&&.Mui-disabled": {
+      backgroundColor: backgroundColor + "9F",
+    },
+  })
 );
 
 const StyledCircularProgress = styled(CircularProgress)(({ theme }) => {
@@ -92,7 +86,7 @@ function ButtonComponent({
       textColor={textColor}
       onClick={onClick}
       disabled={loading || formState.isSubmitting}
-      {...props}
+      {...props} // Garante que backgroundColor e textColor não vão para o DOM
     >
       {loading ? (
         <StyledCircularProgress size={24} />

@@ -1,9 +1,10 @@
 import Styles from "../styles/Styles";
-import { useNavigate } from "react-router-dom";
-import { DefaultLogo } from "components";
+import { useLocation, useNavigate } from "react-router-dom";
+import { DefaultLogo, TextComponent } from "components";
 import { Drawer } from "@mui/material";
 import { Close, Copyright } from "@mui/icons-material";
-import { Texts } from "config";
+import { colors, Fonts, Texts } from "config";
+import React from "react";
 
 type MenuItem = {
   title: string;
@@ -19,17 +20,21 @@ type MenuProps = {
 function Container({ data, isOpen, openMenu }: MenuProps) {
   const texts = Texts["ptBr"].footer;
   const navigate = useNavigate();
+  const location = useLocation();
+  // Caminho atual da URL
+  const selectedPath = location.pathname;
 
   const NavPages = () => {
     return (
       <>
         <Styles.Content>
           {data.map((item, index) => {
+            const isSelected = item.path === selectedPath;
             return (
               <Styles.NavPageContainer key={index}>
-                <Styles.NavPageAnchor onClick={() => navigate(item.path)}>
+                <Styles.NavigationButton onClick={() => navigate(item.path)} changeColor={isSelected}>
                   {item.title}
-                </Styles.NavPageAnchor>
+                </Styles.NavigationButton>
               </Styles.NavPageContainer>
             );
           })}
@@ -49,9 +54,46 @@ function Container({ data, isOpen, openMenu }: MenuProps) {
         </Styles.MenuHeader>
         {NavPages()}
         <Styles.MenuFooter>
-          <Copyright style={{ marginBottom: 5 }} />
-          <Styles.SmallTextStyles>{texts.madeByText[0]}</Styles.SmallTextStyles>
-          <Styles.SmallTextStyles>{texts.madeByText[1]}</Styles.SmallTextStyles>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 5,
+            }}
+          >
+            <Copyright style={{ color: colors.white, width: "15px" }} />
+            <TextComponent
+              fontSize="0.5rem"
+              customTypeFont={Fonts.light}
+              textColor={colors.white}
+            >
+              {texts.madeByText[0]}
+            </TextComponent>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 5,
+            }}
+          >
+            <TextComponent
+              fontSize="0.5rem"
+              customTypeFont={Fonts.light}
+              textColor={colors.white}
+            >
+              {texts.madeByText[1]}
+            </TextComponent>
+            <TextComponent
+              fontSize="0.5rem"
+              customTypeFont={Fonts.light}
+              textColor={colors.white}
+            >
+              {"v1.2.16"}
+            </TextComponent>
+          </div>
         </Styles.MenuFooter>
       </Styles.Container>
     );

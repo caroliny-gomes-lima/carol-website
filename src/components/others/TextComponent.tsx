@@ -11,41 +11,43 @@ null, undefined ou boolean*/
 
 type TextProps = {
     children: ReactNode;
-    style?: React.CSSProperties; //propriedades de estilo
-    typeFont?: string;
+    style?: React.CSSProperties;
+    customTypeFont?: string;
     fontSize?: string;
     textColor?: string;
 }
 
-
 type TextStylesProps = {
-    typeFont?: string;
+    customTypeFont?: string;
     fontSize?: string;
     textColor?: string;
     styles?: object;
 }
 
-const Text = styled.p<TextStylesProps>(({ typeFont, fontSize, textColor, styles, theme }) => {
-    const { palette: colors, spacing } = theme;
+const Text = styled.p.withConfig({
+    shouldForwardProp: (prop) => !["customTypeFont", "styles"].includes(prop),
+})<TextStylesProps>(({ customTypeFont, fontSize, textColor, styles, theme }) => {
+    const { palette: colors } = theme;
     return {
         padding: 0,
         margin: 0,
         display: "flex",
         justifyContent: "flex-start",
         alignContent: "center",
-        fontFamily: typeFont ? typeFont : FontFamily.medium12.fontFamily,
+        fontFamily: customTypeFont ? customTypeFont : FontFamily.medium12.fontFamily,
         fontSize: fontSize ? fontSize : FontFamily.medium12.fontSize,
         color: textColor ? textColor : colors.text.textPrimaryColor,
         ...styles,
     };
 });
 
-function TextComponent({ children, style, typeFont, fontSize, textColor }: TextProps): JSX.Element {
+function TextComponent({ children, style, customTypeFont, fontSize, textColor }: TextProps): JSX.Element {
     return (
-        <Text styles={style} typeFont={typeFont} fontSize={fontSize} textColor={textColor}>
+
+        <Text styles={style} customTypeFont={customTypeFont} fontSize={fontSize} textColor={textColor}>
             {children}
         </Text>
-    )
+    );
 }
 
 export default TextComponent;

@@ -35,7 +35,7 @@ function WorksPage() {
             <Styles.Container>
                 <Styles.Content>
                     <TextComponent
-                        typeFont={Fonts.medium}
+                        customTypeFont={Fonts.medium}
                         fontSize="2rem"
                         textColor={colors.white}
                     >
@@ -46,7 +46,7 @@ function WorksPage() {
             <Styles.Container backgroundColor>
                 <Styles.Content>
                     <TextComponent
-                        typeFont={Fonts.medium}
+                        customTypeFont={Fonts.medium}
                         fontSize="1rem"
                         textColor={colors.white}
                     >
@@ -70,7 +70,7 @@ function WorksPage() {
                     </Grid>
 
                     <TextComponent
-                        typeFont={Fonts.medium}
+                        customTypeFont={Fonts.medium}
                         fontSize="1rem"
                         textColor={colors.white}
                         style={{ marginTop: "20px" }}
@@ -94,7 +94,7 @@ function WorksPage() {
             <Styles.Container>
                 <Styles.Content>
                     <TextComponent
-                        typeFont={Fonts.medium}
+                        customTypeFont={Fonts.medium}
                         fontSize="2rem"
                         textColor={colors.white}
                     >
@@ -105,7 +105,7 @@ function WorksPage() {
             <Styles.Container backgroundColor>
                 <Styles.Content>
                     <TextComponent
-                        typeFont={Fonts.medium}
+                        customTypeFont={Fonts.medium}
                         fontSize="1rem"
                         textColor={colors.white}
                     >

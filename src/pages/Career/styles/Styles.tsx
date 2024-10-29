@@ -48,7 +48,7 @@ const CompanyBox = styled.div(({ theme }) => {
     padding: theme.spacing(2),
     marginBottom: theme.spacing(5),
     borderRadius: theme.spacing(1),
-    "& .companyImage": {
+    "& .company-logos": {
       animation: "go-back 2s",
     },
     "@keyframes go-back": {

@@ -8,14 +8,18 @@ function ExperiencesPage() {
 
   return (
     <>
-      <Styles.Container backgroundColor>
+      <Styles.Container>
         <Styles.Content>
-          <TextComponent fontSize="1rem"
-            typeFont={Fonts.bold}
+          <TextComponent fontSize="2rem"
+            customTypeFont={Fonts.bold}
             textColor={colors.white}>
             {texts.practicalExperiencesText}
           </TextComponent>
+        </Styles.Content>
+      </Styles.Container>
 
+      <Styles.Container backgroundColor>
+        <Styles.Content>
           <ExperienceComponents />
         </Styles.Content>
       </Styles.Container>
