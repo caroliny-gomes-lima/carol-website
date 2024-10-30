@@ -12,7 +12,7 @@ function Footer() {
   const socialLinks = [
     {
       icon: <LinkedIn fontSize="medium" />,
-      link: "https://www.linkedin.com/in/caroliny-gomes-a142291b9",
+      link: "https://www.linkedin.com/in/caroliny-lima-desenvolvedora-sistemas",
     },
     {
       icon: <GitHub fontSize="medium" />,
