@@ -40,7 +40,7 @@ function Header({ openMenu }: HeaderProps) {
     // Simula um tempo de carregamento para reverter o estado de loading
     setTimeout(() => {
       setIsLoading(false);
-    }, 500); // Ajuste o tempo conforme necessário
+    }, 500);
   };
 
   return (
@@ -74,7 +74,7 @@ function Header({ openMenu }: HeaderProps) {
           </Styles.NavGroup>
         )}
       </Styles.Content>
-      {isLoading && (
+      {isLoading && !isMobile && (
         <Styles.LoadingOverlay>
           <CircularProgress size={100} style={{ color: colors.purple }} />
         </Styles.LoadingOverlay>

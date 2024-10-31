@@ -1,8 +1,8 @@
 const MOCKDATA_LANGUAGES = [
-    { name: "HTML5", value: 50, color: "#ff8200" },
-    { name: "CSS", value: 70, color: "#00c3ff" },
-    { name: "JavaScript", value: 75, color: "#ffe400" },
-    { name: "TypeScript", value: 65, color: "#0168FA" },
+    { name: "HTML5", value: 85, color: "#ff8200" },
+    { name: "CSS", value: 75, color: "#00c3ff" },
+    { name: "JavaScript", value: 100, color: "#ffe400" },
+    { name: "TypeScript", value: 100, color: "#0168FA" },
 ];
 
 const MOCKDATA_DEV_TOOLS_FRONTEND = [
