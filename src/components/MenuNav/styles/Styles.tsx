@@ -106,6 +106,20 @@ const NavigationButton = styled(Button)<{ changeColor?: boolean }>(({ theme, cha
   }
 });
 
+export const LoadingOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0); // leve opacidade para a sobreposição
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; // coloca o overlay acima de outros elementos
+`;
+
+
 const Styles = {
   MenuHeader,
   MenuFooter,
@@ -114,6 +128,7 @@ const Styles = {
   CloseButtom,
   NavPageContainer,
   NavigationButton,
+  LoadingOverlay
 };
 
 export default Styles;

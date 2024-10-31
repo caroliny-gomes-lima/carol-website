@@ -1,7 +1,7 @@
 import Styles from "../styles/Styles";
 import { useLocation, useNavigate } from "react-router-dom";
 import { DefaultLogo, TextComponent } from "components";
-import { Drawer } from "@mui/material";
+import { CircularProgress, Drawer } from "@mui/material";
 import { Close, Copyright } from "@mui/icons-material";
 import { colors, Fonts, Texts } from "config";
 import React from "react";
@@ -19,29 +19,35 @@ type MenuProps = {
 
 function Container({ data, isOpen, openMenu }: MenuProps) {
   const texts = Texts["ptBr"].footer;
+  const [isLoading, setIsLoading] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  // Caminho atual da URL
   const selectedPath = location.pathname;
 
-  const NavPages = () => {
-    return (
-      <>
-        <Styles.Content>
-          {data.map((item, index) => {
-            const isSelected = item.path === selectedPath;
-            return (
-              <Styles.NavPageContainer key={index}>
-                <Styles.NavigationButton onClick={() => navigate(item.path)} changeColor={isSelected}>
-                  {item.title}
-                </Styles.NavigationButton>
-              </Styles.NavPageContainer>
-            );
-          })}
-        </Styles.Content>
-      </>
-    );
+  const handleNavigate = (path: string) => {
+    setIsLoading(true);
+    navigate(path);
+
+    setTimeout(() => {
+      setIsLoading(false);
+      openMenu(false);
+    }, 500);
   };
+
+  const NavPages = () => (
+    <Styles.Content>
+      {data.map((item, index) => (
+        <Styles.NavPageContainer key={index}>
+          <Styles.NavigationButton
+            onClick={() => handleNavigate(item.path)}
+            changeColor={item.path === location.pathname}
+          >
+            {item.title}
+          </Styles.NavigationButton>
+        </Styles.NavPageContainer>
+      ))}
+    </Styles.Content>
+  );
 
   const DrawMenu = () => {
     return (
@@ -95,6 +101,11 @@ function Container({ data, isOpen, openMenu }: MenuProps) {
             </TextComponent>
           </div>
         </Styles.MenuFooter>
+        {isLoading && (
+          <Styles.LoadingOverlay>
+            <CircularProgress size={100} style={{ color: colors.purple }} />
+          </Styles.LoadingOverlay>
+        )}
       </Styles.Container>
     );
   };
