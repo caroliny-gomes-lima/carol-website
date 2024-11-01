@@ -1,5 +1,5 @@
 import Styles from "../styles/Styles";
-import { colors, Fonts, Spacing, Texts } from "config";
+import { colors, Fonts, Texts } from "config";
 import { Grid } from "@mui/material";
 import { Code, FitnessCenter, SportsEsports } from "@mui/icons-material";
 import { TextComponent } from "components";

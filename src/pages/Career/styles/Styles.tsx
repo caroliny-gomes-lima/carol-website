@@ -49,9 +49,9 @@ const CompanyBox = styled.div(({ theme }) => {
     marginBottom: theme.spacing(5),
     borderRadius: theme.spacing(1),
     "& .company-logos": {
-      animation: "go-back 2s",
+      animation: "go-right 2s",
     },
-    "@keyframes go-back": {
+    "@keyframes go-right": {
       from: {
         transform: "translateX(-500px)"
       },

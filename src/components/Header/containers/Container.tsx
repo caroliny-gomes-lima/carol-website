@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import Styles from "../styles/Styles";
 import { useNavigate, useLocation } from "react-router-dom";
 import { paths } from "routes/navigation";
@@ -19,13 +19,13 @@ function Header({ openMenu }: HeaderProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const isMobile = useMediaQuery(Theme.dark.breakpoints.down("sm"));
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { label: texts.home, path: paths.about },
     { label: texts.career, path: paths.career },
     { label: texts.experiences, path: paths.Experiences },
     { label: texts.skills, path: paths.Skills },
     { label: texts.work, path: paths.works },
-  ];
+  ], [texts])
 
   useEffect(() => {
     const activeIndex = navItems.findIndex(item => item.path === location.pathname);
@@ -37,7 +37,6 @@ function Header({ openMenu }: HeaderProps) {
     setIsLoading(true);
     navigate(path);
 
-    // Simula um tempo de carregamento para reverter o estado de loading
     setTimeout(() => {
       setIsLoading(false);
     }, 500);

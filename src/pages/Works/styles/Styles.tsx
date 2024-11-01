@@ -58,8 +58,8 @@ const companyAnimation = styled.div(
       width: "100%",
       height: "fit-content",
       gap: theme.spacing(1),
-      animation: "go-back 5s ease-out forwards",  // Adiciona 'forwards' para manter a posição final
-      "@keyframes go-back": {
+      animation: "go-left 5s ease-out forwards",  // Adiciona 'forwards' para manter a posição final
+      "@keyframes go-left": {
         from: {
           transform: "translateX(500px)"
         },
