@@ -17,7 +17,7 @@ Este projeto é um website que apresenta meu portfólio profissional. Ele conta 
 </div>
 
 ## Arquitetura
-O projeto segue a arquitetura baseada em componentes, dividindo a interface do usuário em componentes reutilizáveis e isolados. Cada componente é responsável por sua própria lógica e UI, permitindo uma estrutura modular.
+O projeto segue uma arquitetura monolitica tradicional baseada em componentes, dividindo a interface do usuário em componentes globais reutilizáveis e isolados. Cada componente é responsável por sua própria lógica e UI, permitindo uma estrutura modular.
 ```
 src/
 |-- assets/
