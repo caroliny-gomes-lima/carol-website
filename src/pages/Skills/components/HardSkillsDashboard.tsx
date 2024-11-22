@@ -33,7 +33,7 @@ function HardSkillsDashboard() {
                 <LevelBar
                     barLevelTitle={texts.levelTitle[0]}
                     juniorLevel={45}
-                    plenoLevel={6}
+                    plenoLevel={0}
                     seniorLevel={0}
                 />
 
