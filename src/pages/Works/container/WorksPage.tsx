@@ -3,7 +3,7 @@ import { colors, Fonts, Texts } from "config";
 import { Grid } from "@mui/material";
 import { ButtonComponent, svgImageComponent, TextComponent } from "components";
 import ProjectVideo from "../../../assets/video/plurio-project.mp4";
-import { SiSwagger } from "react-icons/si";
+import { FaGithub } from 'react-icons/fa';
 
 function WorksPage() {
     const texts = Texts["ptBr"].Works;
@@ -79,14 +79,17 @@ function WorksPage() {
                     </TextComponent>
                     <Grid item xs={12} sm={8} md={8} lg={8}>
                         <ButtonComponent
-                            backgroundColor={colors.green}
-                            textColor={colors.black}
+                            backgroundColor={colors.purple}
+                            textColor={colors.white}
+                            // onClick={() =>
+                            //     window.open("https://petlivre-production.up.railway.app/api#/")
+                            // }
                             onClick={() =>
-                                window.open("https://petlivre-production.up.railway.app/api#/")
+                                window.open("https://github.com/caroliny-gomes-lima/PROJETO-INTEGRADOR-PET-LIVRE")
                             }
-                            endIcon={<SiSwagger />}
+                            endIcon={<FaGithub />}
                         >
-                            {texts.swaggerButton}
+                            {texts.gitHubButton}
                         </ButtonComponent>
                     </Grid>
                 </Styles.Content>

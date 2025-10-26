@@ -85,7 +85,7 @@ const ptBr = {
       "Além de atuar como freelancer, concluí o bootcamp imersivo em JavaScript focado em back-end pela Reprograma. Durante o curso, desenvolvi meu primeiro projeto back-end, a API PetLivre, uma plataforma que facilita o acesso de usuários de baixa renda a serviços veterinários. A API permite que tutores criem contas, registrem seus pets e encontrem clínicas veterinárias próximas para vacinação gratuita e medicamentos com desconto. O sistema também permite o agendamento de visitas domiciliares para quem não pode levar o pet à clínica, exigindo, no cadastro, uma descrição do pet e a comprovação de baixa renda do dono. Além disso, ONGs e programas podem se registrar para oferecer campanhas de vacinação e conteúdos educativos diretamente na plataforma. O projeto está em fase de desenvolvimento, atualmente com CRUDs implementados para tutores e pets",
       "Estes são os clientes para os quais participei no desenvolvimento dos projetos durante minha atuação na PalmSoft e na Deepen."
     ],
-    swaggerButton: "Testes das rotas no Swagger"
+    gitHubButton: "Ropositório do projeto"
   },
 };
 
