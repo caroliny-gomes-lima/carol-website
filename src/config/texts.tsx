@@ -48,7 +48,7 @@ const ptBr = {
   career: {
     avatarText: "Pensar como programadora... Trabalhar como desenvolvedora... Transformar a arte de programar em algo inovador... Eu amo o que faço!",
     ComapnyImageText: "Iniciei minha carreira na área de Tecnologia da Informação como estagiária de programação front-end para a empresa PalmSoft e a startup Deepen, que pertence à PalmSoft. Posteriormente, nessas incríveis empresas, tornei-me desenvolvedora front-end júnior. A PalmSoft e a Deepen me ajudaram a pensar como programadora e a descobrir a desenvolvedora dentro de mim.",
-    MemberComapnyImageText: "A PalmSoft e a Deepen me ajudaram a pensar como programadora e a descobrir a desenvolvedora dentro de mim.",
+    checkComerceCarrerText: "Em seguida, ingressei no setor de e-commerce, onde iniciei uma nova trajetória na empresa Check Commerce, atuando com suporte e desenvolvimento front-end para lojas virtuais. Essa experiência foi bastante enriquecedora, pois me permitiu compreender o funcionamento da área de tecnologia voltada ao comércio eletrônico, além de aprender novas ferramentas e processos para o desenvolvimento de projetos e-commerce.",
   },
 
   experiences: {

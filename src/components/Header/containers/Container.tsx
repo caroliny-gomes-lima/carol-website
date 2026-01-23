@@ -52,7 +52,7 @@ function Header({ openMenu }: HeaderProps) {
             </IconButtonComponent>
           )}
           <DefaultLogo PurpleLogo />
-          <Styles.TextName>Caroliny Gomes</Styles.TextName>
+          <Styles.TextName>Caroliny/Lima_</Styles.TextName>
         </Styles.LogoGroup>
         {!isMobile && (
           <Styles.NavGroup>

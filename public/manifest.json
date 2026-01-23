@@ -3,12 +3,12 @@
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "CarolCodeLogo.svg",
+      "src": "LogoFinalPurple.svg",
       "sizes": "500x500 500x500 500x500 500x500",
       "type": "image/x-icon"
     },
     {
-      "src": "CarolCodeLogo.svg",
+      "src": "LogoFinalPurple.svg",
       "type": "image/svg",
       "sizes": "192x192"
     },
