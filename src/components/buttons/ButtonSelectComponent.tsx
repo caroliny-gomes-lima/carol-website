@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Button as BaseButton } from "@mui/base";
 import { Menu, MenuItem } from "@mui/material";
 
-import { FontFamily, Theme } from "config";
+import { FontFamily } from "config";
 
 const BaseButtonStyles = styled(BaseButton)<{
   backgroundColor?: string,

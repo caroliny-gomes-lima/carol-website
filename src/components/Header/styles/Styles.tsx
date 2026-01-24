@@ -1,4 +1,4 @@
-import { FontFamily, Theme } from "config";
+import { FontFamily } from "config";
 import styled from "styled-components";
 
 import colors from "config/colors";
