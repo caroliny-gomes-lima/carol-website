@@ -35,7 +35,7 @@ const MovieBox = styled.div<{ setColor?: string }>(
   }
 );
 
-const companyGroups = styled.div(
+const CompanyGroups = styled.div(
   ({ theme }) => {
     return {
       backgroundColor: theme.palette.secondary.contrastText,
@@ -47,7 +47,7 @@ const companyGroups = styled.div(
   }
 );
 
-const companyAnimation = styled.div(
+const CompanyAnimation = styled.div(
   ({ theme }) => {
     return {
       display: "flex",
@@ -71,7 +71,7 @@ const companyAnimation = styled.div(
   }
 );
 
-const companyBox = styled.div(
+const CompanyBox = styled.div(
   ({ theme }) => {
     return {
       width: "fit-content",
@@ -86,10 +86,10 @@ const companyBox = styled.div(
 const Styles = {
   Container,
   Content,
-  companyGroups,
-  companyAnimation,
+  CompanyGroups,
+  CompanyAnimation,
   MovieBox,
-  companyBox
+  CompanyBox
 };
 
 export default Styles;

@@ -30,7 +30,7 @@ function ModalCompoent({
   return (
     <>
 
-      <Styles.customModal
+      <Styles.CustomModal
         open={open}
         onClose={onClose}
         aria-labelledby="modal-title"
@@ -38,9 +38,9 @@ function ModalCompoent({
       >
         <Styles.Container>
           <Styles.HeaderModal>
-            <Styles.closeButton onClick={onClose}>
+            <Styles.CloseButton onClick={onClose}>
               <Close />
-            </Styles.closeButton>
+            </Styles.CloseButton>
             <Styles.ModalTitle>ABRIU O MODAL</Styles.ModalTitle>
           </Styles.HeaderModal>
           <Styles.Content>
@@ -78,7 +78,7 @@ function ModalCompoent({
             </Grid>
           ) : null}
         </Styles.Container>
-      </Styles.customModal>
+      </Styles.CustomModal>
     </>
   );
 }

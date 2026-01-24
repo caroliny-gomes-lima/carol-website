@@ -40,16 +40,6 @@ const ChartBox = styled.div(() => {
   };
 });
 
-const LevelBar = styled.div(({ theme }) => {
-  const { palette: colors, spacing } = theme;
-  return {
-    display: "flex",
-    backgroundColor: colors.primary.main,
-    borderRadius: spacing(10),
-    overflow: "hidden",
-  };
-});
-
 const Level = styled.div<{ backgroundColor?: string; width?: string }>(
   ({ theme, backgroundColor, width }) => {
     const { spacing } = theme;
@@ -68,7 +58,6 @@ const Styles = {
   Container,
   Content,
   ChartBox,
-  LevelBar,
   Level,
 };
 
