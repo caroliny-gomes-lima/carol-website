@@ -1,6 +1,6 @@
 {
   "name": "carol-website",
-  "version": "1.6.3",
+  "version": "2.1.2",
   "private": true,
   "dependencies": {
     "@emotion/react": "11.11.4",
