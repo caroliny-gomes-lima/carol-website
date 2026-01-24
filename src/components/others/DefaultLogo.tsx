@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import svgImageComponent from "./svgImageComponent";
-import { Spacing, Theme } from "config";
+import { Spacing } from "config";
 
 const LogoContainer = styled.div(() => {
   return {

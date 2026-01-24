@@ -4,7 +4,7 @@ import { colors, Fonts, Texts } from "config";
 import DoughnutChart from "./DoughnutChart";
 import BarChart from "./BarChart";
 import { TextComponent } from "components";
-import LevelBar from "./LevelBar";
+
 import {
     MOCKDATA_DEV_TOOLS_BACKEND,
     MOCKDATA_DEV_TOOLS_FRONTEND,

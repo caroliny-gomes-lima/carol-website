@@ -22,7 +22,6 @@ function Container({ data, isOpen, openMenu }: MenuProps) {
   const [isLoading, setIsLoading] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const selectedPath = location.pathname;
 
   const handleNavigate = (path: string) => {
     setIsLoading(true);

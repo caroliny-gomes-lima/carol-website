@@ -37,7 +37,7 @@ function DoughnutChart({ chartData, chartTitle }: Props) {
       chartRef.current.data = formatData(chartData);
       chartRef.current.update();
     }
-  }, [chartData, formatData]);
+  }, [chartData]);
 
   const canvasCallback = (canvas: HTMLCanvasElement | null) => {
     const ctx = canvas?.getContext("2d");
