@@ -22,7 +22,9 @@ function AboutPage() {
 
   const TextSection = (text: string) => (
     <Grid item xs={12} sm={12} md={12} lg={12} textAlign={"center"}>
-      <TextComponent customTypeFont={Fonts.medium} fontSize="1rem" textColor={colors.white}>{text}</TextComponent>
+      <TextComponent customTypeFont={Fonts.medium} fontSize="1rem" textColor={colors.white}>
+        {text}
+      </TextComponent>
     </Grid>
   )
 
@@ -30,39 +32,41 @@ function AboutPage() {
     <>
       <Styles.Container>
         <Styles.Content>
-          <TextComponent
-            fontSize="2rem"
-            customTypeFont={Fonts.bold}
-            textColor={colors.white}
-          >
-            {texts.title}
-          </TextComponent>
 
-          <Grid container spacing={2} direction="row" justifyContent="center">
-            <Grid item xs={11} sm={5} md={3} lg={3}>
+          <Styles.ZoomText style={{ animationDelay: "0.5s" }}>
+            <TextComponent
+              fontSize="3rem"
+              customTypeFont={Fonts.bold}
+              textColor={colors.white}
+              style={{ marginBottom: "50px" }}
+            >
+              {texts.title}
+            </TextComponent>
+          </Styles.ZoomText>
+
+
+          <Styles.TagsAnimation>
+            <Styles.TagsGroup className="box-tags">
               {renderTextBox(SportsEsports, texts.gamesPopLifeText, colors.red)}
-            </Grid>
-
-            <Grid item xs={10} sm={5} md={3} lg={3}>
               {renderTextBox(FitnessCenter, texts.fitLifeText, colors.green)}
-            </Grid>
-
-            <Grid item xs={11} sm={7} md={4} lg={4}>
               {renderTextBox(Code, texts.codeLifeText, colors.lightBlue)}
-            </Grid>
-          </Grid>
-        </Styles.Content>
-      </Styles.Container>
-
-      <Styles.Container backgroundColor>
-        <Styles.Content>
-
-          {texts.text.map((section) => (
-            <>{TextSection(section)}</>
-          ))}
+            </Styles.TagsGroup>
+          </Styles.TagsAnimation>
 
         </Styles.Content>
       </Styles.Container>
+
+      <Styles.ZoomText style={{ animationDelay: "0.5s" }}>
+        <Styles.Container backgroundColor>
+          <Styles.Content>
+
+            {texts.text.map((section) => (
+              <>{TextSection(section)}</>
+            ))}
+
+          </Styles.Content>
+        </Styles.Container>
+      </Styles.ZoomText>
     </>
   );
 }

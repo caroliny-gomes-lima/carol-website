@@ -17,10 +17,12 @@ const Container = styled.div<{ backgroundColor?: boolean }>(
 const Content = styled.div(({ theme }) => {
   const { spacing } = theme;
   return {
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    padding: spacing(2),
     gap: spacing(1),
   };
 });
@@ -28,7 +30,7 @@ const Content = styled.div(({ theme }) => {
 const Box = styled.div<{ setColor: string }>(
   ({ theme, setColor }) => {
     return {
-      width: "100%",
+      width: "auto",
       display: "flex",
       flexWrap: "wrap",
       justifyContent: "center",
@@ -37,15 +39,66 @@ const Box = styled.div<{ setColor: string }>(
       paddingInline: theme.spacing(4),
       border: `solid 2px ${setColor}`,
       borderRadius: theme.spacing(1),
-      gap: 12,
+      gap: theme.spacing(2),
     };
   }
 );
+
+const TagsAnimation = styled.div(() => {
+  return {
+    "& .box-tags": {
+      animation: "go-right 4s",
+    },
+    "@keyframes go-right": {
+      from: {
+        transform: "translateX(-900px)"
+      },
+      to: {
+        transform: "translateX(0)"
+      }
+    }
+  };
+
+});
+
+const TagsGroup = styled.div(({ theme }) => {
+  return {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: theme.spacing(2),
+    padding: theme.spacing(2),
+  };
+
+});
+
+const ZoomText = styled.div(() => {
+  return {
+    animation: "zoom-in 2s ease-out both",
+
+    "@keyframes zoom-in": {
+      from: {
+        transform: "scale(0.7)",
+        opacity: 0,
+      },
+      to: {
+        transform: "scale(1)",
+        opacity: 1,
+      },
+    },
+  };
+});
 
 const Styles = {
   Container,
   Content,
   Box,
+  TagsAnimation,
+  TagsGroup,
+  ZoomText,
 };
 
 export default Styles;

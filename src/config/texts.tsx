@@ -28,10 +28,10 @@ const ptBr = {
     text: [
       "Olá, sou Caroliny e seja bem-vindo(a) ao meu site! Mas quem sou eu? Bom, aqui vai um resuminho!",
       "Sou a pessoa em busca do shape perfeito e de uma vida saudável quando estou na academia.",
-      "Nos meus momentos como Carol, eu me transformo nos personagens dos games quando estou no modo play.",
+      "Eu me transformo nos personagens dos games quando estou no modo play.",
       "Também sou a protagonista guerreira, heroína ou vilã dos filmes e séries de ficção científica, ação e terror que adoro assistir.",
       "Além disso, sou uma aprendiz dedicada de desenvolvimento de sistemas, estudando com cursos, meu computador, livros e muito café.",
-      "Estou sempre me atualizando e buscando adquirir novas habilidades. Sou silenciosamente confiante, muito curiosa e estou sempre trabalhando e estudando para aprimorar minhas habilidades."
+      "Estou sempre me atualizando e buscando adquirir novas habilidades."
     ],
 
     textActivitiesLeft: [
