@@ -10,8 +10,8 @@ function WorksPage() {
 
     const CompanyLogos = () => (
         <Grid item xs={12} sm={12} md={12} lg={12}>
-            <Styles.companyGroups>
-                <Styles.companyAnimation className="companyWorks">
+            <Styles.CompanyGroups>
+                <Styles.CompanyAnimation className="companyWorks">
                     {[
                         svgImageComponent.BewikiLogo,
                         svgImageComponent.LaborAnalytcsLogo,
@@ -21,12 +21,12 @@ function WorksPage() {
                         svgImageComponent.AcateLogo,
                         svgImageComponent.EngieLogo
                     ].map((LogoComponent, index) => (
-                        <Styles.companyBox key={index}>
+                        <Styles.CompanyBox key={index}>
                             <LogoComponent />
-                        </Styles.companyBox>
+                        </Styles.CompanyBox>
                     ))}
-                </Styles.companyAnimation>
-            </Styles.companyGroups>
+                </Styles.CompanyAnimation>
+            </Styles.CompanyGroups>
         </Grid>
     );
 

@@ -30,19 +30,6 @@ function HardSkillsDashboard() {
     return (
         <Styles.Container backgroundColor>
             <Styles.Content>
-                {/* <LevelBar
-                    barLevelTitle={texts.levelTitle[0]}
-                    juniorLevel={45}
-                    plenoLevel={0}
-                    seniorLevel={0}
-                />
-
-                <LevelBar
-                    barLevelTitle={texts.levelTitle[1]}
-                    juniorLevel={45}
-                    plenoLevel={0}
-                    seniorLevel={0}
-                /> */}
                 <TextComponent
                     fontSize="1rem"
                     customTypeFont={Fonts.bold}

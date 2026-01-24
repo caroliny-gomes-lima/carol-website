@@ -2,7 +2,7 @@ import { Box, IconButton, Modal, Paper } from "@mui/material";
 import { FontFamily } from "config";
 import styled from "styled-components";
 
-const customModal = styled(Modal)(({ theme }) => {
+const CustomModal = styled(Modal)(({ theme }) => {
   return {
     display: "flex",
     alignItems: "flex-start",
@@ -63,7 +63,7 @@ const TextStyles = styled.span<{ $DefaultColor?: string }>(
   }
 );
 
-const closeButton = styled(IconButton)(() => {
+const CloseButton = styled(IconButton)(() => {
   return {
     "&&.MuiIconButton-root": {
       width: "fit-content",
@@ -76,13 +76,13 @@ const closeButton = styled(IconButton)(() => {
 });
 
 const Styles = {
-  customModal,
+  CustomModal,
   Container,
   HeaderModal,
   ModalTitle,
   Content,
   TextStyles,
-  closeButton,
+  CloseButton,
 };
 
 export default Styles;
