@@ -36,7 +36,7 @@ const StyledButton = styled(Button).withConfig({
         ? $backgroundColor
         : $disabledButton
           ? $disabledButton
-          : theme.palette.secondary.contrastText,
+          : theme.palette.primary.main,
       color: $textColor,
       borderRadius: theme.spacing(1),
       "&:hover": {
@@ -82,7 +82,6 @@ interface ButtonProps {
   children?: React.ReactNode;
   loading?: boolean;
   disabled?: boolean;
-  name?: string;
   onClick?: (data: any) => void;
   type?: "submit" | "button" | "reset";
   [key: string]: any;
@@ -97,7 +96,6 @@ function ButtonComponent({
   children,
   loading,
   disabled,
-  name,
   type,
   onClick,
   disabledUntil,
@@ -123,7 +121,6 @@ function ButtonComponent({
 
   return (
     <StyledButton
-      name={name}
       variant="contained"
       type={type}
       fullWidth={fullWidth}
@@ -132,7 +129,7 @@ function ButtonComponent({
       onClick={handleClick}
       $loadingButton={loadingButton}
       $disabledButton={disabledButton || loadingButton || watchRequiredFields}
-      disabled={loading || formState?.isSubmitting}
+      disabled={disabledButton || loadingButton || watchRequiredFields}
       {...props}
     >
       {loadingButton ? (

@@ -19,6 +19,8 @@ function useHandleClick(
                 reset?.();
             } else if (TYPE === "submit" && onClick) {
                 onClick(event);
+            } else if (onClick) {
+                onClick(event);
             }
         },
         [TYPE, reset, onClick],

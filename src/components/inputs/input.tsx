@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Input } from "@mui/material";
-import { colors, FontFamily, Spacing } from "config";
+import { FormHelperText, Input } from "@mui/material";
+import { colors, FontFamily, Spacing, Texts } from "config";
 import { Controller, RegisterOptions, useFormContext } from "react-hook-form";
 import TextComponent from "components/others/TextComponent";
+import { ErrorMessage } from "@hookform/error-message";
 
 const StyledIput = styled(Input)(({ theme }) => {
   const { palette: colors, spacing } = theme;
@@ -45,23 +46,27 @@ interface InputProps {
   label?: string;
   name: string;
   type?: string;
-  rules?: RegisterOptions;
   placeholder?: string;
   defaultValue?: string;
+  required?: boolean;
+  validation?: string;
 }
 
 function InputComponent({
   label,
   name,
   type,
-  rules,
+  required,
   defaultValue,
   placeholder,
 }: InputProps) {
-  const { control } = useFormContext();
-  const labelRef = useRef<HTMLDivElement | null>(null);
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
+  const labelRef = React.useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (label && labelRef.current) {
       const fieldset = labelRef.current.querySelector("fieldset");
       if (fieldset) {
@@ -75,19 +80,18 @@ function InputComponent({
       <Controller
         name={name}
         control={control}
-        rules={rules}
+        rules={{ required: required && Texts.ptBr.requiredField }}
         defaultValue={defaultValue || ""}
-        render={({ field, fieldState: { error } }) => {
+        render={({ field }) => {
           const className = getErrorClassName("input-field", true, false);
           return (
             <div className={className}>
               {label && (
                 <TextComponent
                   fontSize="0.90rem"
-                  textColor={error ? "red" : colors.white}
-                  style={{ marginBottom: "4px" }}
+                  textColor={errors[name] ? "red" : colors.white}
                 >
-                  {label}
+                  {label + (required ? " *" : "")}
                 </TextComponent>
               )}
               <StyledIput
@@ -95,9 +99,25 @@ function InputComponent({
                 type={type}
                 placeholder={placeholder}
                 {...field}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (/^[A-Za-zÀ-ÿ\s]*$/.test(value)) {
+                    field.onChange(e);
+                  }
+                }}
               />
-              {error && (
-                <span className="error-message">Error: {error.message}</span>
+              {errors && (
+                <ErrorMessage
+                  errors={errors}
+                  name={name}
+                  render={({ message }) => (
+                    <FormHelperText error>
+                      <TextComponent fontSize="0.75rem" textColor={colors.red}>
+                        {message}
+                      </TextComponent>
+                    </FormHelperText>
+                  )}
+                />
               )}
             </div>
           );

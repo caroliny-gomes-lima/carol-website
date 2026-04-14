@@ -2,7 +2,14 @@ import React from "react";
 import { colors, Texts } from "config";
 import { useModal } from "context/components/ModalRoot";
 import Styles from "../styles/Styles";
-import { InputComponent, FormHolder, InputSelect, ImageUpload, InputDescription, ButtonComponent } from "components";
+import {
+  InputComponent,
+  FormHolder,
+  InputSelect,
+  ImageUpload,
+  InputDescription,
+  ButtonComponent,
+} from "components";
 import { Grid } from "@mui/material";
 
 function ExperienceComponents() {
@@ -10,6 +17,8 @@ function ExperienceComponents() {
   const { openModal } = useModal();
   const [imagePreview, setImagePreview] = React.useState<string | null>(null);
   console.log(imagePreview);
+
+  const InputsNames = ["characterName"];
 
   return (
     <>
@@ -49,16 +58,23 @@ function ExperienceComponents() {
         Abrir Modal Costumizado
       </button> */}
 
-
       <Styles.FormularyBox>
         <Grid container spacing={2} alignItems="center" justifyContent="center">
           <Grid item xs={12} sm={6}>
-            <InputComponent name="characterName" label={texts.experiences.inputsNames[0]} placeholder="Digite o nome do personagem" />
+            <InputComponent
+              name="characterName"
+              label={texts.experiences.inputsNames[0]}
+              placeholder="Digite o nome do personagem"
+              required
+            />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ImageUpload label={texts.experiences.inputsNames[4]} onChangeShowImage={(fileData) => {
-              setImagePreview(fileData.url ? String(fileData.url) : null);
-            }} />
+            <ImageUpload
+              label={texts.experiences.inputsNames[4]}
+              onChangeShowImage={(fileData) => {
+                setImagePreview(fileData.url ? String(fileData.url) : null);
+              }}
+            />
           </Grid>
           <Grid item xs={12} sm={6}>
             <InputSelect
@@ -84,7 +100,10 @@ function ExperienceComponents() {
           </Grid>
           {imagePreview && (
             <Styles.ImageBox>
-              <Styles.ImageStyle src={imagePreview} alt="Pré-visualização da imagem" />
+              <Styles.ImageStyle
+                src={imagePreview}
+                alt="Pré-visualização da imagem"
+              />
             </Styles.ImageBox>
           )}
           <Grid item xs={12}>
@@ -94,8 +113,8 @@ function ExperienceComponents() {
             <ButtonComponent
               type="submit"
               text="Enviar"
-              loading={true}
-              disabledUntil={[]}
+              loading={false}
+              disabledUntil={InputsNames}
               backgroundColor={colors.purple}
               textColor={colors.white}
             >
@@ -103,14 +122,12 @@ function ExperienceComponents() {
             </ButtonComponent>
           </Grid>
         </Grid>
-
-
       </Styles.FormularyBox>
     </>
   );
 }
 
-const CharacterFormularyInputs = FormHolder(ExperienceComponents)
+const CharacterFormularyInputs = FormHolder(ExperienceComponents);
 
 export default CharacterFormularyInputs;
 

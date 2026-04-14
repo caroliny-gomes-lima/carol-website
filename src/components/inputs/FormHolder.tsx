@@ -8,7 +8,7 @@ interface HOCProps {
 
 function FormHolder(WrappedComponent: React.ComponentType<any>) {
     return function HOC({ onSubmit, props }: HOCProps) {
-        const formMethods = useForm();
+        const formMethods = useForm({ shouldFocusError: true });
 
         return (
             <FormProvider {...formMethods}>

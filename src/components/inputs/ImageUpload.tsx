@@ -3,7 +3,7 @@ import styled from "styled-components";
 import TextComponent from "components/others/TextComponent";
 import { colors, Texts } from "config";
 import { Upload } from "@mui/icons-material";
-import { IconButton, Input } from "@mui/material";
+import { FormHelperText, IconButton, Input } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 
 const ContainerLabel = styled.div(() => {
@@ -152,9 +152,11 @@ function ImageUpload({ label, onChangeShowImage }: Props) {
                     <Upload style={{ color: colors.purple }} />
                 </IconButton>
             </ContainerInput>
-            <TextComponent fontSize="0.75rem" textColor={colors.red}>
-                {fileUrl.fileError}
-            </TextComponent>
+            <FormHelperText error>
+                <TextComponent fontSize="0.75rem" textColor={colors.red}>
+                    {fileUrl.fileError}
+                </TextComponent>
+            </FormHelperText>
         </>
     );
 }
