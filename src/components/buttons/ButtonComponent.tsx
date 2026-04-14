@@ -1,13 +1,26 @@
 import { Button, CircularProgress } from "@mui/material";
 import styled from "styled-components";
 import { FontFamily } from "config";
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import React from "react";
+import { useFormButton, useHandleClick } from "./useFormButton";
 
 const StyledButton = styled(Button).withConfig({
   shouldForwardProp: (prop) => !["backgroundColor", "textColor"].includes(prop),
-})<{ backgroundColor?: string; textColor?: string }>(
-  ({ theme, fullWidth, backgroundColor, textColor }) => ({
+})<{
+  $backgroundColor?: string;
+  $textColor?: string;
+  $loadingButton?: boolean;
+  $disabledButton: boolean;
+}>(
+  ({
+    theme,
+    fullWidth,
+    $backgroundColor,
+    $textColor,
+    $loadingButton,
+    $disabledButton,
+  }) => ({
     "&&.MuiButton-root": {
       width: fullWidth ? "100%" : "fit-content",
       display: "flex",
@@ -19,24 +32,36 @@ const StyledButton = styled(Button).withConfig({
       marginTop: theme.spacing(0.75),
       ...FontFamily.bold14,
       textTransform: "capitalize",
-      backgroundColor: backgroundColor,
-      color: textColor,
+      backgroundColor: $backgroundColor
+        ? $backgroundColor
+        : $disabledButton
+          ? $disabledButton
+          : theme.palette.secondary.contrastText,
+      color: $textColor,
       borderRadius: theme.spacing(1),
       "&:hover": {
-        backgroundColor: backgroundColor + "9F",
-        color: textColor + "9F",
+        backgroundColor: $backgroundColor
+          ? $backgroundColor + "9F"
+          : theme.palette.action.hover,
+        color: $textColor
+          ? $textColor + "9F"
+          : theme.palette.secondary.contrastText,
       },
     },
     "&&.MuiButton-startIcon": {
-      width: 17,
+      display: $loadingButton ? "none" : "flex",
+      color: theme.palette.text.secondary,
+      width: 20,
     },
     "&&.MuiButton-endIcon": {
       width: "100%",
     },
     "&&.Mui-disabled": {
-      backgroundColor: backgroundColor + "9F",
+      backgroundColor: $backgroundColor
+        ? $backgroundColor + "9F"
+        : theme.palette.action.disabled,
     },
-  })
+  }),
 );
 
 const StyledCircularProgress = styled(CircularProgress)(({ theme }) => {
@@ -56,10 +81,12 @@ interface ButtonProps {
   label?: string;
   children?: React.ReactNode;
   loading?: boolean;
+  disabled?: boolean;
   name?: string;
   onClick?: (data: any) => void;
-  type?: "button" | "reset" | "submit";
+  type?: "submit" | "button" | "reset";
   [key: string]: any;
+  disabledUntil?: Array<string>;
 }
 
 function ButtonComponent({
@@ -69,12 +96,30 @@ function ButtonComponent({
   label,
   children,
   loading,
+  disabled,
   name,
   type,
   onClick,
+  disabledUntil,
   ...props
 }: ButtonProps): JSX.Element {
-  const { formState } = useForm<ButtonProps>();
+  const formContext = useFormContext();
+  const watchRequiredFields =
+    formContext && disabledUntil?.length
+      ? disabledUntil.some((name) => !formContext.watch(name))
+      : false;
+  const { formState } = formContext || {};
+  const { loading: loadingButton, disabled: disabledButton } = useFormButton(
+    Boolean(loading),
+    Boolean(disabled),
+    watchRequiredFields,
+  );
+
+  const handleClick = useHandleClick(
+    type || "button",
+    onClick,
+    formContext?.reset,
+  );
 
   return (
     <StyledButton
@@ -82,13 +127,15 @@ function ButtonComponent({
       variant="contained"
       type={type}
       fullWidth={fullWidth}
-      backgroundColor={backgroundColor}
-      textColor={textColor}
-      onClick={onClick}
-      disabled={loading || formState.isSubmitting}
-      {...props} // Garante que backgroundColor e textColor não vão para o DOM
+      $backgroundColor={backgroundColor}
+      $textColor={textColor}
+      onClick={handleClick}
+      $loadingButton={loadingButton}
+      $disabledButton={disabledButton || loadingButton || watchRequiredFields}
+      disabled={loading || formState?.isSubmitting}
+      {...props}
     >
-      {loading ? (
+      {loadingButton ? (
         <StyledCircularProgress size={24} />
       ) : (
         <>{label ? label : children}</>

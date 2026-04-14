@@ -1,16 +1,20 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Input } from "@mui/material";
-import { FontFamily, Spacing } from "config";
+import { colors, FontFamily, Spacing } from "config";
 import { Controller, RegisterOptions, useFormContext } from "react-hook-form";
+import TextComponent from "components/others/TextComponent";
 
 const StyledIput = styled(Input)(({ theme }) => {
+  const { palette: colors, spacing } = theme;
   return {
     "&&.MuiInput-root": {
       ...FontFamily.medium14,
-      padding: theme.spacing(1.962, 2.5),
-      color: theme.palette.primary.main,
-      backgroundColor: theme.palette.primary.contrastText,
+      width: "100%",
+      height: "40px",
+      padding: spacing(3, 2, 3, 2),
+      color: colors.primary.main,
+      backgroundColor: colors.primary.contrastText,
       borderRadius: theme.spacing(1),
       "&:before, &:after": {
         borderBottom: "none !important",
@@ -21,22 +25,11 @@ const StyledIput = styled(Input)(({ theme }) => {
       "& .MuiInputBase-input": {
         padding: 0,
       },
+      "& .MuiInputBase-input::placeholder": {
+        color: colors.text.disabled,
+        opacity: 0.5,
+      },
     },
-  };
-});
-
-const Label = styled.p<{ withError?: boolean }>(({ withError, theme }) => {
-  return {
-    ...FontFamily.bold12,
-    textTransform: "uppercase",
-    padding: 0,
-    margin: 0,
-    color: withError ? theme.palette.error.main : theme.palette.primary.contrastText,
-    transition: ".2s",
-    pointerEvents: "none",
-    alignItems: "center",
-    display: "flex",
-    overflow: "hidden",
   };
 });
 
@@ -57,13 +50,17 @@ interface InputProps {
   defaultValue?: string;
 }
 
-function InputComponent({ label, name, type, rules, defaultValue, placeholder }: InputProps) {
+function InputComponent({
+  label,
+  name,
+  type,
+  rules,
+  defaultValue,
+  placeholder,
+}: InputProps) {
   const { control } = useFormContext();
   const labelRef = useRef<HTMLDivElement | null>(null);
 
-  /*Resumo: Este código utiliza useEffect para ajustar dinamicamente o 
-padding-left de um fieldset dentro de um elemento referenciado sempre que 
-a prop label mudar.*/
   useEffect(() => {
     if (label && labelRef.current) {
       const fieldset = labelRef.current.querySelector("fieldset");
@@ -85,19 +82,13 @@ a prop label mudar.*/
           return (
             <div className={className}>
               {label && (
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "flex-start",
-                    alignContent: "center",
-                  }}
+                <TextComponent
+                  fontSize="0.90rem"
+                  textColor={error ? "red" : colors.white}
+                  style={{ marginBottom: "4px" }}
                 >
-                  <Label
-                    className={"form-input-label-" + label?.replace(/\s/g, "")}
-                  >
-                    {label}
-                  </Label>
-                </div>
+                  {label}
+                </TextComponent>
               )}
               <StyledIput
                 id={name}
@@ -105,7 +96,9 @@ a prop label mudar.*/
                 placeholder={placeholder}
                 {...field}
               />
-              {error && <span className="error-message">Error: {error.message}</span>}
+              {error && (
+                <span className="error-message">Error: {error.message}</span>
+              )}
             </div>
           );
         }}

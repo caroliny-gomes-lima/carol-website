@@ -7,6 +7,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "components";
+import { ModalProvider } from "context/Modal/ModalProvider";
+import ModalRoot from "context/components/ModalRoot";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,7 +17,10 @@ root.render(
   <React.StrictMode>
     <CssBaseline />
     <ThemeProvider theme={Theme.dark}>
-      <App />
+      <ModalProvider>
+        <App />
+        <ModalRoot />
+      </ModalProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

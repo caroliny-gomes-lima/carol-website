@@ -1,6 +1,7 @@
 //Definindo tema do projeto
 import { createTheme, responsiveFontSizes } from "@mui/material";
 import colors from "./colors";
+import { FontFamily } from "./fonts";
 
 export const breakpointValues = {
   xs: 320,
@@ -90,6 +91,51 @@ function createDarkTheme({
       success: {
         main: successMainColor,
         light: successLightColor,
+      },
+    },
+    components: {
+      MuiInputBase: {
+        styleOverrides: {
+          root: ({ theme }) => {
+            const { palette: colors } = theme;
+            return {
+              color: colors.primary.main,
+              backgroundColor: colors.primary.contrastText,
+            };
+          },
+        },
+      },
+      MuiMenu: {
+        styleOverrides: {
+          paper: ({ theme }) => {
+            const { palette: colors } = theme;
+            return {
+              ...FontFamily.medium14,
+              backgroundColor: colors.secondary.contrastText,
+              color: colors.primary.contrastText,
+            };
+          }
+        }
+      },
+      MuiMenuItem: {
+        styleOverrides: {
+          root: ({ theme }) => {
+            const { palette: colors } = theme;
+            return {
+              ...FontFamily.medium14,
+              "&:hover": {
+                backgroundColor: colors.primary.main,
+                color: colors.primary.contrastText,
+              },
+              "&.Mui-selected:hover": {
+                backgroundColor: colors.primary.main,
+              },
+              "&:focus": {
+                backgroundColor: colors.primary.main,
+              },
+            };
+          }
+        }
       },
     },
   });

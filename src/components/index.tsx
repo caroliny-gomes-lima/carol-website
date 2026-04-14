@@ -1,8 +1,10 @@
 import ThemeProvider from "./others/ThemeProvider";
 import DefaultLogo from "./others/DefaultLogo";
 import ButtonComponent from "./buttons/ButtonComponent";
-import ButtonSelectComponent from "./buttons/ButtonSelectComponent";
 import IconButtonComponent from "./buttons/IconButton";
+import FormHolder from "./inputs/FormHolder";
+import InputDescription from "./inputs/InputDescription";
+import InputSelect from "./inputs/inputSelect";
 import InputComponent from "./inputs/input";
 import ImageUpload from "./inputs/ImageUpload";
 import svgImageComponent from "./others/svgImageComponent";
@@ -18,8 +20,10 @@ export {
   MenuNav,
   DefaultLogo,
   ButtonComponent,
-  ButtonSelectComponent,
+  FormHolder,
+  InputDescription,
   InputComponent,
+  InputSelect,
   svgImageComponent,
   ImageComponent,
   IconButtonComponent,

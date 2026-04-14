@@ -1,11 +1,8 @@
-import { Box, ListItem, ListItemIcon } from "@mui/material";
-import { colors } from "config";
-import { LiveEditor, LivePreview } from "react-live";
+import { Box } from "@mui/material";
 import styled from "styled-components";
 
 const Container = styled.div<{ backgroundColor?: boolean }>(
   ({ theme, backgroundColor }) => {
-
     return {
       width: "100%",
       height: "fit-content",
@@ -29,48 +26,22 @@ const Content = styled.div(({ theme }) => {
   };
 });
 
-const BoxActivities = styled.div(({ theme }) => ({
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  padding: theme.spacing(1),
-  border: `2px solid ${theme.palette.info.main}`,
-  borderRadius: theme.spacing(1),
-}));
-
-const BoxActivitiesHeader = styled.div(({ theme }) => ({
-  width: "100%",
-  display: "flex",
-  justifyContent: "center",
-  paddingBottom: theme.spacing(1),
-  borderBottom: `2px solid ${theme.palette.info.main}`,
-  color: theme.palette.info.main,
-}));
-
-const BoxActivitiesContent = styled.div(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  paddingTop: theme.spacing(2),
-}));
-
-const BoxActivitiesListDot = styled(ListItemIcon)(({ theme }) => {
-
+const FormularyBox = styled(Box)(({ theme }) => {
+  const { palette: colors, spacing } = theme
   return {
-    "&&.MuiListItemIcon-root": {
-      minWidth: theme.spacing(2),
-      alignSelf: "baseline",
-      marginTop: "10px",
-    },
-  };
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    padding: spacing(3),
+    backgroundColor: colors.primary.main,
+    border: `2px solid ${colors.info.main}`,
+    borderRadius: theme.spacing(1),
+  }
 });
 
-const BoxActivitiesList = styled(ListItem)(() => ({
-  paddingTop: 0,
-  margin: 0,
-}));
-
-const ChartBox = styled.div(() => {
+const ChartBox = styled.div(({ theme }) => {
+  const { palette: colors } = theme
   return {
     display: "flex",
     width: "100%",
@@ -82,62 +53,35 @@ const ChartBox = styled.div(() => {
   };
 });
 
-const EditorCodeBox = styled(LiveEditor)(() => {
-  return {
-    width: "100%",
-    height: "fit-content",
-  };
-});
-
-const PreviewCodeBox = styled(LivePreview)(({ theme }) => {
-  return {
-    width: "100%",
-    height: "auto",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: theme.spacing(2),
-    border: "solid 2px",
-    borderColor: theme.palette.info.main,
-    borderRadius: theme.spacing(1),
-    backgroundColor: theme.palette.primary.main,
-  };
-});
-
-const PreviewContent = styled(LivePreview)(({ theme }) => {
-  return {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    gap: theme.spacing(5),
-  };
-});
-
-const ImageBox = styled(Box)(({ theme }) => {
+const ImageBox = styled.div(({ theme }) => {
+  const { palette: colors } = theme
   return {
     display: "flex",
     width: "fit-content",
-    padding: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.contrastText,
-    borderRadius: theme.spacing(1),
-    margin: theme.spacing(1),
+    height: "fit-content",
+    borderRadius: "10px",
+    border: `2px solid ${colors.info.main}`,
+    backgroundColor: `${colors.blackCarbon}60`,
+    marginTop: theme.spacing(4),
+  };
+});
+
+const ImageStyle = styled.img(() => {
+  return {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    borderRadius: "10px",
   };
 });
 
 const Styles = {
   Container,
   Content,
-  BoxActivities,
-  BoxActivitiesHeader,
-  BoxActivitiesContent,
-  BoxActivitiesListDot,
-  BoxActivitiesList,
+  FormularyBox,
   ChartBox,
-  EditorCodeBox,
-  PreviewCodeBox,
-  PreviewContent,
-  ImageBox
+  ImageBox,
+  ImageStyle,
 };
 
 export default Styles;
