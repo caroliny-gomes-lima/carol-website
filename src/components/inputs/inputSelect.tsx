@@ -1,9 +1,10 @@
 import React from "react";
-import { MenuItem, Select } from "@mui/material";
+import { FormHelperText, MenuItem, Select } from "@mui/material";
 import TextComponent from "components/others/TextComponent";
 import { Controller, useFormContext } from "react-hook-form";
 import styled from "styled-components";
-import { FontFamily } from "config";
+import { colors, FontFamily, Texts } from "config";
+import { ErrorMessage } from "@hookform/error-message";
 
 const StyledSelect = styled(Select)(({ theme }) => {
     const { palette: colors, spacing } = theme;
@@ -24,48 +25,24 @@ const StyledSelect = styled(Select)(({ theme }) => {
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
             border: "none",
         },
-
     };
 });
-
-const ContainerLabel = styled.div(() => {
-    return {
-        display: "flex",
-        alignContent: "center",
-        justifyContent: "flex-start",
-    };
-});
-
-const Label = styled.p<{ withError?: boolean }>(({ withError, theme }) => {
-    const { palette: colors } = theme;
-    return {
-        ...FontFamily.bold14,
-        textTransform: "uppercase",
-        padding: 0,
-        margin: 0,
-        color: withError ? colors.error.main : colors.primary.contrastText,
-        transition: ".2s",
-        pointerEvents: "none",
-        alignItems: "center",
-        display: "flex",
-        overflow: "hidden",
-    };
-});
-
 interface InputSelectProps {
     name: string;
     label?: string;
     options: { value: string; label: string }[];
+    required?: boolean;
 }
 
-function InputSelect({ name, label, options }: InputSelectProps) {
-    const { control } = useFormContext();
+function InputSelect({ name, label, options, required }: InputSelectProps) {
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
 
     function SelectValueHandler(selectedValue: string) {
-        return (
-            options.find((option) => option.value === selectedValue)?.label ||
-            "Selecione uma opção"
-        );
+        const option = options.find((option) => option.value === selectedValue);
+        return option?.label || "Selecione uma opção";
     }
 
     return (
@@ -73,27 +50,60 @@ function InputSelect({ name, label, options }: InputSelectProps) {
             <Controller
                 name={name}
                 control={control}
+                rules={{ required: required && Texts.ptBr.requiredField }}
                 defaultValue=""
                 render={({ field }) => (
                     <div style={{ display: "flex", flexDirection: "column" }}>
-                        <ContainerLabel>{label && <Label>{label}</Label>}</ContainerLabel>
+                        {label && (
+                            <TextComponent
+                                fontSize="0.90rem"
+                                textColor={errors[name] ? "red" : colors.white}
+                            >
+                                {label + (required ? " *" : "")}
+                            </TextComponent>
+                        )}
                         <StyledSelect
                             {...field}
                             displayEmpty
-                            value={field.value || " "}
+                            value={field.value ?? ""}
                             onChange={(e) => field.onChange(e.target.value)}
                             onBlur={field.onBlur}
                             inputProps={{ "aria-label": label || "input select" }}
-                            renderValue={(selected) => SelectValueHandler(selected as string)}
+                            MenuProps={{
+                                PaperProps: {
+                                    style: {
+                                        maxHeight: 300,
+                                        overflowY: "auto",
+                                    },
+                                },
+                            }}
+                            renderValue={(selected) => {
+                                if (!selected) return "Selecione uma opção";
+                                return SelectValueHandler(selected as string);
+                            }}
                         >
                             <MenuItem value="">Selecione uma opção</MenuItem>
+
                             {options.map((item) => (
                                 <MenuItem key={item.value} value={item.value}>
                                     {item.label}
                                 </MenuItem>
                             ))}
                         </StyledSelect>
-                    </ div>
+                        {errors && (
+                            <ErrorMessage
+                                errors={errors}
+                                name={name}
+                                render={({ message }) => (
+                                    <FormHelperText error>
+                                        <TextComponent fontSize="0.75rem" textColor={colors.red}>
+                                            {message}
+                                        </TextComponent>
+                                    </FormHelperText>
+                                )}
+                            />
+                        )}
+                    </div>
                 )}
             />
         </>

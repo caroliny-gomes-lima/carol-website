@@ -1,6 +1,6 @@
 import React from "react";
 import { colors, Texts } from "config";
-import { useModal } from "context/components/ModalRoot";
+import { useCharacterOptions, useModal } from "context";
 import Styles from "../styles/Styles";
 import {
   InputComponent,
@@ -14,32 +14,15 @@ import { Grid } from "@mui/material";
 
 function ExperienceComponents() {
   const texts = Texts["ptBr"];
+  const { races, classes } = useCharacterOptions();
   const { openModal } = useModal();
   const [imagePreview, setImagePreview] = React.useState<string | null>(null);
-  console.log(imagePreview);
 
-  const InputsNames = ["characterName"];
+  const InputsNames = ["characterName", "characterRace", "characterClass"];
 
   return (
     <>
-      {/* <button
-        onClick={() =>
-          openModal("DEFAULT_MODAL", {
-            title: texts.Accepted,
-            message: "Esta é uma mensagem de modal padrãoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo.",
-            buttonAccept: {
-              text: texts.confirmation[1],
-              onClick: () => console.log("Botão clicado!"),
-            },
-            buttonReject: {
-              text: texts.cancel[1],
-            },
-          })
-        }
-      >
-        Abrir Modal Padrao
-      </button>
-
+      {/* 
       <button
         onClick={() =>
           openModal("CUSTOM_MODAL", {
@@ -80,22 +63,16 @@ function ExperienceComponents() {
             <InputSelect
               name="characterRace"
               label={texts.experiences.inputsNames[1]}
-              options={[
-                { value: "human", label: "Humano" },
-                { value: "elf", label: "Elfo" },
-                { value: "dwarf", label: "Anão" },
-              ]}
+              options={races}
+              required
             />
           </Grid>
           <Grid item xs={12} sm={6}>
             <InputSelect
               name="characterClass"
               label={texts.experiences.inputsNames[2]}
-              options={[
-                { value: "warrior", label: "Guerreiro" },
-                { value: "mage", label: "Mago" },
-                { value: "archer", label: "Arqueiro" },
-              ]}
+              options={classes}
+              required
             />
           </Grid>
           {imagePreview && (

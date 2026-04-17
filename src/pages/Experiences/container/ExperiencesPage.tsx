@@ -1,17 +1,110 @@
 import { colors, Fonts, Texts } from "config";
-import { TextComponent } from "components";
+import { TableComponent, TextComponent } from "components";
 import Styles from "../styles/Styles";
 import ExperienceComponents from "../components/ExperienceComponents";
 import { yellow } from "@mui/material/colors";
+import { useModal } from "context";
+import { ModalView } from "../components/ModalVeiw";
 
 function ExperiencesPage() {
-  const texts = Texts["ptBr"].experiences;
+  const texts = Texts["ptBr"];
+  const { openModal } = useModal();
   const Submit = (data: Record<string, unknown>) => {
     console.log(data);
     // data.file = selectedFile.url;
     // setLoading(true);
-    alert(JSON.stringify(data));
+    openModal("DEFAULT_MODAL", {
+      title: texts.modals.Accepted,
+      message: "Esta é uma mensagem de modal padrãooo.",
+      buttonAccept: {
+        text: texts.modals.confirmation[1],
+        onClick: () => alert(JSON.stringify(data)),
+      },
+      buttonReject: {
+        text: texts.modals.cancel[1],
+      },
+    })
   };
+
+
+  const tableHeadTitles = ["Id", "Nome do personagem", "Raça", "Classe", "Ações"];
+
+  const tableDataMock = [
+    {
+      id: 1,
+      name: "John Doe",
+      characterRace: "Humano",
+      characterClass: "Guerreiro",
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      characterRace: "Elfo",
+      characterClass: "Mago",
+    },
+    {
+      id: 3,
+      name: "Alice Johnson",
+      characterRace: "Anão",
+      characterClass: "Clérigo",
+    },
+    {
+      id: 4,
+      name: "Bob Brown",
+      characterRace: "Humano",
+      characterClass: "Guerreiro",
+    },
+    {
+      id: 5,
+      name: "Charlie White",
+      characterRace: "Humano",
+      characterClass: "Mago",
+    },
+    {
+      id: 6,
+      name: "Diana Green",
+      characterRace: "Humano",
+      characterClass: "Mago",
+    },
+    {
+      id: 7,
+      name: "John Doe",
+      characterRace: "Humano",
+      characterClass: "Guerreiro",
+      email: "kZV7M@example.com",
+    },
+    {
+      id: 8,
+      name: "Jane Smith",
+      characterRace: "Humano",
+      characterClass: "Mago",
+    },
+    {
+      id: 9,
+      name: "Alice Johnson",
+      characterRace: "Humano",
+      characterClass: "Clérigo",
+    },
+    {
+      id: 10,
+      name: "Bob Brown",
+      characterRace: "Humano",
+      characterClass: "Guerreiro",
+    },
+    {
+      id: 11,
+      name: "Charlie White",
+      characterRace: "Humano",
+      characterClass: "Mago",
+    },
+    {
+      id: 12,
+      name: "Diana Green",
+      characterRace: "Humano",
+      characterClass: "Mago",
+    },
+  ];
+
   return (
     <>
       <Styles.Container>
@@ -21,7 +114,7 @@ function ExperiencesPage() {
             customTypeFont={Fonts.bold}
             textColor={colors.white}
           >
-            {texts.experiencesTitle}
+            {texts.experiences.experiencesTitle}
           </TextComponent>
         </Styles.Content>
       </Styles.Container>
@@ -33,7 +126,7 @@ function ExperiencesPage() {
             customTypeFont={Fonts.bold}
             textColor={colors.white}
           >
-            {texts.ExperiencesSubtitle[0]}
+            {texts.experiences.ExperiencesSubtitle[0]}
           </TextComponent>
           <TextComponent
             fontSize="1rem"
@@ -49,10 +142,40 @@ function ExperiencesPage() {
             >
               Dica:
             </span>
-            {texts.ExperiencesSubtitle[1]}
+            {texts.experiences.ExperiencesSubtitle[1]}
           </TextComponent>
 
           <ExperienceComponents onSubmit={(data) => Submit(data)} />
+
+          <TableComponent
+            tableHeadTitles={tableHeadTitles}
+            tableData={tableDataMock}
+            actions={[
+              {
+                label: "VISUALIZAR",
+                color: colors.lightBlue,
+                onClick: () => openModal("CUSTOM_MODAL", {
+                  title: "",
+                  content: <ModalView />
+                })
+              },
+              {
+                label: "EDITAR",
+                color: colors.orange,
+                onClick: () => {
+
+                }
+              },
+              {
+                label: "DELETAR",
+                color: colors.red,
+                onClick: () => {
+
+                }
+              }
+            ]}
+          />
+
         </Styles.Content>
       </Styles.Container>
     </>

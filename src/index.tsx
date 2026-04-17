@@ -1,28 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-//import { ThemeProvider } from "./components";
 import { Theme } from "./config";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "components";
 import { ModalProvider } from "context/Modal/ModalProvider";
-import ModalRoot from "context/components/ModalRoot";
+import { GlobalLoader, LoadingProvider, ModalRoot } from "context";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 root.render(
   <React.StrictMode>
     <CssBaseline />
     <ThemeProvider theme={Theme.dark}>
-      <ModalProvider>
-        <App />
-        <ModalRoot />
-      </ModalProvider>
+      <LoadingProvider>
+        <ModalProvider>
+          <App />
+          <ModalRoot />
+        </ModalProvider>
+        <GlobalLoader />
+      </LoadingProvider>
     </ThemeProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 reportWebVitals();

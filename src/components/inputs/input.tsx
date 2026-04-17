@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FormHelperText, Input } from "@mui/material";
 import { colors, FontFamily, Spacing, Texts } from "config";
-import { Controller, RegisterOptions, useFormContext } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import TextComponent from "components/others/TextComponent";
 import { ErrorMessage } from "@hookform/error-message";
 
@@ -128,3 +128,6 @@ function InputComponent({
 }
 
 export default InputComponent;
+
+
+//REFATORAR

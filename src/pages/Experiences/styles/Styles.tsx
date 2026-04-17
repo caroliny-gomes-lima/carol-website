@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import styled from "styled-components";
+import CardFrame from "../../../assets/Images/cardFrame.png";
 
 const Container = styled.div<{ backgroundColor?: boolean }>(
   ({ theme, backgroundColor }) => {
@@ -35,7 +36,6 @@ const FormularyBox = styled(Box)(({ theme }) => {
     alignItems: "center",
     padding: spacing(3),
     backgroundColor: colors.primary.main,
-    border: `2px solid ${colors.info.main}`,
     borderRadius: theme.spacing(1),
   }
 });
@@ -75,6 +75,38 @@ const ImageStyle = styled.img(() => {
   };
 });
 
+//ESTILO DO CONTEUDO DO MODAL COSTUMIZADO
+const ModalCardFrame = styled.div(({ theme }) => {
+  const { palette: colors, spacing } = theme
+  return {
+    width: "900px",
+    height: "1000px",
+    backgroundImage: `url(${CardFrame})`,
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    position: "relative",
+
+  }
+});
+
+const ModalCardContent = styled.div(({ theme }) => {
+  const { palette: colors, spacing } = theme
+  return {
+    backgroundColor: colors.primary.main,
+    position: "absolute",
+    top: "20%",
+    left: "50%",
+    transform: "translateX(-50%)",
+    width: "70%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "10px",
+  };
+});
+
+
 const Styles = {
   Container,
   Content,
@@ -82,6 +114,9 @@ const Styles = {
   ChartBox,
   ImageBox,
   ImageStyle,
+
+  ModalCardFrame,
+  ModalCardContent
 };
 
 export default Styles;

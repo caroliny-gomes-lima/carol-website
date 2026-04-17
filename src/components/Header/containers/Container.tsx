@@ -3,8 +3,8 @@ import Styles from "../styles/Styles";
 import { useNavigate, useLocation } from "react-router-dom";
 import { paths } from "routes/navigation";
 import { ButtonComponent, DefaultLogo, IconButtonComponent } from "components";
-import { Theme, Texts, colors } from "config";
-import { useMediaQuery, CircularProgress } from "@mui/material";
+import { Theme, Texts } from "config";
+import { useMediaQuery } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 
 type HeaderProps = {
@@ -16,7 +16,6 @@ function Header({ openMenu }: HeaderProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const [clicked, setClicked] = React.useState<number>(0);
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const isMobile = useMediaQuery(Theme.dark.breakpoints.down("sm"));
 
   const navItems = useMemo(() => [
@@ -34,11 +33,9 @@ function Header({ openMenu }: HeaderProps) {
 
   const handleClick = (index: number, path: string) => {
     setClicked(index);
-    setIsLoading(true);
     navigate(path);
 
     setTimeout(() => {
-      setIsLoading(false);
     }, 500);
   };
 
@@ -73,11 +70,6 @@ function Header({ openMenu }: HeaderProps) {
           </Styles.NavGroup>
         )}
       </Styles.Content>
-      {isLoading && !isMobile && (
-        <Styles.LoadingOverlay>
-          <CircularProgress size={100} style={{ color: colors.purple }} />
-        </Styles.LoadingOverlay>
-      )}
     </Styles.Container>
   );
 }

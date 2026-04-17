@@ -7,6 +7,7 @@ import InputDescription from "./inputs/InputDescription";
 import InputSelect from "./inputs/inputSelect";
 import InputComponent from "./inputs/input";
 import ImageUpload from "./inputs/ImageUpload";
+import TableComponent from "./table/Table";
 import svgImageComponent from "./others/svgImageComponent";
 import ImageComponent from "./others/ImageCompenent";
 import TextComponent from "./others/TextComponent";
@@ -24,6 +25,7 @@ export {
   InputDescription,
   InputComponent,
   InputSelect,
+  TableComponent,
   svgImageComponent,
   ImageComponent,
   IconButtonComponent,

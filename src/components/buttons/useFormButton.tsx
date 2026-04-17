@@ -1,6 +1,4 @@
 import React from "react";
-import { useFormContext } from "react-hook-form";
-
 interface ComponentState {
     loading: boolean;
     disabled: boolean;
@@ -12,7 +10,6 @@ function useHandleClick(
     onClick?: (data: any) => void,
     reset?: () => void,
 ) {
-    // const { reset } = useFormContext();
     return React.useCallback(
         (event: React.MouseEvent<HTMLButtonElement>) => {
             if (TYPE === "reset") {

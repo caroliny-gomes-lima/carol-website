@@ -41,10 +41,10 @@ const StyledButton = styled(Button).withConfig({
       borderRadius: theme.spacing(1),
       "&:hover": {
         backgroundColor: $backgroundColor
-          ? $backgroundColor + "9F"
+          ? $backgroundColor + "1F"
           : theme.palette.action.hover,
         color: $textColor
-          ? $textColor + "9F"
+          ? $textColor + "1F"
           : theme.palette.secondary.contrastText,
       },
     },
@@ -106,7 +106,7 @@ function ButtonComponent({
     formContext && disabledUntil?.length
       ? disabledUntil.some((name) => !formContext.watch(name))
       : false;
-  const { formState } = formContext || {};
+
   const { loading: loadingButton, disabled: disabledButton } = useFormButton(
     Boolean(loading),
     Boolean(disabled),
@@ -142,3 +142,5 @@ function ButtonComponent({
 }
 
 export default ButtonComponent;
+
+//REFATORAR DEPOIS

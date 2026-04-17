@@ -3,12 +3,7 @@ import { ModalContext } from "context/Modal/ModalContext";
 import DefaultModal from "context/Modal/DefaultModal";
 import CustomModal from "context/Modal/CustomModal";
 
-
-
-
-// import CustomModal from "./Modal/CustomModal";
-
-export const useModal = () => {
+const useModal = () => {
     const context = React.useContext(ModalContext);
     if (!context) {
         throw new Error("useModal não está dentro de um ModalProvider");
@@ -30,6 +25,6 @@ const ModalRoot = () => {
     }
 }
 
-export default ModalRoot;
+export { ModalRoot, useModal };
 
 //Colocoar um tratamento de erro caso a atributo message seja undefined ou nulo.
