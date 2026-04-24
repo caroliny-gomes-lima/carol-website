@@ -18,6 +18,7 @@ const colors = {
   blue: "#0168FA",
 
   red: "#E00000",
+  gold: "#d5b451",
 
   //Cores dos gráficos
   adobeXdColor: "#ff0096",

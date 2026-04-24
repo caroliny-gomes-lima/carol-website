@@ -2,13 +2,20 @@ import { colors, Fonts, Texts } from "config";
 import { TableComponent, TextComponent } from "components";
 import Styles from "../styles/Styles";
 import ExperienceComponents from "../components/ExperienceComponents";
+import { useCharactersList } from "context";
 import { yellow } from "@mui/material/colors";
 import { useModal } from "context";
 import { ModalView } from "../components/ModalVeiw";
+import ModalEditCharacterFormulary from "../components/ModalEdit";
 
 function ExperiencesPage() {
   const texts = Texts["ptBr"];
   const { openModal } = useModal();
+
+  const { charactersList } = useCharactersList();
+
+  console.log("Lista de personagens obtida do contexto:", charactersList);
+
   const Submit = (data: Record<string, unknown>) => {
     console.log(data);
     // data.file = selectedFile.url;
@@ -149,22 +156,30 @@ function ExperiencesPage() {
 
           <TableComponent
             tableHeadTitles={tableHeadTitles}
-            tableData={tableDataMock}
+            tableData={charactersList || tableDataMock}
+
             actions={[
               {
                 label: "VISUALIZAR",
                 color: colors.lightBlue,
-                onClick: () => openModal("CUSTOM_MODAL", {
+                onClick: (row: any) => openModal("CUSTOM_MODAL", {
                   title: "",
-                  content: <ModalView />
-                })
+                  content: <ModalView data={row} />,
+                  buttonReject: {
+                    text: texts.modals.cancel[1],
+                  },
+                }),
               },
               {
                 label: "EDITAR",
                 color: colors.orange,
-                onClick: () => {
-
-                }
+                onClick: () => openModal("CUSTOM_MODAL", {
+                  title: "",
+                  content: <ModalEditCharacterFormulary onSubmit={() => null} />,
+                  buttonReject: {
+                    text: texts.modals.cancel[1],
+                  },
+                }),
               },
               {
                 label: "DELETAR",

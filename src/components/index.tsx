@@ -15,6 +15,7 @@ import ModalCompoent from "./Modal/ModalCompoent";
 import { Header } from "./Header";
 import { MenuNav } from "./MenuNav";
 import { Footer } from "./Footer";
+import Loader from "./others/Loader";
 
 export {
   Header,
@@ -33,5 +34,6 @@ export {
   ModalCompoent,
   ThemeProvider,
   TextComponent,
-  ImageUpload
+  ImageUpload,
+  Loader
 };

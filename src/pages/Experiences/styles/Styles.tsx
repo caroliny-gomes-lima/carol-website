@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import CardFrame from "../../../assets/Images/cardFrame.png";
+import CardFrame from "../../../assets/Images/cardFrame-1.png";
+import { colors as customColor } from "config";
 
 const Container = styled.div<{ backgroundColor?: boolean }>(
   ({ theme, backgroundColor }) => {
@@ -66,21 +67,21 @@ const ImageBox = styled.div(({ theme }) => {
   };
 });
 
-const ImageStyle = styled.img(() => {
+const ImageStyle = styled.img(({ theme }) => {
+  const { spacing } = theme
   return {
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    borderRadius: "10px",
+    borderRadius: spacing(1),
   };
 });
 
 //ESTILO DO CONTEUDO DO MODAL COSTUMIZADO
-const ModalCardFrame = styled.div(({ theme }) => {
-  const { palette: colors, spacing } = theme
+const ModalCardFrame = styled.div(() => {
   return {
-    width: "900px",
-    height: "1000px",
+    width: "800px",
+    height: "900px",
     backgroundImage: `url(${CardFrame})`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
@@ -90,22 +91,69 @@ const ModalCardFrame = styled.div(({ theme }) => {
   }
 });
 
-const ModalCardContent = styled.div(({ theme }) => {
-  const { palette: colors, spacing } = theme
+const ModalContainer = styled.div(({ theme }) => {
+  const { spacing } = theme
   return {
-    backgroundColor: colors.primary.main,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: spacing(4),
+  };
+});
+
+
+const ModalCardContent = styled.div(({ theme }) => {
+  const { spacing } = theme
+  return {
     position: "absolute",
-    top: "20%",
+    top: "16%",
     left: "50%",
     transform: "translateX(-50%)",
     width: "70%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: "10px",
+    gap: spacing(2),
   };
 });
 
+const ModalCharacterImage = styled.img(({ theme }) => {
+  const { spacing } = theme
+  return {
+    width: "300px",
+    height: "260px",
+    objectFit: "cover",
+    borderRadius: spacing(1),
+    border: `3px solid ${customColor.gold}`,
+  };
+});
+
+
+const CharacterDescription = styled.div(({ theme }) => {
+
+  return {
+    width: "inherit",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: theme.spacing(2),
+    gap: theme.spacing(1),
+  };
+});
+const CharacterDescriptionBox = styled.div(({ theme }) => {
+  const { spacing, palette: colors } = theme
+  return {
+    width: "100%",
+    height: "230px",
+    display: "flex",
+    padding: spacing(2),
+    backgroundColor: colors.primary.contrastText,
+    gap: spacing(2),
+    overflowY: "auto",
+    borderRadius: spacing(1),
+    border: `3px solid ${customColor.gold}`,
+  };
+});
 
 const Styles = {
   Container,
@@ -114,9 +162,12 @@ const Styles = {
   ChartBox,
   ImageBox,
   ImageStyle,
-
+  ModalContainer,
   ModalCardFrame,
-  ModalCardContent
+  ModalCardContent,
+  ModalCharacterImage,
+  CharacterDescription,
+  CharacterDescriptionBox
 };
 
 export default Styles;

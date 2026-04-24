@@ -9,3 +9,9 @@ export const getClasses = async () => {
   const response = await api.get("/classes");
   return response.data;
 };
+
+export const getCharactersList = async () => {
+  const response = await api.get("/characters");
+  console.log("Resposta da API /characters:", response.data);
+  return response.data;
+};
